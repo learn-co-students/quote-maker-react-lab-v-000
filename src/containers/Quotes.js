@@ -28,6 +28,4 @@ class Quotes extends Component {
   }
 }
 
-// export default connect(null, {})(Quotes);
-
-export default Quotes;
+export default connect(null, {})(Quotes);
