@@ -1,4 +1,4 @@
-export function addQuotes(quote){
+export function addQuote(quote){
   return {
     type: "ADD_QUOTE",
     quote: quote

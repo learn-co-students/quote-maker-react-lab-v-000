@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'; 
-import { addQuotes } from '../actions/quotes';
+import { addQuote } from '../actions/quotes';
 
 export class QuoteForm extends Component {
 
@@ -22,9 +22,9 @@ export class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
-    event.preventDefault();
-
-    debugger
+      event.preventDefault();
+    const quote = Object.assign({}, this.state, { id: uuid() });
+    this.props.addQuote(quote);
 
     this.state = {
       content: "",
@@ -33,9 +33,6 @@ export class QuoteForm extends Component {
   }
 
   render() {
-
-    debugger
-
     return (
       <div className="container">
         <div className="row">
@@ -82,7 +79,8 @@ export class QuoteForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({addQuotes}, dispatch);
+  return bindActionCreators({addQuote}, dispatch);
 };
 
 export default connect(null, mapDispatchToProps)(QuoteForm);
+
