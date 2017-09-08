@@ -8,21 +8,23 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      author: "",
-      content: ""
+      content: "",
+      author: ""
     }
   }
 
   handleOnChange(event) {
-    this.setState({
-      name: event.target.value
-    });
+    event.target.name === 'author' ? this.setState({author: event.target.value}) : this.setState({content: event.target.value});
   }
 
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.add(this.state);
+    this.props.addQuote(this.state);
+    this.setState({
+      author: '',
+      content: ''
+    })
   }
 
     render() {
@@ -69,4 +71,4 @@ export class QuoteForm extends Component {
     }
   }
 
-  export default connect(null, {})(QuoteForm);
+  export default connect(null, {addQuote})(QuoteForm);
