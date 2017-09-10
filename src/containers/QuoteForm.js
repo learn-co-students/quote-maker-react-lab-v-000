@@ -8,18 +8,32 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      author: '',
+      content: '',
     }
   }
 
   handleOnChange = event => {
     // Handle Updating Component State
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    }); 
+
   }
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
+    event.preventDefault();
     // Create quote object from state 
+    const quote = Object.assign({}, this.state, { id: uuid() });
     // Pass quote object to action creator 
+    this.props.addQuote(quote);
     // Update component state to return to default state
+    this.setState({
+      author: '',
+      content: '',
+    });
   }
 
   render() {
@@ -29,13 +43,15 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={(event) => this.handleOnSubmit(event)}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea 
                         className="form-control"
                         value={this.state.content}
+                        name="content"
+                        onChange={(event) => this.handleOnChange(event)}
                       />
                     </div>
                   </div>
@@ -45,7 +61,9 @@ export class QuoteForm extends Component {
                       <input 
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
+                        onChange={(event) => this.handleOnChange(event)}
                       />
                     </div>
                   </div>
@@ -64,4 +82,4 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);
