@@ -12,11 +12,11 @@ export default (state = [], action) => {
       })
       return state = upVoteQuotes
     case "DOWNVOTE_QUOTE":
-    const downVoteQuotes = state.map(quote => {
-      if (quote.id === action.quoteId && quote.votes > 0) quote.votes --
-      return quote
-    })
-    return state = downVoteQuotes
+      const downVoteQuotes = state.map(quote => {
+        if (quote.id === action.quoteId && quote.votes > 0) quote.votes --
+        return quote
+      })
+      return state = downVoteQuotes
     default:
       return state
   }
