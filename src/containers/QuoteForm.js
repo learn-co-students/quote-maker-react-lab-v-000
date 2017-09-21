@@ -2,20 +2,34 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
+import { bindActionCreators } from 'redux';
 
 export class QuoteForm extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
+      content: '',
+      author: '',
     }
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    this.setState({
+      [event.target.name]: event.target.value,
+      
+    })
   }
 
   handleOnSubmit = event => {
+    event.preventDefault();
+    
+    this.props.addQuote({...this.state,  id: uuid(),
+      votes: 0})
+    this.setState({
+      author: '',
+      content: '',
+    })
     // Handle Form Submit event default
     // Create quote object from state 
     // Pass quote object to action creator 
@@ -29,13 +43,15 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea 
                         className="form-control"
+                        name="content"
                         value={this.state.content}
+                        onChange = {this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -44,8 +60,10 @@ export class QuoteForm extends Component {
                     <div className="col-md-5">
                       <input 
                         className="form-control"
+                        name="author"
                         type="text"
                         value={this.state.author}
+                        onChange ={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -64,4 +82,13 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+
+const mapDispatchToProps = (dispatch) => {
+  /* code change */
+  return bindActionCreators({
+    addQuote: addQuote  },
+     dispatch);
+};
+ 
+
+export default connect(null, mapDispatchToProps)(QuoteForm);
