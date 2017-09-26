@@ -24,7 +24,7 @@
     "react": "^15.6.1",
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
-    "react-redux": "^5.0.2",
+    "react-redux": "^5.0.6",
     "react-test-renderer": "^15.6.1",
     "redux": "^3.7.2",
     "redux-mock-store": "^1.2.3",
@@ -34,7 +34,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha -R mocha-multi test/helpers.js test/**/**.js  --reporter-options nyan=-,json=.results.json",
+    "test": "mocha -w test/helpers.js test/**/**.js",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
