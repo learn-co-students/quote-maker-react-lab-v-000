@@ -9,7 +9,7 @@ export default (state = [], action) => {
       quotes.find(quote => quote.id === action.quoteId).votes++;
       return quotes;
     case "DOWNVOTE_QUOTE":
-      var quotes = [...state];
+      //var quotes = [...state];
       var quote = quotes.find(quote => quote.id === action.quoteId);
       if(quote.votes > 0){ quote.votes--};
       return quotes;
