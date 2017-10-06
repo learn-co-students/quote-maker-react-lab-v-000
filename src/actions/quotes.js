@@ -1,7 +1,7 @@
 export function addQuote(quote) {
   return {
     type: 'ADD_QUOTE',
-    quote: quote
+    quote: Object.assign({}, quote, { votes: 0 })
   }
 }
 
