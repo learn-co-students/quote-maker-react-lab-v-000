@@ -24,7 +24,7 @@ describe('App Component', () => {
     ReactDOM.render(
       <Provider store={store}>
         <App />
-      </Provider>, 
+      </Provider>,
       div
     );
   });
@@ -44,4 +44,3 @@ describe('App Component', () => {
     expect(wrapper.find(Quotes).length).to.equal(1, 'Missing a Quotes Component');
   });
 });
-
