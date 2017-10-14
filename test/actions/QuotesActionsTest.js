@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import uuid from 'uuid';
-import { 
+import {
   addQuote,
   removeQuote,
   upvoteQuote,
-  downvoteQuote 
+  downvoteQuote
 } from '../../src/actions/quotes';
 
 describe('Quotes Actions', () => {
@@ -16,7 +16,7 @@ describe('Quotes Actions', () => {
         votes: 0,
         id: uuid()
       }
-  
+
       expect(addQuote(quote)).to.deep.equal({
         type: 'ADD_QUOTE',
         quote
