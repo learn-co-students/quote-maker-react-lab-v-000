@@ -8,7 +8,8 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      
+      author: "",
+      content: ""
     }
   }
 
