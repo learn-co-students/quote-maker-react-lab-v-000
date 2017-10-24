@@ -22,13 +22,20 @@ export class QuoteForm extends Component {
 
 
   handleOnSubmit = event => {
-    {debugger};
+    // {debugger};
     event.preventDefault();// Handle Form Submit event default
-    // {debugger};  
-    const quote = this.props.addQuote// Create quote object from state 
+    {debugger};  
+
+    this.props.addQuote(this.state.content);
+    //id, content, author
+    // Create quote object from state 
     
     // Pass quote object to action creator 
     // Update component state to return to default state
+    this.setState({
+      author: "",
+      content: ""
+    });
   }
 
   render() {
