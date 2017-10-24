@@ -17,14 +17,12 @@ export function removeQuote(quoteId) {
   }
 }
 
-
 export function upvoteQuote(quoteId) {
   return {
     type: 'UPVOTE_QUOTE',
     quoteId
   }
 }
-
 
 export function downvoteQuote(quoteId) {
   return {

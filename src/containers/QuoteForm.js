@@ -13,15 +13,18 @@ export class QuoteForm extends Component {
     }
   }
 
-
-  handleOnChange(name, event) {
-    this.setState({ [name]: event.target.value })
+  handleOnChange = event => {
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    });
   }
 
 
   handleOnSubmit = event => {
-    event.preventDefault();// Handle Form Submit event default
     {debugger};
+    event.preventDefault();// Handle Form Submit event default
+    // {debugger};  
     const quote = this.props.addQuote// Create quote object from state 
     
     // Pass quote object to action creator 
@@ -35,8 +38,8 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
-                  <div className="form-group">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
+                  <div className="form-group" >
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea 
@@ -55,12 +58,16 @@ export class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         value={this.state.author}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
-                  <div className="form-group">
-                    <div className="col-md-6 col-md-offset-4">
-                      <button onSubmit={this.handleOnSubmit} type="submit" className="btn btn-default">Add</button>
+                  <div className="form-group" >
+                    <div className="col-md-6 col-md-offset-4"  >
+                      <button 
+                        type="submit" 
+                        className="btn btn-default"
+                        >Add</button>
                     </div>
                   </div>
                 </form>
