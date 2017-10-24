@@ -13,16 +13,17 @@ export class QuoteForm extends Component {
     }
   }
 
-  handleOnChange = function(event, name) {
-     this.setState({
-      name: event.target.value
-    });
-    // Handle Updating Component State
+
+  handleOnChange(name, event) {
+    this.setState({ [name]: event.target.value })
   }
 
+
   handleOnSubmit = event => {
-    // Handle Form Submit event default
-    // Create quote object from state 
+    event.preventDefault();// Handle Form Submit event default
+    {debugger};
+    const quote = this.props.addQuote// Create quote object from state 
+    
     // Pass quote object to action creator 
     // Update component state to return to default state
   }
@@ -59,7 +60,7 @@ export class QuoteForm extends Component {
                   </div>
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
-                      <button type="submit" className="btn btn-default">Add</button>
+                      <button onSubmit={this.handleOnSubmit} type="submit" className="btn btn-default">Add</button>
                     </div>
                   </div>
                 </form>
