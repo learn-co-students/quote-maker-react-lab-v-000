@@ -24,7 +24,7 @@ describe('App Component', () => {
     ReactDOM.render(
       <Provider store={store}>
         <App />
-      </Provider>, 
+      </Provider>,
       div
     );
   });
@@ -37,6 +37,7 @@ describe('App Component', () => {
   });
 
   it('always renders a `QuoteForm` component', () => {
+    console.log(wrapper)
     expect(wrapper.find(QuoteForm).length).to.equal(1, 'Missing a QuoteForm Component');
   });
 
@@ -44,4 +45,3 @@ describe('App Component', () => {
     expect(wrapper.find(Quotes).length).to.equal(1, 'Missing a Quotes Component');
   });
 });
-
