@@ -13,21 +13,21 @@ const QuoteCard = (props) => {
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button
-            onClick={() => props.upvoteQuote(props.quote)}
+            onClick={() => props.upvoteQuote(props.quoteId)}
             type="button"
             className="btn btn-primary"
           >
             Upvote
           </button>
           <button
-            onClick={() => props.downvoteQuote(props.quote)}
+            onClick={() => props.downvoteQuote(props.quoteId)}
             type="button"
             className="btn btn-secondary"
           >
             Downvote
           </button>
           <button
-            onClick={() => props.removeQuote(props.quote)}
+            onClick={() => props.removeQuote(props.quoteId)}
             type="button"
             className="btn btn-danger"
           >

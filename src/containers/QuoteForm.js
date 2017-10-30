@@ -22,7 +22,7 @@ export class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const q = Object.assign({}, this.state, { id: uuid(), vote: 0 })
+    const q = Object.assign({}, this.state, { id: uuid(), votes: 0 })
     this.props.addQuote(q)
     this.setState({
       content: '',
