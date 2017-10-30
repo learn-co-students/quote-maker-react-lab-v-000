@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ConnectedQuotes} from './containers/Quotes'
-import { ConnectedQuoteForm } from './containers/QuoteForm'
+import QuoteForm from './containers/QuoteForm';
+import Quotes from './containers/Quotes';
 
 export class App extends Component {
   render() {
@@ -10,8 +10,8 @@ export class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
-        <ConnectedQuoteForm />
-        <ConnectedQuotes />
+        <QuoteForm />
+        <Quotes />
       </div>
     );
   }
