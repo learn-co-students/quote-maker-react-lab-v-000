@@ -1,9 +1,9 @@
-export default (state = {
-  quotes: [],
-}, action) => {
+export default (state = [],action) => {
   switch (action.type) {
     case 'ADD_QUOTE':
-      return Object.assign(state, {quotes: state.quotes.concat(action.quote)})
+      return Object.assign(state, state.concat(action.quote))
+    case 'REMOVE_QUOTE':
+      return Object.assign(state, state.filter(quote=>quote.id !== action.id))
     default:
       return state;
   }
