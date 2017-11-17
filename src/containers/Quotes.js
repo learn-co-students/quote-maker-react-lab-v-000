@@ -7,7 +7,7 @@ import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 class Quotes extends Component {
 
   render() {
-    console.log(this.props.quotes)
+    // console.log(this.props.quotes)
     const quoteCards = this.props.quotes.map(quote => {
       return (
         <QuoteCard

@@ -1,11 +1,28 @@
+import uuid from 'uuid';
 export default (state = [],action) => {
   switch (action.type) {
     case 'ADD_QUOTE':
-      return Object.assign(state, state.concat(action.quote))
+      return state.concat(Object.assign(action.quote, {id: uuid(), votes: 0}))
     case 'REMOVE_QUOTE':
-      return Object.assign(state, state.filter(quote=>quote.id !== action.id))
+      return state.filter(quote=>quote.id !== action.quoteId)
+    case 'UPVOTE_QUOTE':
+      state.forEach((quote) => {
+        if (quote.id === action.quoteId) {
+          quote.votes += 1
+          console.log(quote.votes)
+        }
+      })
+
+      return state;
+    case 'DOWNVOTE_QUOTE':
+      state.forEach((quote) => {
+        if (quote.id === action.quoteId && quote.votes > 0) {
+          quote.votes -= 1
+          console.log(quote.votes)
+        }
+      })
+      return state;
     default:
       return state;
   }
-
 }

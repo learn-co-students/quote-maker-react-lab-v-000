@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addQuote } from '../actions/quotes';
 
-class QuoteForm extends Component {
+export class QuoteForm extends Component {
 
   constructor(props) {
     super(props)
@@ -20,7 +20,6 @@ class QuoteForm extends Component {
     const value = event.target.value;
     this.setState({
       [name]: value,
-      id: uuid()
     })
   }
 
@@ -30,7 +29,7 @@ class QuoteForm extends Component {
     // Pass quote object to action creator
     // Update component state to return to default state
     event.preventDefault();
-    const quote = this.state;
+    const quote = this.state
     // console.log(quote);
     this.props.addQuote(quote);
     this.setState({
@@ -90,6 +89,7 @@ const mapDispatchToProps = (dispatch) => {
     addQuote
   }, dispatch)
 }
+
 
 
 export default connect(null, mapDispatchToProps)(QuoteForm);
