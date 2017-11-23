@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import QuoteCard from '../components/QuoteCard';
-
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import QuoteCard from '../components/QuoteCard'
+import { removeQuote } from '../actions/quotes'
+import { upvoteQuote } from '../actions/quotes'
+import { downvoteQuote } from '../actions/quotes'
 class Quotes extends Component {
 
   render() {
@@ -24,8 +26,8 @@ class Quotes extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default connect(null, {})(Quotes);
+export default connect(null, {})(Quotes)
