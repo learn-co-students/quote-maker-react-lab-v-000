@@ -5,21 +5,21 @@ export function addQuote(quote) {
   }
 }
 
-export function removeQuote(quote) {
+export function removeQuote(quoteId) {
   return {
     type: 'REMOVE_QUOTE',
     quoteId
   }
 }
 
-export function upvoteQuote(quote) {
+export function upvoteQuote(quoteId) {
   return {
     type: 'UPVOTE_QUOTE',
     quoteId
   }
 }
 
-export function downvoteQuote(quote) {
+export function downvoteQuote(quoteId) {
   return {
     type: 'DOWNVOTE_QUOTE',
     quoteId
