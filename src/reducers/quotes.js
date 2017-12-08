@@ -27,9 +27,5 @@ export default (state = [], action) => {
       return stateWithOutDownVoteQuote.concat(downVoteQuote)
     default:
       return state;
-
   }
 }
-
-
-// !Object.keys(obj).includes('votes')
