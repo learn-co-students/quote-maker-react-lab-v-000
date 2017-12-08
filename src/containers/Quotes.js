@@ -5,6 +5,10 @@ import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 
 class Quotes extends Component {
 
+  componentDidMount() {
+    removeQuote()
+  }
+
   render() {
     const { quotes, removeQuote, upvoteQuote, downvoteQuote } = this.props;
     return (
