@@ -87,4 +87,4 @@ const mapStateToProps = (state) => {
     content: state.content
   }
 }
-export default connect(null, {})(QuoteForm);
+export default connect(mapStateToProps, {addQuote})(QuoteForm);
