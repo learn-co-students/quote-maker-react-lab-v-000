@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
 const QuoteCard = (props) => 
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-          {/* <p>{Render Quote Content}</p> */}
-          {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
+          {props.quote.content}
+          <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer>
         </blockquote>
       </div>
       <div className="float-right"> 
@@ -14,25 +14,28 @@ const QuoteCard = (props) =>
           <button 
             type="button" 
             className="btn btn-primary"
+            onClick={()=>props.upvote(props.quote.id)}
           >
             Upvote
           </button>
           <button 
             type="button" 
             className="btn btn-secondary"
+            onClick={()=>props.downvote(props.quote.id)}
           >
             Downvote
           </button>
           <button 
             type="button" 
             className="btn btn-danger"
-          >
-            <span aria-hidden="true">&times;</span>
+            onClick={()=>props.remove(props.quote.id)}
+          >Delete
+            <span aria-hidden="true"></span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        <div>Votes: {props.quote.votes}</div>
       </div>
     </div>
-  </div>;
+  </div>
 
-export default QuoteCard;
+export default QuoteCard
