@@ -54,4 +54,6 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-export const ConnectedQuoteForm = connect(null, mapDispatchToProps)(QuoteForm)
+ConnectedQuoteForm = connect(null, mapDispatchToProps)(QuoteForm)
+
+export default ConnectedQuoteForm
