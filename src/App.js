@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ConnectedQuotes } from './components/Quotes';
+import { ConnectedQuotes } from "./containers/Quotes";
 import QuoteForm from './containers/QuoteForm';
 
 export class App extends Component {

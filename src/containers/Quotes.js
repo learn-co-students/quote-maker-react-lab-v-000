@@ -2,7 +2,7 @@
 // import { connect } from 'react-redux';
 // import QuoteCard from '../components/QuoteCard';
 import React from "react";
-import QuoteCard from "./QuoteCard";
+import QuoteCard from "../components/QuoteCard";
 import { connect } from "react-redux";
 import { upvoteQuote } from "../actions/quotes";
 import { downvoteQuote } from "../actions/quotes";
@@ -33,8 +33,8 @@ class Quotes extends React.Component {
         </div>
         <hr />
         <div className="container">
-          <div className="row">
-            <div className="col-md-4">
+          <div className="row justify-content-center">
+            <div className="col-md-10">
               {quoteCards}
             </div>
           </div>
