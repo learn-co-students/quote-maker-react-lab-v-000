@@ -1,13 +1,12 @@
-// TODO: Create action creators as defined in tests
 
-export function AddQuote(quote){
+export function addQuote(quote){
   return {
     type: 'ADD_QUOTE',
     quote
   }
 }
 
-export function RemoveQuote(quoteId){
+export function removeQuote(quoteId){
   return {
     type: 'REMOVE_QUOTE',
     quoteId: quoteId
