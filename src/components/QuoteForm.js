@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 export class QuoteForm extends React.Component{
+
   constructor(){
     super()
     this.state = {
@@ -54,6 +55,5 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-ConnectedQuoteForm = connect(null, mapDispatchToProps)(QuoteForm)
+export default connect(null, mapDispatchToProps)(QuoteForm)
 
-export default ConnectedQuoteForm

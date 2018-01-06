@@ -1,12 +1,6 @@
 import React from 'react';
 
-function thingdebugger(props){
-  debugger
-  return <p></p>
-}
-
 const QuoteCard = props => (
-
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">

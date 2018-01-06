@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { ConnectedQuotes } from './components/Quotes';
-import QuoteForm from './components/QuoteForm';
+import QuoteForm from './containers/QuoteForm';
 
 export class App extends Component {
   render() {
-    return <div className="container-fluid">
+    return (<div className="container-fluid">
         <div className="row title justify-content-center" style={{ paddingTop: "12px" }}>
           <h1>Quote Maker</h1>
         </div>
         <hr />
         <div>
-          <QuoteForm  />
+          <QuoteForm />
           <ConnectedQuotes />
         </div>
-      </div>;
+      </div>)
   }
 }
 
