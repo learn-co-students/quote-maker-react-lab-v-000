@@ -31,4 +31,4 @@ const mapDispatchToProps = dispatch => {
     )
 }
 
-export const ConnectedQuotes = connect(mapStateToProps, mapDispatchToProps)(Quotes)
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes)

@@ -10,7 +10,7 @@ import { removeQuote } from "../actions/quotes";
 import { bindActionCreators } from "redux";
 
 
-class Quotes extends React.Component {
+export class Quotes extends React.Component {
 
   render() {
      const quoteCards = this.props.quotes.map((quote, index) => (
@@ -59,6 +59,6 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-export const ConnectedQuotes = connect(mapStateToProps, mapDispatchToProps)(
+export default connect(mapStateToProps, mapDispatchToProps)(
   Quotes
 );
