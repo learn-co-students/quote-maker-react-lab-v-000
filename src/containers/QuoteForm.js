@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
+import {bindActionCreators} from 'redux';
 
 export class QuoteForm extends Component {
 
@@ -22,6 +23,17 @@ export class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.addQuote({
+      ...this.state,
+      id: uuid(),
+      votes: 0
+      }
+    )
+    this.setState({
+      author: '',
+      content: '',
+    })
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
@@ -35,7 +47,7 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form onSubmit={this.handleOnSubmit} className="form-horizontal">
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
@@ -72,4 +84,16 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+const mapStateToProps = (state) => {
+  return {
+    quotes: state.quotes
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addQuote: addQuote
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm);
