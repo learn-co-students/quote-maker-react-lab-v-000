@@ -7,8 +7,21 @@ import QuoteCard from '../components/QuoteCard';
 class Quotes extends Component {
 
   render() {
-    let quotes = this.props.quotes.map((quote, key) => {
-      return <QuoteCard content={quote.content} key={quote.id} votes={quote.votes} author={quote.author} id={quote.id} />
+    const {upvoteQuote, downvoteQuote, removeQuote, quotes} = this.props
+
+    console.log(this.props)
+    let mappedQuotes = quotes.map((quote, key) => {
+      return <QuoteCard
+                content={quote.content}
+                key={quote.id}
+                votes={quote.votes}
+                author={quote.author}
+                id={quote.id}
+                downvoteQuote={downvoteQuote}
+                upvoteQuote={upvoteQuote}
+                removeQuote={removeQuote}
+                quotes={quotes}
+              />
     })
 
     return (
@@ -22,7 +35,7 @@ class Quotes extends Component {
           <div className="row">
             <div className="col-md-4">
 
-              {quotes}
+              {mappedQuotes}
               /*
                 TODO:
 
@@ -42,12 +55,4 @@ const mapStateToProps = (state) =>{
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    upvoteQuote,
-    downvoteQuote,
-    removeQuote
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
+export default connect(mapStateToProps, {upvoteQuote, downvoteQuote, removeQuote})(Quotes);

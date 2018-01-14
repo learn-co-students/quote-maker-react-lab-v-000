@@ -7,7 +7,10 @@ export default (state = [], action) => {
         return quote.id !== action.quoteId
       })
     case 'UPVOTE_QUOTE':
-      let upvoteQuote = state.filter((quote) => quote.id === action.quoteId)[0]
+      let upvoteQuote = state.filter((quote) => {
+        debugger;
+        return quote.id === action.quoteId[0]
+      })
       console.log('Quote:')
       console.log(upvoteQuote)
       const upvoteIdx = state.indexOf(upvoteQuote)
