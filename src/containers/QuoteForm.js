@@ -8,6 +8,8 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      content: '',
+      author: ''
     }
   }
 
@@ -17,8 +19,8 @@ export class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
-    // Create quote object from state 
-    // Pass quote object to action creator 
+    // Create quote object from state
+    // Pass quote object to action creator
     // Update component state to return to default state
   }
 
@@ -33,7 +35,8 @@ export class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea 
+                      <textarea
+                        name="content"
                         className="form-control"
                         value={this.state.content}
                       />
@@ -42,7 +45,8 @@ export class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
-                      <input 
+                      <input
+                        name="author"
                         className="form-control"
                         type="text"
                         value={this.state.author}
