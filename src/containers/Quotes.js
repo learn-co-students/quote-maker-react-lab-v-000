@@ -1,10 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import QuoteCard from '../components/QuoteCard';
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import QuoteCard from '../components/QuoteCard';
+import React from "react";
+import QuoteCard from "../components/QuoteCard";
+import { connect } from "react-redux";
+import { upvoteQuote } from "../actions/quotes";
+import { downvoteQuote } from "../actions/quotes";
+import { removeQuote } from "../actions/quotes";
+import { bindActionCreators } from "redux";
 
-class Quotes extends Component {
+
+export class Quotes extends React.Component {
 
   render() {
+     const quoteCards = this.props.quotes.map((quote, index) => (
+       <QuoteCard
+         upvoteQuote={this.props.upvoteQuote}
+         downvoteQuote={this.props.downvoteQuote}
+         removeQuote={this.props.removeQuote}
+         votes={quote.votes}
+         author={quote.author}
+         content={quote.content}
+         id={quote.id}
+         key={index}
+       />
+     ));
     return (
       <div>
         <hr />
@@ -13,13 +33,9 @@ class Quotes extends Component {
         </div>
         <hr />
         <div className="container">
-          <div className="row">
-            <div className="col-md-4">
-              {/* 
-                TODO: 
-
-                Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
-               */}
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              {quoteCards}
             </div>
           </div>
         </div>
@@ -28,4 +44,21 @@ class Quotes extends Component {
   }
 }
 
-export default connect(null, {})(Quotes);
+function mapStateToProps(state) {
+  return { quotes: state.quotes };
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      removeQuote: removeQuote,
+      upvoteQuote: upvoteQuote,
+      downvoteQuote: downvoteQuote
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  Quotes
+);
