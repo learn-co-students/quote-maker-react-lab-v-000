@@ -5,8 +5,8 @@ import { addQuote } from '../actions/quotes';
 
 export class QuoteForm extends Component {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       content: '',
       author: '',
