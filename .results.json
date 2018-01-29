@@ -1,0 +1,365 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 23,
+    "passes": 21,
+    "pending": 0,
+    "failures": 2,
+    "start": "2018-01-19T23:55:05.337Z",
+    "end": "2018-01-19T23:55:05.670Z",
+    "duration": 333
+  },
+  "tests": [
+    {
+      "title": "should return an Object with a type of \"ADD_QUOTE\" and a quote object",
+      "fullTitle": "Quotes Actions addQuote(quote: {}) should return an Object with a type of \"ADD_QUOTE\" and a quote object",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return an Object with a type of \"REMOVE_QUOTE\" and a quoteId",
+      "fullTitle": "Quotes Actions removeQuote(quoteId: Integer) should return an Object with a type of \"REMOVE_QUOTE\" and a quoteId",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
+      "fullTitle": "Quotes Actions upvoteQuote(quoteId: Integer) should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return an Object with a type of \"DOWNVOTE_QUOTE\" and a quoteId",
+      "fullTitle": "Quotes Actions downvoteQuote(quoteId: INteger) should return an Object with a type of \"DOWNVOTE_QUOTE\" and a quoteId",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "renders without crashing",
+      "fullTitle": "App Component renders without crashing",
+      "duration": 22,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders an h1 tag with \"Quote Maker\"",
+      "fullTitle": "App Component always renders an h1 tag with \"Quote Maker\"",
+      "duration": 4,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a `QuoteForm` component",
+      "fullTitle": "App Component always renders a `QuoteForm` component",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a `Quotes` components",
+      "fullTitle": "App Component always renders a `Quotes` components",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "renders without crashing",
+      "fullTitle": "QuoteForm Component renders without crashing",
+      "duration": 5,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "has a default state",
+      "fullTitle": "QuoteForm Component has a default state",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a form tag",
+      "fullTitle": "QuoteForm Component always renders a form tag",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a textarea[name=\"content\"] tag for quote content",
+      "fullTitle": "QuoteForm Component always renders a textarea[name=\"content\"] tag for quote content",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a input[name=\"author\"] tag for quote author",
+      "fullTitle": "QuoteForm Component always renders a input[name=\"author\"] tag for quote author",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should pass a new value to state using the handleOnChange function",
+      "fullTitle": "QuoteForm Component should pass a new value to state using the handleOnChange function",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handleOnSubmit and preventDefault()",
+      "fullTitle": "QuoteForm Component should handleOnSubmit and preventDefault()",
+      "duration": 8,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reset state after form handleOnSubmit",
+      "fullTitle": "QuoteForm Component should reset state after form handleOnSubmit",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should call addQuote prop on handleOnSubmit",
+      "fullTitle": "QuoteForm Component should call addQuote prop on handleOnSubmit",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return the initial state",
+      "fullTitle": "Quotes Reducer should return the initial state",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handle ADD_QUOTE",
+      "fullTitle": "Quotes Reducer should handle ADD_QUOTE",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handle REMOVE_QUOTE",
+      "fullTitle": "Quotes Reducer should handle REMOVE_QUOTE",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handle UPVOTE_QUOTE",
+      "fullTitle": "Quotes Reducer should handle UPVOTE_QUOTE",
+      "duration": 4,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
+        "showDiff": true,
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"04c05a03-e08b-4adc-9816-ff7acd5b6b0b\"\n    \"votes\": 0\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"04c05a03-e08b-4adc-9816-ff7acd5b6b0b\"\n    \"votes\": 1\n  }\n]",
+        "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:69:17)"
+      }
+    },
+    {
+      "title": "should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
+      "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
+        "showDiff": true,
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"9b7b1acd-a36d-4be5-ab9a-68d6b760a379\"\n    \"votes\": 3\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"9b7b1acd-a36d-4be5-ab9a-68d6b760a379\"\n    \"votes\": 2\n  }\n]",
+        "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:95:17)"
+      }
+    },
+    {
+      "title": "should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
+      "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "title": "should handle UPVOTE_QUOTE",
+      "fullTitle": "Quotes Reducer should handle UPVOTE_QUOTE",
+      "duration": 4,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
+        "showDiff": true,
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"04c05a03-e08b-4adc-9816-ff7acd5b6b0b\"\n    \"votes\": 0\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"04c05a03-e08b-4adc-9816-ff7acd5b6b0b\"\n    \"votes\": 1\n  }\n]",
+        "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:69:17)"
+      }
+    },
+    {
+      "title": "should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
+      "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
+        "showDiff": true,
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"9b7b1acd-a36d-4be5-ab9a-68d6b760a379\"\n    \"votes\": 3\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"9b7b1acd-a36d-4be5-ab9a-68d6b760a379\"\n    \"votes\": 2\n  }\n]",
+        "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:95:17)"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "title": "should return an Object with a type of \"ADD_QUOTE\" and a quote object",
+      "fullTitle": "Quotes Actions addQuote(quote: {}) should return an Object with a type of \"ADD_QUOTE\" and a quote object",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return an Object with a type of \"REMOVE_QUOTE\" and a quoteId",
+      "fullTitle": "Quotes Actions removeQuote(quoteId: Integer) should return an Object with a type of \"REMOVE_QUOTE\" and a quoteId",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
+      "fullTitle": "Quotes Actions upvoteQuote(quoteId: Integer) should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return an Object with a type of \"DOWNVOTE_QUOTE\" and a quoteId",
+      "fullTitle": "Quotes Actions downvoteQuote(quoteId: INteger) should return an Object with a type of \"DOWNVOTE_QUOTE\" and a quoteId",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "renders without crashing",
+      "fullTitle": "App Component renders without crashing",
+      "duration": 22,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders an h1 tag with \"Quote Maker\"",
+      "fullTitle": "App Component always renders an h1 tag with \"Quote Maker\"",
+      "duration": 4,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a `QuoteForm` component",
+      "fullTitle": "App Component always renders a `QuoteForm` component",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a `Quotes` components",
+      "fullTitle": "App Component always renders a `Quotes` components",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "renders without crashing",
+      "fullTitle": "QuoteForm Component renders without crashing",
+      "duration": 5,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "has a default state",
+      "fullTitle": "QuoteForm Component has a default state",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a form tag",
+      "fullTitle": "QuoteForm Component always renders a form tag",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a textarea[name=\"content\"] tag for quote content",
+      "fullTitle": "QuoteForm Component always renders a textarea[name=\"content\"] tag for quote content",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "always renders a input[name=\"author\"] tag for quote author",
+      "fullTitle": "QuoteForm Component always renders a input[name=\"author\"] tag for quote author",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should pass a new value to state using the handleOnChange function",
+      "fullTitle": "QuoteForm Component should pass a new value to state using the handleOnChange function",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handleOnSubmit and preventDefault()",
+      "fullTitle": "QuoteForm Component should handleOnSubmit and preventDefault()",
+      "duration": 8,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reset state after form handleOnSubmit",
+      "fullTitle": "QuoteForm Component should reset state after form handleOnSubmit",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should call addQuote prop on handleOnSubmit",
+      "fullTitle": "QuoteForm Component should call addQuote prop on handleOnSubmit",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return the initial state",
+      "fullTitle": "Quotes Reducer should return the initial state",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handle ADD_QUOTE",
+      "fullTitle": "Quotes Reducer should handle ADD_QUOTE",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handle REMOVE_QUOTE",
+      "fullTitle": "Quotes Reducer should handle REMOVE_QUOTE",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
+      "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ]
+}
