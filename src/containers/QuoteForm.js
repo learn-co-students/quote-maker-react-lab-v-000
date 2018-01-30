@@ -15,15 +15,19 @@ export class QuoteForm extends Component {
 
   handleOnChange = event => {
     this.setState({
-      [this.event.name] : this.event.target.value
+      [event.target.name] : event.target.value
     })
   }
 
   handleOnSubmit = event => {
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
+    event.preventDefault();
+
+    const quote = Object.assign({}, this.state, {id: uuid()})
+    this.props.addQuote(quote)
+    this.setState({
+      content: '',
+      author: ''
+    })
   }
 
   render() {
@@ -33,7 +37,7 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={(event) => this.handleOnSubmit(event)}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
@@ -41,6 +45,7 @@ export class QuoteForm extends Component {
                         className="form-control"
                         name="content"
                         value={this.state.content}
+                        onChange={(event) => this.handleOnChange(event)}
                       />
                     </div>
                   </div>
@@ -52,6 +57,7 @@ export class QuoteForm extends Component {
                         type="text"
                         name="author"
                         value={this.state.author}
+                        onChange={(event) => this.handleOnChange(event)}
                       />
                     </div>
                   </div>
