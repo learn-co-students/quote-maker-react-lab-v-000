@@ -8,6 +8,7 @@ export default (state = [], action) => {
         return state.concat(action.quote);
 
     case 'REMOVE_QUOTE':
+        debugger
         return state.filter(quote => quote.id !== action.quoteId);
      
     case 'UPVOTE_QUOTE':
@@ -36,6 +37,4 @@ export default (state = [], action) => {
      default:
         return state 
  }   
-    
-  return state;
 }

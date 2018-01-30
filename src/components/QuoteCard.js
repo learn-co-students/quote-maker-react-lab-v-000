@@ -27,7 +27,7 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote}) =>
           </button>
           <button 
             type="button" 
-            onClick={() => removeQuote(quote.id)}
+            onClick={() => removeQuote(quote.id)} 
             className="btn btn-danger"
           >
             <span aria-hidden="true">&times;</span>
