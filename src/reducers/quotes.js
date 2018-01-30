@@ -1,8 +1,16 @@
+import uuid from 'uuid';
+
 export default (state = [], action) => {
   switch (action.type) {
 
     case 'ADD_QUOTE':
-      return [].concat(state, action.quote);
+      quote = {
+        id: uuid(),
+        content: action.quote.content,
+        author: action.quote.author,
+        votes: 0
+      }
+      return [].concat(state, quote);
 
     case 'REMOVE_QUOTE':
       const quotes = state.filter(quote => quote.id !== action.quoteId);
