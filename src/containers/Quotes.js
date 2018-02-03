@@ -14,7 +14,8 @@ class Quotes extends Component {
         <hr />
         <div className="container">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-4"> 
+            <QuoteCard />
               {/* 
                 TODO: 
 
@@ -26,6 +27,10 @@ class Quotes extends Component {
       </div>
     );
   }
+} 
+
+function mapStateToProps(state){
+  return {quotes: state.quotes}
 }
 
-export default connect(null, {})(Quotes);
+export default connect(mapStateToProps, {})(Quotes);
