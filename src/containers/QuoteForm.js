@@ -27,8 +27,9 @@ export class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
-    event.preventDefault(); 
-    this.props.addQuote(Object.assign({}, this.state)); 
+    event.preventDefault();  
+    debugger;
+    this.props.addQuote(this.state); 
     this.setState({ 
       author: "",
       content: "",
@@ -42,7 +43,7 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal" onSubmit = {this.handleOnSubmit}>
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
@@ -81,10 +82,6 @@ export class QuoteForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    addQuote: addQuote
-  }, dispatch);
-};
 
-export default connect(mapDispatchToProps, {})(QuoteForm);
+
+export default connect(null, {addQuote})(QuoteForm);

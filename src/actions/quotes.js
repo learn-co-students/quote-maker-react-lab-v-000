@@ -1,4 +1,5 @@
-export function addQuote(quote){
+export const addQuote = (quote) => { 
+    debugger;
   return {
     type: "ADD_QUOTE",
     quote: quote
