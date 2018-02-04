@@ -10,8 +10,8 @@ export class App extends Component {
           <h1>Quote Maker</h1> 
           <QuoteForm /> 
         </div>
+        <hr />  
         <Quotes />
-        <hr /> 
       </div>
     );
   }
