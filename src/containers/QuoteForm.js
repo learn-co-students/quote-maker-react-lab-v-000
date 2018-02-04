@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes'; 
-import { bindActionCreators } from 'redux';
+
 
 export class QuoteForm extends Component {
 
@@ -14,7 +14,8 @@ export class QuoteForm extends Component {
     }
   }
 
-  handleAuthorChange = event => {
+  handleAuthorChange = event => { 
+    debugger;
     this.setState ({ 
       author: event.target.value, 
     })
@@ -28,8 +29,8 @@ export class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();  
-    debugger;
-    this.props.addQuote(this.state); 
+    var quote = Object.assign({}, this.state, {id: uuid()}) 
+    this.props.addQuote(quote); 
     this.setState({ 
       author: "",
       content: "",
@@ -50,8 +51,8 @@ export class QuoteForm extends Component {
                       <textarea 
                         className="form-control"
                         value={this.state.content} 
-                        name= "content" 
-                        onChange= {this.handleContentChange}
+                        name="content" 
+                        onChange={this.handleContentChange}
                       />
                     </div>
                   </div>
@@ -62,8 +63,8 @@ export class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         value={this.state.author} 
-                        name= "author" 
-                        onChange= {this.handleAuthorChange}
+                        name="author" 
+                        onChange={this.handleAuthorChange}
                       />
                     </div>
                   </div>

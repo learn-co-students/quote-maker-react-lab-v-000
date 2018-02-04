@@ -33,4 +33,4 @@ function mapStateToProps(state){
   return {quotes: state.quotes}
 }
 
-export default connect(mapStateToProps, {})(Quotes);
+export default connect(mapStateToProps, null)(Quotes);
