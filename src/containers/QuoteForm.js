@@ -3,8 +3,6 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
-const id = uuid();
-
 export class QuoteForm extends Component {
 
   constructor(props) {
@@ -23,12 +21,12 @@ export class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const quote = Object.assign({}, this.state, {id: id, votes: 0});
+    const quote = Object.assign({}, this.state, {id: uuid(), votes: 0});
     this.props.addQuote(quote);
     this.setState({
       content: '',
       author:''
-    })
+    });
   }
 
   render() {
@@ -38,14 +36,14 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal" onSubmit={event => this.handleOnSubmit(event)}>
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
                         value={this.state.content}
-                        onChange={event => this.handleOnChange(event)}
+                        onChange={this.handleOnChange}
                         name="content"
                       />
                     </div>
@@ -57,7 +55,7 @@ export class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         value={this.state.author}
-                        onChange={event => this.handleOnChange(event)}
+                        onChange={this.handleOnChange}
                         name="author"
                       />
                     </div>
