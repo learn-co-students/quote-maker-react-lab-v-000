@@ -5,9 +5,9 @@
     "passes": 21,
     "pending": 0,
     "failures": 2,
-    "start": "2018-02-11T08:41:19.022Z",
-    "end": "2018-02-11T08:41:19.392Z",
-    "duration": 370
+    "start": "2018-02-11T09:11:25.408Z",
+    "end": "2018-02-11T09:11:25.671Z",
+    "duration": 263
   },
   "tests": [
     {
@@ -41,14 +41,14 @@
     {
       "title": "renders without crashing",
       "fullTitle": "App Component renders without crashing",
-      "duration": 18,
+      "duration": 12,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders an h1 tag with \"Quote Maker\"",
       "fullTitle": "App Component always renders an h1 tag with \"Quote Maker\"",
-      "duration": 13,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
@@ -69,28 +69,28 @@
     {
       "title": "renders without crashing",
       "fullTitle": "QuoteForm Component renders without crashing",
-      "duration": 7,
+      "duration": 6,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "has a default state",
       "fullTitle": "QuoteForm Component has a default state",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a form tag",
       "fullTitle": "QuoteForm Component always renders a form tag",
-      "duration": 4,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a textarea[name=\"content\"] tag for quote content",
       "fullTitle": "QuoteForm Component always renders a textarea[name=\"content\"] tag for quote content",
-      "duration": 3,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
@@ -104,21 +104,21 @@
     {
       "title": "should pass a new value to state using the handleOnChange function",
       "fullTitle": "QuoteForm Component should pass a new value to state using the handleOnChange function",
-      "duration": 9,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should handleOnSubmit and preventDefault()",
       "fullTitle": "QuoteForm Component should handleOnSubmit and preventDefault()",
-      "duration": 3,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should reset state after form handleOnSubmit",
       "fullTitle": "QuoteForm Component should reset state after form handleOnSubmit",
-      "duration": 2,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     },
@@ -146,7 +146,7 @@
     {
       "title": "should handle REMOVE_QUOTE",
       "fullTitle": "Quotes Reducer should handle REMOVE_QUOTE",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     },
@@ -158,8 +158,8 @@
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 0\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 1\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"adf9242f-02d4-4aca-a72e-2000306609de\"\n    \"votes\": 0\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"adf9242f-02d4-4aca-a72e-2000306609de\"\n    \"votes\": 1\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:69:17)"
       }
     },
@@ -171,8 +171,8 @@
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 3\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 2\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"5b64bcce-5972-48b4-a061-515cdbf06122\"\n    \"votes\": 3\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"5b64bcce-5972-48b4-a061-515cdbf06122\"\n    \"votes\": 2\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:95:17)"
       }
     },
@@ -194,8 +194,8 @@
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 0\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 1\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"adf9242f-02d4-4aca-a72e-2000306609de\"\n    \"votes\": 0\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"adf9242f-02d4-4aca-a72e-2000306609de\"\n    \"votes\": 1\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:69:17)"
       }
     },
@@ -207,8 +207,8 @@
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 3\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 2\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"5b64bcce-5972-48b4-a061-515cdbf06122\"\n    \"votes\": 3\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"5b64bcce-5972-48b4-a061-515cdbf06122\"\n    \"votes\": 2\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:95:17)"
       }
     }
@@ -245,14 +245,14 @@
     {
       "title": "renders without crashing",
       "fullTitle": "App Component renders without crashing",
-      "duration": 18,
+      "duration": 12,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders an h1 tag with \"Quote Maker\"",
       "fullTitle": "App Component always renders an h1 tag with \"Quote Maker\"",
-      "duration": 13,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
@@ -273,28 +273,28 @@
     {
       "title": "renders without crashing",
       "fullTitle": "QuoteForm Component renders without crashing",
-      "duration": 7,
+      "duration": 6,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "has a default state",
       "fullTitle": "QuoteForm Component has a default state",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a form tag",
       "fullTitle": "QuoteForm Component always renders a form tag",
-      "duration": 4,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a textarea[name=\"content\"] tag for quote content",
       "fullTitle": "QuoteForm Component always renders a textarea[name=\"content\"] tag for quote content",
-      "duration": 3,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
@@ -308,21 +308,21 @@
     {
       "title": "should pass a new value to state using the handleOnChange function",
       "fullTitle": "QuoteForm Component should pass a new value to state using the handleOnChange function",
-      "duration": 9,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should handleOnSubmit and preventDefault()",
       "fullTitle": "QuoteForm Component should handleOnSubmit and preventDefault()",
-      "duration": 3,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should reset state after form handleOnSubmit",
       "fullTitle": "QuoteForm Component should reset state after form handleOnSubmit",
-      "duration": 2,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     },
@@ -350,7 +350,7 @@
     {
       "title": "should handle REMOVE_QUOTE",
       "fullTitle": "Quotes Reducer should handle REMOVE_QUOTE",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     },
