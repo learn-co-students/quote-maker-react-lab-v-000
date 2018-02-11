@@ -5,9 +5,9 @@
     "passes": 21,
     "pending": 0,
     "failures": 2,
-    "start": "2018-02-11T07:51:05.754Z",
-    "end": "2018-02-11T07:51:06.065Z",
-    "duration": 311
+    "start": "2018-02-11T08:41:19.022Z",
+    "end": "2018-02-11T08:41:19.392Z",
+    "duration": 370
   },
   "tests": [
     {
@@ -27,7 +27,7 @@
     {
       "title": "should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
       "fullTitle": "Quotes Actions upvoteQuote(quoteId: Integer) should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     },
@@ -41,28 +41,28 @@
     {
       "title": "renders without crashing",
       "fullTitle": "App Component renders without crashing",
-      "duration": 9,
+      "duration": 18,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders an h1 tag with \"Quote Maker\"",
       "fullTitle": "App Component always renders an h1 tag with \"Quote Maker\"",
-      "duration": 4,
+      "duration": 13,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a `QuoteForm` component",
       "fullTitle": "App Component always renders a `QuoteForm` component",
-      "duration": 2,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a `Quotes` components",
       "fullTitle": "App Component always renders a `Quotes` components",
-      "duration": 4,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
@@ -83,28 +83,28 @@
     {
       "title": "always renders a form tag",
       "fullTitle": "QuoteForm Component always renders a form tag",
-      "duration": 3,
+      "duration": 4,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a textarea[name=\"content\"] tag for quote content",
       "fullTitle": "QuoteForm Component always renders a textarea[name=\"content\"] tag for quote content",
-      "duration": 2,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a input[name=\"author\"] tag for quote author",
       "fullTitle": "QuoteForm Component always renders a input[name=\"author\"] tag for quote author",
-      "duration": 0,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should pass a new value to state using the handleOnChange function",
       "fullTitle": "QuoteForm Component should pass a new value to state using the handleOnChange function",
-      "duration": 5,
+      "duration": 9,
       "currentRetry": 0,
       "err": {}
     },
@@ -146,40 +146,40 @@
     {
       "title": "should handle REMOVE_QUOTE",
       "fullTitle": "Quotes Reducer should handle REMOVE_QUOTE",
-      "duration": 0,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should handle UPVOTE_QUOTE",
       "fullTitle": "Quotes Reducer should handle UPVOTE_QUOTE",
-      "duration": 5,
+      "duration": 3,
       "currentRetry": 0,
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"b0f4753b-ab21-4aea-ac40-0402f1f28439\"\n    \"votes\": 0\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"b0f4753b-ab21-4aea-ac40-0402f1f28439\"\n    \"votes\": 1\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 0\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 1\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:69:17)"
       }
     },
     {
       "title": "should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
       "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"09b8576e-b5d3-4784-a360-c4ed5b45d89a\"\n    \"votes\": 3\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"09b8576e-b5d3-4784-a360-c4ed5b45d89a\"\n    \"votes\": 2\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 3\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 2\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:95:17)"
       }
     },
     {
       "title": "should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
       "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     }
@@ -189,26 +189,26 @@
     {
       "title": "should handle UPVOTE_QUOTE",
       "fullTitle": "Quotes Reducer should handle UPVOTE_QUOTE",
-      "duration": 5,
+      "duration": 3,
       "currentRetry": 0,
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"b0f4753b-ab21-4aea-ac40-0402f1f28439\"\n    \"votes\": 0\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"b0f4753b-ab21-4aea-ac40-0402f1f28439\"\n    \"votes\": 1\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 0\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"2020b2ee-89f1-4999-9ccd-287b9c3799e2\"\n    \"votes\": 1\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:69:17)"
       }
     },
     {
       "title": "should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
       "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and decrement vote count down 1 if vote count is positive",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {
         "message": "expected [ Array(1) ] to deeply equal [ Array(1) ]",
         "showDiff": true,
-        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"09b8576e-b5d3-4784-a360-c4ed5b45d89a\"\n    \"votes\": 3\n  }\n]",
-        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"09b8576e-b5d3-4784-a360-c4ed5b45d89a\"\n    \"votes\": 2\n  }\n]",
+        "actual": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 3\n  }\n]",
+        "expected": "[\n  {\n    \"author\": \"H.G. Wells\"\n    \"content\": \"Moral indignation is jealousy with a halo.\"\n    \"id\": \"d5fb59df-6afc-4156-9f7d-da693f14d04a\"\n    \"votes\": 2\n  }\n]",
         "stack": "AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]\n    at Assertion.assertEqual (node_modules/chai/lib/chai/core/assertions.js:485:19)\n    at Assertion.ctx.(anonymous function) [as equal] (node_modules/chai/lib/chai/utils/addMethod.js:41:25)\n    at Context.<anonymous> (test/reducers/quotesReducerTests.js:95:17)"
       }
     }
@@ -231,7 +231,7 @@
     {
       "title": "should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
       "fullTitle": "Quotes Actions upvoteQuote(quoteId: Integer) should return an Object with a type of \"UPVOTE_QUOTE\" and a quoteId",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     },
@@ -245,28 +245,28 @@
     {
       "title": "renders without crashing",
       "fullTitle": "App Component renders without crashing",
-      "duration": 9,
+      "duration": 18,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders an h1 tag with \"Quote Maker\"",
       "fullTitle": "App Component always renders an h1 tag with \"Quote Maker\"",
-      "duration": 4,
+      "duration": 13,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a `QuoteForm` component",
       "fullTitle": "App Component always renders a `QuoteForm` component",
-      "duration": 2,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a `Quotes` components",
       "fullTitle": "App Component always renders a `Quotes` components",
-      "duration": 4,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
@@ -287,28 +287,28 @@
     {
       "title": "always renders a form tag",
       "fullTitle": "QuoteForm Component always renders a form tag",
-      "duration": 3,
+      "duration": 4,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a textarea[name=\"content\"] tag for quote content",
       "fullTitle": "QuoteForm Component always renders a textarea[name=\"content\"] tag for quote content",
-      "duration": 2,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "always renders a input[name=\"author\"] tag for quote author",
       "fullTitle": "QuoteForm Component always renders a input[name=\"author\"] tag for quote author",
-      "duration": 0,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should pass a new value to state using the handleOnChange function",
       "fullTitle": "QuoteForm Component should pass a new value to state using the handleOnChange function",
-      "duration": 5,
+      "duration": 9,
       "currentRetry": 0,
       "err": {}
     },
@@ -350,14 +350,14 @@
     {
       "title": "should handle REMOVE_QUOTE",
       "fullTitle": "Quotes Reducer should handle REMOVE_QUOTE",
-      "duration": 0,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
       "fullTitle": "Quotes Reducer should handle DOWNVOTE_QUOTE and do nothing if vote count is 0",
-      "duration": 1,
+      "duration": 0,
       "currentRetry": 0,
       "err": {}
     }
