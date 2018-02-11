@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux'; //line added.
 import { connect } from 'react-redux';
-import { upvoteQuote } from '../actions/quotes'
+import { upvoteQuote, downvoteQuote } from '../actions/quotes'
 
 const QuoteCard = (props) =>
   <div>
@@ -24,6 +24,7 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={ () => {props.downvoteQuote(props.id)} }
           >
             Downvote
           </button>
@@ -41,7 +42,8 @@ const QuoteCard = (props) =>
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    upvoteQuote: upvoteQuote
+    upvoteQuote: upvoteQuote,
+    downvoteQuote: downvoteQuote
   }, dispatch);
 }
 
