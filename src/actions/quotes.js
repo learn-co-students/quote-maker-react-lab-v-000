@@ -3,7 +3,7 @@
 export const addQuote = (quote) => {
   return {
     type: "ADD_QUOTE",
-    quote
+    quote //same as quote: quote fancy ES6 shorthand syntax
   }
 }
 
@@ -27,10 +27,3 @@ export const downvoteQuote = (quoteId) => {
     quoteId
   }
 }
-
-// export const addRestaurant = (restaurant) => {
-//   return {
-//     type: 'ADD_RESTAURANT',
-//     restaurant
-//   };
-// };
