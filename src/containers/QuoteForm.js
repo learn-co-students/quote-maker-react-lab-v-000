@@ -30,6 +30,7 @@ export class QuoteForm extends Component {
       id: uuid(),
       author: this.state.author,
       content: this.state.content,
+      votes: 0,
     })
     this.setState({
       author: "",

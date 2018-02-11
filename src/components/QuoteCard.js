@@ -1,4 +1,7 @@
 import React from 'react';
+import { bindActionCreators } from 'redux'; //line added.
+import { connect } from 'react-redux';
+import { upvoteQuote } from '../actions/quotes'
 
 const QuoteCard = (props) =>
   <div>
@@ -14,6 +17,7 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
+            onClick={ () => {props.upvoteQuote(props.id)} }
           >
             Upvote
           </button>
@@ -30,13 +34,15 @@ const QuoteCard = (props) =>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        <div>Votes: {props.votes}</div>
       </div>
     </div>
   </div>;
 
-const mapStateToProps = (state) => {
-  return { quotes: state.quotes };
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    upvoteQuote: upvoteQuote
+  }, dispatch);
 }
 
-export default QuoteCard;
+export default connect(null, mapDispatchToProps)(QuoteCard);

@@ -6,7 +6,7 @@ class Quotes extends Component {
 
   render() {
     const quoteCards = this.props.quotes.map(quote => {
-      return <QuoteCard key={quote.id} content={quote.content} author={quote.author} />
+      return <QuoteCard key={quote.id} id={quote.id} content={quote.content} author={quote.author} votes={quote.votes} />
     })
     return (
       <div>
