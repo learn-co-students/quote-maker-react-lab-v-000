@@ -5,6 +5,10 @@ import QuoteCard from '../components/QuoteCard';
 class Quotes extends Component {
 
   render() {
+    const quoteCards = this.props.quotes.map(quote => {
+      return <QuoteCard />
+    })
+    // debugger;
     return (
       <div>
         <hr />
@@ -15,7 +19,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <QuoteCard />
+              {quoteCards}
             </div>
           </div>
         </div>
@@ -24,4 +28,8 @@ class Quotes extends Component {
   }
 }
 
-export default Quotes;
+const mapStateToProps = (state) => {
+  return { quotes: state.quotes };
+}
+
+export default connect(mapStateToProps)(Quotes);

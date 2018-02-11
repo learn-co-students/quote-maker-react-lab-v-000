@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const QuoteCard = (props) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-          <p>{props.quotes.length === 0 ? 'no quotes yet' : 'there are some quotes here'}</p>
+          <p>filler text</p>
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
         </blockquote>
       </div>
@@ -37,8 +36,7 @@ const QuoteCard = (props) =>
   </div>;
 
 const mapStateToProps = (state) => {
-  let thing = { quotes: state.quotes };
-  return thing;
+  return { quotes: state.quotes };
 }
 
-export default connect(mapStateToProps)(QuoteCard);
+export default QuoteCard;
