@@ -27,6 +27,7 @@ class Quotes extends Component {
   }
 }
 
+// enables class Quotes to have this.props.quotes
 const mapStateToProps = (state) => {
   return { quotes: state.quotes };
 }

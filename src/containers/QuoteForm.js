@@ -15,16 +15,13 @@ export class QuoteForm extends Component {
   }
 
   handleOnChange = (event) => {
+    const {value, name} = event.target
     this.setState({
-      [event.target.name]: event.target.value,
-    })
+      [name]: value
+    });
   }
 
   handleOnSubmit = (event) => {
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
     event.preventDefault();
     this.props.addQuote({
       id: uuid(),
@@ -35,9 +32,18 @@ export class QuoteForm extends Component {
     this.setState({
       author: "",
       content: "",
-    })
-
+    });
   }
+//slightly fancy way to copypasta state
+  // handleOnSubmit = event => {
+  //   event.preventDefault();
+  //   const quote = Object.assign({}, this.state, { id: uuid() });
+  //   this.props.addQuote(quote);
+  //   this.setState({
+  //     content: '',
+  //     author: ''
+  //   });
+  // }
 
   render() {
     return (
@@ -92,3 +98,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(QuoteForm);
+// soln...no need to mapDispatchToProps??
+// export default connect(null, { addQuote })(QuoteForm);
