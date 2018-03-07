@@ -63,9 +63,9 @@ describe('Quotes Reducer', () => {
       }
     ];
 
-    expect(reducer(initialState, { 
-      type: 'UPVOTE_QUOTE', 
-      quoteId: firstId 
+    expect(reducer(initialState, {
+      type: 'UPVOTE_QUOTE',
+      quoteId: firstId
     })).to.deep.equal(
       [
         {
@@ -89,9 +89,9 @@ describe('Quotes Reducer', () => {
       }
     ];
 
-    expect(reducer(initialState, { 
-      type: 'DOWNVOTE_QUOTE', 
-      quoteId: firstId 
+    expect(reducer(initialState, {
+      type: 'DOWNVOTE_QUOTE',
+      quoteId: firstId
     })).to.deep.equal(
       [
         {
@@ -115,9 +115,9 @@ describe('Quotes Reducer', () => {
       }
     ];
 
-    expect(reducer(initialState, { 
-      type: 'DOWNVOTE_QUOTE', 
-      quoteId: firstId 
+    expect(reducer(initialState, {
+      type: 'DOWNVOTE_QUOTE',
+      quoteId: firstId
     })).to.deep.equal(
       [
         {
