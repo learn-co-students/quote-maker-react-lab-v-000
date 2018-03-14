@@ -1,6 +1,6 @@
 export default (state = [], action) => {
-  let index
-  let quote
+  let index;
+  let quote;
 
   switch (action.type) {
 
