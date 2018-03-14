@@ -1,4 +1,3 @@
-var votes;
 export default (state = [], action) => {
   let quoteIndex, quote;
   switch(action.type) {
