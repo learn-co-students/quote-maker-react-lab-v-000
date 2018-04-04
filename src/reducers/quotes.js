@@ -5,6 +5,7 @@ export default (state = [], action) => {
 
   switch (action.type){
     case "ADD_QUOTE":
+      console.log("4")
       return [].concat(state, action.quote)
     case "REMOVE_QUOTE":
       return state.filter(quote => quote.id !== action.quoteId)
