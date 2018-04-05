@@ -25,8 +25,10 @@ export class QuoteForm extends Component {
     event.preventDefault();
     // Create quote object from state 
     const quote = {
+      id: uuid(),
       content: this.state.content, 
-      author: this.state.author
+      author: this.state.author,
+      votes: 0
     }
     // Pass quote object to action creator 
     this.props.addQuote(quote);
@@ -83,4 +85,4 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);
