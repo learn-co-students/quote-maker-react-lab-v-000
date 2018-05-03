@@ -1,8 +1,9 @@
-import uuid from 'uuid';
+// import uuid from 'uuid';
 
 export default (state = [], action) => {
   switch (action.type) {
     case "ADD_QUOTE":
+
       return [].concat(state, action.payload.quote)
     case "REMOVE_QUOTE":
       let idx = state.indexOf(action.payload)
