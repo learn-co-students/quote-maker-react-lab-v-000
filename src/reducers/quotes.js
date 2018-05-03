@@ -1,20 +1,29 @@
-// import uuid from 'uuid';
-
 export default (state = [], action) => {
   switch (action.type) {
+
     case "ADD_QUOTE":
+      return [].concat(state, action.quote)
 
-      return [].concat(state, action.payload.quote)
     case "REMOVE_QUOTE":
-      let idx = state.indexOf(action.payload)
-      return [].concat(state.slice(0, idx), state.slice(idx + 1))
-    case "UPVOTE_QUOTE":
-      const upvoted = {...action.payload, votes: action.payload.votes++}
-      return {...state, upvoted}
-    case "DOWNVOTE_QUOTE":
-      const downvoted = {...action.payload, votes: action.payload.votes--}
-      return {...state, downvoted}
+      return state.filter(quote => quote.id !== action.quoteId)
 
+    case "UPVOTE_QUOTE":
+      let foundUp = state.find(quote => quote.id === action.quoteId);
+      let idxUp = state.indexOf(foundUp);
+      let quoteUp = state[idxUp];
+      console.log({...quoteUp, votes: ++quoteUp.votes})
+      return [].concat(state.slice(0, idxUp), {...quoteUp, votes: quoteUp.votes++}, state.slice(idxUp+1));
+
+    case "DOWNVOTE_QUOTE":
+      let foundDown = state.find(quote => quote.id === action.quoteId);
+      if (foundDown.votes > 0) {
+        let idxDown = state.indexOf(foundDown);
+        let quoteDown = state[idxDown];
+        console.log({...quoteDown, votes: --quoteDown.votes})
+        return [].concat(state.slice(0, idxDown), {...quoteDown, votes: quoteDown.votes++}, state.slice(idxDown+1));
+      } else {
+        return state;
+      }
     default:
       return state;
 
