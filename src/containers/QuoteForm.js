@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
@@ -75,4 +76,11 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, addQuote)(QuoteForm);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addQuote: addQuote
+  }, dispatch)
+};
+
+
+export default connect(null, mapDispatchToProps)(QuoteForm);

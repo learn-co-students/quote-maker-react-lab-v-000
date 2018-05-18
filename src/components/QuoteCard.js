@@ -1,7 +1,8 @@
 import React from 'react';
 
-const QuoteCard = (props) => 
+const QuoteCard = (props) =>
   <div>
+    {console.log(props)}
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
@@ -14,12 +15,14 @@ const QuoteCard = (props) =>
           <button 
             type="button" 
             className="btn btn-primary"
+            onClick={() => props.upvoteQuote(props.quote.id)}
           >
             Upvote
           </button>
           <button 
             type="button" 
             className="btn btn-secondary"
+            onClick={() => props.downvoteQuote(props.quote.id)}
           >
             Downvote
           </button>
