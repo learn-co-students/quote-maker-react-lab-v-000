@@ -14,22 +14,16 @@ export class QuoteForm extends Component {
   }
 
   handleOnChange = event => {
-    switch(event.target.name){
-      case 'content':
-        return this.setState({
-          content: event.target.value,
-        });
-      case 'author':
-        return this.setState({
-          author: event.target.value,
-        });
-    }
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    });
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
     let quote = {...this.state, id: uuid() }
-    this.props.addQuote(this.state);
+    this.props.addQuote(quote);
     this.setState({
       content: '',
       author: ''
