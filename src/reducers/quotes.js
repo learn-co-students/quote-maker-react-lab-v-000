@@ -1,48 +1,38 @@
-import uuid from 'uuid';
-
-const id = uuid();
-
-export function quotes(state = [], action){
-  switch (action.type) {
-  case "ADD_QUOTE":
-    const quote = {
-      content: action.quote.content,
-      author: action.quote.author,
-      votes: action.quote.votes,
-      id: id}
-    return Object.assign({}, state, {quotes: state.quotes.concat(quote)})
-  case "REMOVE_QUOTE":
-    const quotes = state.quotes.filter(quotes => quote.id !== action.id);
-    return Object.assign({}, state, { quotes });
-  default:
-    return state
-  }
-}
-
-export function quoteVotes(state = [], action){
-  switch (action.type) {
-  case "UPVOTE_QUOTE":
-    debugger;
-    return [].concat(state, action.quoteId)
-  case "DOWNVOTE_QUOTE":
-    let idx = state.indexOf(action.quoteId)
-    return [].concat(state.slice(0, idx), state.slice(idx + 1, state.length))
-  default:
-    return state
-  }
-}
-
-function combineReducers(reducers){
-  return (state = {}, action)=>{
-    return Object.keys(reducers).reduce(
-     (nextState, key)=>{
-       nextState[key] = reducers[key](state[key], action);
-       return nextState
-     }, {}
-   )
-  }
-}
-
 export default (state = [], action) => {
-  return state;
+  let index;
+  let quote;
+
+  switch (action.type) {
+
+    case 'ADD_QUOTE':
+      return state.concat(action.quote);
+
+    case 'REMOVE_QUOTE':
+      return state.filter(quote => quote.id !== action.quoteId);
+
+    case 'UPVOTE_QUOTE':
+      index = state.findIndex(quote => quote.id === action.quoteId);
+      quote = state[index];
+
+      return [
+        ...state.slice(0, index),
+        Object.assign({}, quote, { votes: quote.votes += 1 }),
+        ...state.slice(index + 1)
+      ];
+
+    case 'DOWNVOTE_QUOTE':
+      index = state.findIndex(quote => quote.id === action.quoteId);
+      quote = state[index];
+      if (quote.votes > 0) {
+        return [
+          ...state.slice(0, index),
+          Object.assign({}, quote, { votes: quote.votes -= 1 }),
+          ...state.slice(index + 1)
+        ];
+      }
+      return state;
+
+    default:
+      return state;
+  }
 }

@@ -11,13 +11,12 @@ export class QuoteForm extends Component {
     this.state = {
       content: '',
       author: '',
-      votes: 0,
+      id: uuid()
     }
   }
 
   handleOnChange = event => {
-    console.log(event.target.label)
-    switch(event.target.label){
+    switch(event.target.parentElement.previousElementSibling.htmlFor){
       case 'content':
         return this.setState({
           content: event.target.value,
@@ -53,7 +52,7 @@ export class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea
+                      <textarea onChange={this.handleOnChange}
                         className="form-control"
                         value={this.state.content}
                       />
@@ -62,7 +61,7 @@ export class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
-                      <input
+                      <input onChange={this.handleOnChange}
                         className="form-control"
                         type="text"
                         value={this.state.author}
