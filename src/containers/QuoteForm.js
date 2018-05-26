@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
-import { bindActionCreators } from 'redux';
-
-// will need to mapDispatchToProps here so that you can dispatch addQuote()
+// import { bindActionCreators } from 'redux';
 
 export class QuoteForm extends Component {
 
@@ -27,7 +25,7 @@ export class QuoteForm extends Component {
     // Handle Form Submit event default
     event.preventDefault();
     // Create quote object from state
-    const newQuote = this.state;
+    const newQuote = Object.assign({}, this.state, { id: uuid() });
     // Pass quote object to action creator
     this.props.addQuote(newQuote);
     // Update component state to return to default state
@@ -83,10 +81,4 @@ export class QuoteForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    addQuote: addQuote
-  }, dispatch)
-}
-
-export default connect(null, mapDispatchToProps)(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
