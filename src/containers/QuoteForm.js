@@ -8,15 +8,25 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      content: '',
+      author: '',
     }
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    const { value, name } = event.target; 
+    this.setState({
+      [name]: value
+    });
   }
 
   handleOnSubmit = event => {
-    // Handle Form Submit event default
+    event.preventDefault();
+    this.props.addQuote(this.state)
+    this.setState({
+      content: '',
+      author: '',
+    })
     // Create quote object from state 
     // Pass quote object to action creator 
     // Update component state to return to default state
@@ -29,13 +39,15 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form onSubmit={this.handleOnSubmit} className="form-horizontal">
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea 
                         className="form-control"
+                        name="content"
                         value={this.state.content}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -44,8 +56,10 @@ export class QuoteForm extends Component {
                     <div className="col-md-5">
                       <input 
                         className="form-control"
+                        name="author"
                         type="text"
                         value={this.state.author}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -64,4 +78,8 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+function mapStateToProps(state) {
+  return { quotes: state.quotes }
+}
+
+export default connect(mapStateToProps, { addQuote })(QuoteForm);
