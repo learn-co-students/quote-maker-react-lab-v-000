@@ -3,27 +3,16 @@ export default (state = [], action) => {
     case "ADD_QUOTE":
       return [].concat(state, action.quote)
     case "REMOVE_QUOTE":
-      let removed = state.filter(obj => {
-        return obj.id !== action.quoteId;
-      })
-      return removed
-      // let qIndex = state.findIndex((object) => {
-      //   return object.id === action.quoteId;
-      // });
-      // return [].concat(state.slice(0, qIndex), state.slice(qIndex + 1, state.length))
+      return state.filter(obj => obj.id !== action.quoteId)
     case "UPVOTE_QUOTE":
       const upvoted = state.map(obj => {
-        if (obj.id === action.quoteId) {
-          obj.votes += 1;
-          }
+        if (obj.id === action.quoteId) obj.votes += 1;      
         return obj
       });
       return upvoted
     case "DOWNVOTE_QUOTE":
       const downvoted = state.map(obj => {
-        if (obj.id === action.quoteId && obj.votes !== 0) {
-          obj.votes -= 1;
-          }
+        if (obj.id === action.quoteId && obj.votes !== 0) obj.votes -= 1;
         return obj
       });
       return downvoted
