@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Quotes from './components/Quotes'
 export class App extends Component {
   render() {
     return (
@@ -8,6 +8,7 @@ export class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
+        <Quotes />
         {/* 
           TODO: 
 
