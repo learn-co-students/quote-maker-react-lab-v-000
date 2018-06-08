@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Quotes from './components/Quotes'
-export class App extends Component {
+import Quotes from './containers/Quotes';
+import {ConnectedQuoteForm} from './containers/QuoteForm';
+
+class App extends Component {
   render() {
     return (
       <div className="container-fluid">
@@ -8,12 +10,8 @@ export class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
+        <ConnectedQuoteForm />
         <Quotes />
-        {/* 
-          TODO: 
-
-          Render QuoteForm and Quotes Components
-         */}
       </div>
     );
   }
