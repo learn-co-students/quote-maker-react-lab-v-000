@@ -1,0 +1,30 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/chris/.nvm/versions/node/v6.11.2/bin/node',
+1 verbose cli   '/Users/chris/.nvm/versions/node/v6.11.2/bin/npm',
+1 verbose cli   'test' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.2
+4 verbose run-script [ 'pretest', 'test', 'posttest' ]
+5 info lifecycle 5-building-forms-lab@0.1.0~pretest: 5-building-forms-lab@0.1.0
+6 silly lifecycle 5-building-forms-lab@0.1.0~pretest: no script for pretest, continuing
+7 info lifecycle 5-building-forms-lab@0.1.0~test: 5-building-forms-lab@0.1.0
+8 verbose lifecycle 5-building-forms-lab@0.1.0~test: unsafe-perm in lifecycle true
+9 verbose lifecycle 5-building-forms-lab@0.1.0~test: PATH: /Users/chris/.nvm/versions/node/v6.11.2/lib/node_modules/npm/bin/node-gyp-bin:/Users/chris/.atom/.learn-ide/home/chrisjamesr-106931/quote-maker-react-lab-v-000/node_modules/.bin:/Users/chris/.rbenv/versions/2.3.1/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:/usr/local/opt/openssl/bin:/Users/chris/.rbenv/shims:/Users/chris/.nvm/versions/node/v6.11.2/bin:/Users/chris/.rvm/gems/ruby-2.3.3/bin:/Users/chris/.rvm/gems/ruby-2.3.3@global/bin:/Users/chris/.rvm/rubies/ruby-2.3.3/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/chris/.rvm/bin
+10 verbose lifecycle 5-building-forms-lab@0.1.0~test: CWD: /Users/chris/.atom/.learn-ide/home/chrisjamesr-106931/quote-maker-react-lab-v-000
+11 silly lifecycle 5-building-forms-lab@0.1.0~test: Args: [ '-c',
+11 silly lifecycle   'mocha -R mocha-multi test/helpers.js test/**/**.js  --reporter-options nyan=-,json=.results.json' ]
+12 verbose stack Error: write EPIPE
+12 verbose stack     at exports._errnoException (util.js:1020:11)
+12 verbose stack     at WriteWrap.afterWrite (net.js:800:14)
+13 verbose cwd /Users/chris/.atom/.learn-ide/home/chrisjamesr-106931/quote-maker-react-lab-v-000
+14 error Darwin 17.5.0
+15 error argv "/Users/chris/.nvm/versions/node/v6.11.2/bin/node" "/Users/chris/.nvm/versions/node/v6.11.2/bin/npm" "test"
+16 error node v6.11.2
+17 error npm  v3.10.10
+18 error code EPIPE
+19 error errno EPIPE
+20 error syscall write
+21 error write EPIPE
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]
