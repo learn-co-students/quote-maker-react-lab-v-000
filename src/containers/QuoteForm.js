@@ -8,17 +8,29 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      content: '',
+      author: ''
     }
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    const { value, name } = event.target
+    this.setState({
+      [name]: value
+    })
   }
 
   handleOnSubmit = event => {
+    event.preventDefault()
     // Handle Form Submit event default
-    // Create quote object from state 
-    // Pass quote object to action creator 
+    const quote = Object.assign({}, this.state, { id: uuid() })
+    // Create quote object from state
+    this.props.addQuote(quote)
+    // Pass quote object to action creator
+    this.setState({
+      content: '',
+      author: ''
+    });
     // Update component state to return to default state
   }
 
@@ -29,23 +41,27 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={(e) => this.handleOnSubmit(e)}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea 
+                      <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
+                        onChange={(e) => this.handleOnChange(e)}
                       />
                     </div>
                   </div>
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
-                      <input 
+                      <input
                         className="form-control"
+                        name="author"
                         type="text"
                         value={this.state.author}
+                        onChange={(e) => this.handleOnChange(e)}
                       />
                     </div>
                   </div>
@@ -64,4 +80,4 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
