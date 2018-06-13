@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
 import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
-import { bindActionCreators } from 'redux';
 
 class Quotes extends Component {
 
   render() {
-    let quotes = this.props.quotes.map(quote => {
-      <QuoteCard key={quote.id} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} removeQuote={removeQuote} quote={quote}/>})
-      debugger;
+    const quotes = this.props.quotes.map(quote => 
+      <QuoteCard key={quote.id} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} removeQuote={removeQuote} quote={quote}/>)
     return (
       <div>
         <hr />
@@ -29,18 +27,10 @@ class Quotes extends Component {
   }
 }
 
-function mapStateToProps(state){
+const mapStateToProps = state => {
   return ({
     quotes: state.quotes
   })
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    removeQuote: removeQuote,
-    upvoteQuote: upvoteQuote,
-    downvoteQuote: downvoteQuote
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
+export default connect(mapStateToProps, { removeQuote, upvoteQuote, downvoteQuote })(Quotes);
