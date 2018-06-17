@@ -8,4 +8,4 @@ export function configureStore(){
   );
 }
 
-export const store = configureStore()
+export const store = configureStore();
