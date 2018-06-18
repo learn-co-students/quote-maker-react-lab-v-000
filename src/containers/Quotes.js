@@ -8,7 +8,6 @@ class Quotes extends Component {
 
   render() {
 
-    const { quotes, removeQuote, upvoteQuote, downvoteQuote} = this.props;
 
     return (
       <div>
@@ -20,7 +19,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {quotes.map(q => <QuoteCard key={q.id} quote={q} removeQuote={removeQuote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} />) }
+              {this.props.quotes.map(q => <QuoteCard key={q.id} quote={q} removeQuote={removeQuote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} />) }
             </div>
           </div>
         </div>
