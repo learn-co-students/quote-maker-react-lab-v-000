@@ -3,28 +3,28 @@
 export function addQuote(quote){
     return {
         type: "ADD_QUOTE",
-        payload: quote
+        quote: Object.assign({}, quote, {votes:0})
     }
 }
 
-export function removeQuote(quote){
+export function removeQuote(quoteId){
     return {
         type: "REMOVE_QUOTE",
-        payload: quote
+        quoteId
     }
 }
 
-export function upvoteQuote(quote){
+export function upvoteQuote(quoteId){
     return {
         type: "UPVOTE_QUOTE",
-        payload: quote
+        quoteId
     }
 }
 
-export function downvoteQuote(quote){
+export function downvoteQuote(quoteId){
     return {
         type: "DOWNVOTE_QUOTE",
-        payload: quote
+        quoteId
     }
 }
 
