@@ -17,13 +17,19 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <QuoteCard removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote} />
+              {this.props.quotes.map(quote =>
+                <QuoteCard quote={quote} removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote} key={quote.id}/>
+              )}
             </div>
           </div>
         </div>
       </div>
     );
   }
+}
+
+const mapStateToProps = (state) => {
+  return { quotes: state.quotes };
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -34,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Quotes);
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
