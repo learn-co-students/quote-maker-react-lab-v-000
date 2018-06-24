@@ -10,8 +10,8 @@ export class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
-          <QuoteForm />
-          <Quotes />
+          <QuoteForm store={this.props.store} />
+          <Quotes store={this.props.store} />
       </div>
     );
   }
