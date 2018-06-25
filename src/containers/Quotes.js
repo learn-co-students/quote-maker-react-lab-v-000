@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 import QuoteCard from '../components/QuoteCard';
 
 class Quotes extends Component {
@@ -15,11 +17,9 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {/* 
-                TODO: 
-
-                Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
-               */}
+              {this.props.quotes.map(quote =>
+                <QuoteCard quote={quote} removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote} key={quote.id}/>
+              )}
             </div>
           </div>
         </div>
@@ -28,4 +28,16 @@ class Quotes extends Component {
   }
 }
 
-export default connect(null, {})(Quotes);
+const mapStateToProps = (state) => {
+  return { quotes: state.quotes };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    removeQuote: removeQuote,
+    upvoteQuote: upvoteQuote,
+    downvoteQuote: downvoteQuote
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
