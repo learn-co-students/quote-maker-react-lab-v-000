@@ -1,11 +1,7 @@
-import uuid from 'uuid';
-
 export default (state = [], action) => {
   switch(action.type) {
     case 'ADD_QUOTE':
-      const id = uuid()
-      const quote = Object.assign({}, {content: action.quote.content, author: action.quote.author, id: id, votes: 0})
-      return state.concat(quote);
+      return state.concat(action.quote);
     case 'REMOVE_QUOTE':
       const removalInd = state.findIndex(quote => quote.id === action.quoteId)
       return [...state.slice(0, removalInd),
