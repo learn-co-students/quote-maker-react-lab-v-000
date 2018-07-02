@@ -8,18 +8,30 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      content: '', 
+      author: '' 
     }
   }
 
-  handleOnChange = event => {
-    // Handle Updating Component State
+  handleContentOnChange(event) {
+    this.setState({
+      content: event.target.value
+    })
   }
 
-  handleOnSubmit = event => {
-    // Handle Form Submit event default
-    // Create quote object from state 
-    // Pass quote object to action creator 
-    // Update component state to return to default state
+  handleAuthorOnChange(event) {
+    this.setState({
+      author: event.target.value
+    })
+  }
+
+  handleOnSubmit(event) {
+    event.preventDefault()
+    this.props.addQuote(this.state)
+    this.setState({
+      content: '',
+      author: ''
+    })
   }
 
   render() {
@@ -29,14 +41,11 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={(event) => this.handleOnSubmit(event)}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea 
-                        className="form-control"
-                        value={this.state.content}
-                      />
+                      <textarea className="form-control" value={this.state.content} name="content" onChange={(event) => this.handleContentOnChange(event)}/>
                     </div>
                   </div>
                   <div className="form-group">
@@ -46,6 +55,8 @@ export class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         value={this.state.author}
+                        name="author"
+                        onChange={(event) => this.handleAuthorOnChange(event)}
                       />
                     </div>
                   </div>
