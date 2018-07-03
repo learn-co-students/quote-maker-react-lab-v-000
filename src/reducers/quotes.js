@@ -9,8 +9,10 @@ export default (state = [], action) => {
     case 'REMOVE_QUOTE':
       const newState = state.filter((quote) => quote.id !== action.quoteId)
       return newState
-    // case 'UPVOTE_QUOTE':
-    //   const quote = state
+     case 'UPVOTE_QUOTE':
+       const quote = state.filter((quote) => quote.id === action.quoteId)
+       quote.votes += 1
+       return state.concat([quote])
     default:
       return state;
   }
