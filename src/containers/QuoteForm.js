@@ -27,7 +27,8 @@ export class QuoteForm extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault()
-    this.props.addQuote(this.state)
+    const quote = Object.assign({}, this.state, { id: uuid() });
+    this.props.addQuote(quote);
     this.setState({
       content: '',
       author: ''
@@ -45,7 +46,11 @@ export class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea className="form-control" value={this.state.content} name="content" onChange={(event) => this.handleContentOnChange(event)}/>
+                      <textarea 
+                        className="form-control" 
+                        value={this.state.content} 
+                        name="content" 
+                        onChange={(event) => this.handleContentOnChange(event)}/>
                     </div>
                   </div>
                   <div className="form-group">
@@ -75,4 +80,4 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);
