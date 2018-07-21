@@ -75,4 +75,4 @@ export class QuoteForm extends Component {
   }
 }
 
-export default connect(null, {})(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
