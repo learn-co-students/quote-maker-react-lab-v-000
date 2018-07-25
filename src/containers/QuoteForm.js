@@ -9,18 +9,30 @@ export class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      content: "",
+      author: ""
     }
   }
 
-  handleOnChange = event => {
-    // Handle Updating Component State
+  handleOnChangeContent = event => {
+    this.setState({
+      content: event.target.value,
+    });
+  }
+  handleOnChangeAuthor = event => {
+    this.setState({
+      author: event.target.value,
+    });
   }
 
-  handleOnSubmit = event => {
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
+    handleOnSubmit = event => {
+    event.preventDefault();
+    const quote = Object.assign({}, this.state, { id: uuid() });
+    this.props.addQuote(quote);
+    this.setState({
+      content: '', 
+      author: ''
+    });
   }
 
   render() {
@@ -30,23 +42,29 @@ export class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={(e)=>{this.handleOnSubmit(e)}}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
+
                       <textarea
+                        onChange={this.handleOnChangeContent}
                         className="form-control"
                         value={this.state.content}
+                        name="content"
                       />
+
                     </div>
                   </div>
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        onChange={this.handleOnChangeAuthor}
                         className="form-control"
                         type="text"
                         value={this.state.author}
+                        name="author"
                       />
                     </div>
                   </div>
