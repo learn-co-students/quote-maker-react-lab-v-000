@@ -1,68 +1,41 @@
-import React, { Component } from 'react';
-import uuid from 'uuid';
-import { connect } from 'react-redux';
-import { addQuote } from '../actions/quotes';
+import React from 'react';
 
-//extra export required here for testing purposes
-export class QuoteForm extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
-  handleOnChange = event => {
-    // Handle Updating Component State
-  }
-
-  handleOnSubmit = event => {
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
-            <div className="panel panel-default">
-              <div className="panel-body">
-                <form className="form-horizontal">
-                  <div className="form-group">
-                    <label htmlFor="content" className="col-md-4 control-label">Quote</label>
-                    <div className="col-md-5">
-                      <textarea
-                        className="form-control"
-                        value={this.state.content}
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="author" className="col-md-4 control-label">Author</label>
-                    <div className="col-md-5">
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={this.state.author}
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <div className="col-md-6 col-md-offset-4">
-                      <button type="submit" className="btn btn-default">Add</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+const QuoteCard = ({quote, upvoteQuote, downvoteQuote, removeQuote}) =>
+  <div>
+    <div className="card card-inverse card-success card-primary mb-3 text-center">
+      <div className="card-block">
+        <blockquote className="card-blockquote">
+          <p>{quote.content}</p>
+          <footer>- author <cite title="Source Title">{quote.author}</cite></footer>
+        </blockquote>
       </div>
-    );
-  }
-}
+      <div className="float-right">
+        <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => upvoteQuote(quote.id)}
+          >
+            Upvote
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => downvoteQuote(quote.id)}
+          >
+            Downvote
+          </button>
+          <button
+            type="button"
+            onClick={() => removeQuote(quote.id)}
+            className="btn btn-danger"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div>Votes: {quote.votes}</div>
+      </div>
+    </div>
+  </div>;
 
-export default connect(null, {})(QuoteForm);
+export default QuoteCard;
