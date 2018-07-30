@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Quotes from './containers/Quotes'
+import QuoteForm from './containers/QuoteForm'
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="container-fluid">
@@ -8,11 +10,8 @@ class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
-        {/*
-          TODO:
-
-          Render QuoteForm and Quotes Components
-         */}
+        <QuoteForm />
+        <Quotes />
       </div>
     );
   }
