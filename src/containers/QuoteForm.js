@@ -3,7 +3,7 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
-export class QuoteForm extends Component {
+class QuoteForm extends Component {
 
   state = {
     //set up a controlled form with internal state
@@ -12,7 +12,6 @@ export class QuoteForm extends Component {
   }
 
   handleOnChange = event => {
-    debugger;
     // Handle Updating Component State
     this.setState({
       [event.target.name]: event.target.value
@@ -21,12 +20,12 @@ export class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
     event.preventDefault();
-    const quote = {id: uuid(), ...this.state };
+    // Create quote object from state
+    const quote = {...this.state, id: uuid() };
+    // Pass quote object to action creator
     this.props.addQuote(quote);
+    // Update component state to return to default state
     this.setState({
       content: '',
       author: ''
