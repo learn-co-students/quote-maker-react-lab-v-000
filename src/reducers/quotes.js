@@ -15,13 +15,19 @@ let quote;
       return [...state,action.quote]
 
     case 'REMOVE_QUOTE':
+
       let id = action.quoteId
       return state.filter(quote => quote.id !== id)
 
+
+
+
     case 'UPVOTE_QUOTE':
       //let quote = state.filter(quote => quote.id === action.quoteId)
+
       quote = state.find(quote => quote.id === action.quoteId)
       quote.votes += 1
+      console.log(quote.votes)
       return [quote]
 
       case 'DOWNVOTE_QUOTE':

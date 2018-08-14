@@ -6,7 +6,7 @@ const QuoteCard = (props) =>
       <div className="card-block">
         <blockquote className="card-blockquote">
           <p>{props.quote.content}</p>
-          <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer> 
+          <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer>
           {/* <p>{Render Quote Content}</p> */}
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
         </blockquote>
@@ -15,24 +15,27 @@ const QuoteCard = (props) =>
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button
             type="button"
+             onClick={() => props.upvoteQuote(props.quote.id)}
             className="btn btn-primary"
           >
             Upvote
           </button>
           <button
             type="button"
+            onClick={() => props.downvoteQuote(props.quote.id)}
             className="btn btn-secondary"
           >
             Downvote
           </button>
           <button
             type="button"
+            onClick={() => props.removeQuote(props.quote.id)}
             className="btn btn-danger"
           >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        <div>Votes: {props.quote.votes}</div> 
       </div>
     </div>
   </div>;
