@@ -12,6 +12,7 @@ class QuoteForm extends Component {
   }
 
   handleOnChange = event => {
+    console.log(event.target.value);
     // Handle Updating Component State
     this.setState({
       [event.target.name]: event.target.value
@@ -19,6 +20,7 @@ class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
+    console.log('submit form');
     // Handle Form Submit event default
     event.preventDefault();
 
