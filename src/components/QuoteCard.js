@@ -16,21 +16,21 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
           <button
             type="button"
             className="btn btn-primary"
-            onClick={upvoteQuote(quote.id)}
+            onClick={() => upvoteQuote(quote.id)} 
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={downvoteQuote(quote.id)}
+            onClick={() => downvoteQuote(quote.id)} 
           >
             Downvote
           </button>
           <button
             type="button"
             className="btn btn-danger"
-            onClick={removeQuote(quote.id)}
+            onClick={() => removeQuote(quote.id)} 
           >
             <span aria-hidden="true">&times;</span>
           </button>
