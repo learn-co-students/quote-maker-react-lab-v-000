@@ -110,7 +110,7 @@ describe('QuoteForm Component', () => {
   it('should modify the store on handleOnSubmit', () => {
     store = createStore(rootReducer)
     wrapper = mount(<Provider store={store}><App /></Provider>);
-
+    console.log(store.getState())
     expect(store.getState().quotes.length).to.equal(0);
 
     wrapper.find('input[name="author"]').simulate('change', { target: { name: 'author', value: 'test author' }});
