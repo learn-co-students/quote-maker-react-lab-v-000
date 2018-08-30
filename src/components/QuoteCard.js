@@ -1,7 +1,7 @@
 import React from 'react';
 import { removeQuote } from '../actions/quotes';
 
-const QuoteCard = ({quote, upvoteQuote, downvoteQuote}) =>
+const QuoteCard = ({quote, upvoteQuote, downvoteQuote, removeQuote}) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
