@@ -5,7 +5,7 @@ const QuoteCard = (props) =>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-          <p>{props.quote.content}</p>
+          <h4>{props.quote.content}</h4>
           <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer>
         </blockquote>
       </div>
