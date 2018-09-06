@@ -1,5 +1,5 @@
 import React from "react";
-import QuoteCard from "../components/QuoteCard";
+import QuoteCard from "./QuoteCard";
 import { connect } from "react-redux";
 import { upvoteQuote } from "../actions/quotes";
 import { downvoteQuote } from "../actions/quotes";
@@ -20,20 +20,7 @@ export class Quotes extends React.Component {
         key={index}
       />
     ));
-    return (
-      <div>
-        <hr />
-        <div className="row justify-content-center">
-          <h2>Quotes</h2>
-        </div>
-        <hr />
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-10">{quoteCards}</div>
-          </div>
-        </div>
-      </div>
-    );
+    return <div>{quoteCards}</div>;
   }
 }
 
