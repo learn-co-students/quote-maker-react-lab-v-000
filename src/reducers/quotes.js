@@ -1,5 +1,6 @@
 export default (state = [], action) => {
   let result = state;
+  debugger;
   switch (action.type) {
     case "ADD_QUOTE": {
       result = [...state, action.quote];
