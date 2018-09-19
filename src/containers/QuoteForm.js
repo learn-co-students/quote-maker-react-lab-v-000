@@ -14,13 +14,18 @@ class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
+    // debugger
+    // console.log(this)
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
+    event.preventDefault()
+    this.props.addQuote(this.state)
   }
 
   render() {
+  
     return (
       <div className="container">
         <div className="row">
@@ -32,7 +37,8 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
-                        className="form-control"
+                        className="form-control" 
+                        name='content'
                         value={this.state.content}
                       />
                     </div>
@@ -43,13 +49,15 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        name='author'
+                        value='test_a_author'
                         value={this.state.author}
                       />
                     </div>
                   </div>
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
-                      <button type="submit" className="btn btn-default">Add</button>
+                      <button type="submit" onClick={this.handleOnSubmit} className="btn btn-default">Add</button>
                     </div>
                   </div>
                 </form>
@@ -63,4 +71,15 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+const mapStateToProps = state => {
+  return {quotes: state.quotes}
+}
+
+const mapDispatchToProps = dispatch =>{
+  return {
+    addQuote: (quote) => {
+      dispatch(addQuote(quote))
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm);
