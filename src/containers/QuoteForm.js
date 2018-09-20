@@ -16,21 +16,17 @@ class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
-    // debugger
-    // console.log(this)
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
     // Update component state to return to default state
     event.preventDefault()
     console.log(this)
     this.props.addQuote(this.state)
-    debugger
-    document.getElementsByClassName('container').html = ''
+    this.setState({
+      content: '',
+      author: ''
+    });
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="container"> 
         <div className="row">
@@ -45,7 +41,7 @@ class QuoteForm extends Component {
                         onChange={this.handleOnChange}
                         className="form-control" 
                         name='content'
-                        // value={this.state.content}
+                        value={this.state.content}
                       />
                     </div>
                   </div>
@@ -57,7 +53,7 @@ class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         name='author'
-                        // value={this.state.author}
+                        value={this.state.author}
                       />
                     </div>
                   </div>
@@ -81,11 +77,11 @@ const mapStateToProps = state => {
   return {quotes: state.quotes}
 }
 
-const mapDispatchToProps = dispatch =>{
-  return {
-    addQuote: (quote) => {
-      dispatch(addQuote(quote))
-    }
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm);
+// const mapDispatchToProps = dispatch =>{
+//   return {
+//     addQuote: (quote) => {
+//       dispatch(addQuote(quote))
+//     }
+//   }
+// }
+export default connect(mapStateToProps, {addQuote})(QuoteForm);
