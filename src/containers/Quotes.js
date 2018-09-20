@@ -5,6 +5,8 @@ import QuoteCard from '../components/QuoteCard';
 class Quotes extends Component {
 
   render() {
+    let quotes = this.props.quotes.map(quote => <p key={quote.id}>{quote.content} - {quote.author}</p>)
+
     return (
       <div>
         <hr />
@@ -15,6 +17,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
+            {quotes}
             <QuoteCard />
             </div>
           </div>
@@ -24,5 +27,9 @@ class Quotes extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return { quotes:  state.quotes }
+}
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+export default connect(mapStateToProps)(Quotes);

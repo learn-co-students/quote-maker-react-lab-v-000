@@ -1,12 +1,12 @@
-import uuid from 'uuid'
 
 
-
-export default function quotesReducer(state = [], action) {
+const quotesReducer= (state = [], action) => {
   switch (action.type) {
     case 'ADD_QUOTE':
-        return {...state, action.quotes}
+     return [...state, action.quote]
     default:
       return state
   }
 }
+
+export default quotesReducer;

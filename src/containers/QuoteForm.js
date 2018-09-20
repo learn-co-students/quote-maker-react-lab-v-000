@@ -6,11 +6,13 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+   author: '',
+   content: '',
+   id: uuid()
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    this.setState({[event.target.name]: event.target.value})
   }
 
   handleOnSubmit = event => {
@@ -21,13 +23,16 @@ class QuoteForm extends Component {
     // Pass quote object to action creator
     // Update component state to return to default state
     event.preventDefault()
+    console.log(this)
     this.props.addQuote(this.state)
+    debugger
+    document.getElementsByClassName('container').html = ''
   }
 
   render() {
-  
+    console.log(this.state)
     return (
-      <div className="container">
+      <div className="container"> 
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
@@ -37,9 +42,10 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        onChange={this.handleOnChange}
                         className="form-control" 
                         name='content'
-                        value={this.state.content}
+                        // value={this.state.content}
                       />
                     </div>
                   </div>
@@ -47,11 +53,11 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        onChange={this.handleOnChange}
                         className="form-control"
                         type="text"
                         name='author'
-                        value='test_a_author'
-                        value={this.state.author}
+                        // value={this.state.author}
                       />
                     </div>
                   </div>
