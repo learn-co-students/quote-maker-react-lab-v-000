@@ -39,7 +39,7 @@ describe('Quotes Reducer', () => {
         votes: 0
       }
     ];
-
+    
     expect(reducer(initialState, {
       type: 'REMOVE_QUOTE',
       quoteId: firstId
