@@ -73,7 +73,7 @@ describe('QuoteForm Component', () => {
 
     wrapper.find('input[name="author"]').simulate('change', { target: { name: 'author', value: 'test author' }});
     wrapper.find('textarea[name="content"]').simulate('change', { target: { name: 'content', value: 'test content' }})
-
+    
     expect(wrapper.find('input[name="author"]').html()).to.include('value="test author"');
     expect(wrapper.find('textarea[name="content"]').html()).to.include('test content');
 
