@@ -16,7 +16,7 @@ class QuoteForm extends Component {
     let state = this.state
     state[name] = value
     this.setState(state);
-    console.log(this.state)
+
   }
 
   handleOnSubmit = event => {
@@ -75,12 +75,13 @@ class QuoteForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    hello: state.quotes
+    current: state.quotesReducer.currentQuotes,
+    quotes: state.quotesReducer.quotes
   }
 }
 
 
 //add arguments to connect as needed
-export default connect(mapStateToProps, null)(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
