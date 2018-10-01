@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteCard = ({props, upvoteQuote}) =>
+const QuoteCard = ({props, upvoteQuote, downvoteQuote, removeQuote}) => 
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
@@ -12,20 +12,25 @@ const QuoteCard = ({props, upvoteQuote}) =>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button
-            onClick={upvoteQuote(props.id)}
+            onClick={(event) => upvoteQuote(event)}
             type="button"
+            name="upvote"
             className="btn btn-primary"
           >
             Upvote
           </button>
           <button
+            onClick={(event) => upvoteQuote(event)}
             type="button"
+            name="downvote"
             className="btn btn-secondary"
           >
             Downvote
           </button>
           <button
+            onClick={(event) => upvoteQuote(event)}
             type="button"
+            name="removequote"
             className="btn btn-danger"
           >
             <span aria-hidden="true">&times;</span>
