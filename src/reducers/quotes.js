@@ -3,7 +3,7 @@ import uuid from "uuid"
 // keys: id, content, author
 
 export default (state = [], action) => {
-  let idx
+  let idx, quote
   switch (action.type){
 
     default:
@@ -18,11 +18,12 @@ export default (state = [], action) => {
 
     case "UPVOTE_QUOTE":
       idx = state.findIndex(quote => quote.id === action.quoteId)
-      return {...state, 
-        [idx]: {
-          ...state[idx], 
-          votes: state[idx].votes++
-        }}
+      quote = state[idx]
+      return  [
+        ...state.slice(0, idx),
+        Object.assign({}, quote, { votes: quote.votes += 1 }),
+        ...state.slice(idx + 1)
+      ]
 
     case "DOWNVOTE_QUOTE":
       idx = state.findIndex(quote => quote.id === action.quoteId)
