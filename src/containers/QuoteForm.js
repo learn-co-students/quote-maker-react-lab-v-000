@@ -6,7 +6,9 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+    id: uuid(),
+    content: '',
+    author: ''
   }
 
   handleOnChange = event => {
