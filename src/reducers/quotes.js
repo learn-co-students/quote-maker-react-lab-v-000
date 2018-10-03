@@ -7,9 +7,9 @@ export default (state = [], action) => {
   switch (action.type){
     default:
       return state
-      
+
     case "ADD_QUOTE":
-      return [...state, { action.quote, id: uuid() }]
+      return [...state, { ...action.quote, id: uuid() }]
 
     
   }
