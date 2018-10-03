@@ -8,7 +8,8 @@ class QuoteForm extends Component {
   state = {
     id: uuid(),
     content: '',
-    author: ''
+    author: '',
+    votes: 0
   }
 
   handleOnChange = event => {
@@ -25,7 +26,8 @@ class QuoteForm extends Component {
     this.setState({
       id: uuid(),
       content: '',
-      author: ''
+      author: '',
+      votes: 0
     })
   }
 

@@ -18,8 +18,11 @@ export default (state = [], action) => {
 
     case "UPVOTE_QUOTE":
       idx = state.findIndex(quote => quote.id === action.quoteId)
-      state[idx].votes++
-      return state
+      return {...state, 
+        [idx]: {
+          ...state[idx], 
+          votes: state[idx].votes++
+        }}
 
     case "DOWNVOTE_QUOTE":
       idx = state.findIndex(quote => quote.id === action.quoteId)
