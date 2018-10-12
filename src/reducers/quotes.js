@@ -40,6 +40,8 @@ export default (state = [], action) => {
           Object.assign({}, quote, {votes: quote.votes -= 1}),
           ...state.slice(idx +1)
         ]
+      } else {
+        return state;
       }
 
     default:
