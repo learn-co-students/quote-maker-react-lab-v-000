@@ -1,6 +1,7 @@
 export default (state = [], action) => {
   switch (action.type) {
     case "ADD_QUOTE":
+      // add votes?
       return [ ...state, action.quote];
     case "REMOVE_QUOTE":
       return state.filter( quote => quote.id !== action.id);
@@ -11,9 +12,8 @@ export default (state = [], action) => {
         return quote;
       });
     case "DOWNVOTE_QUOTE":
-      let idx = state.findIndex( (quote) => quote.id === action.id)
       return state.map ( function (quote, index) {
-        if ((index === idx) && (quote.votes > 0))quote.votes--
+        if ((quote.id === action.id) && (quote.votes > 0))quote.votes--
         return quote;
       });
     default:
