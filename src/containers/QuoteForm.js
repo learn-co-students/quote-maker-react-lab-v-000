@@ -23,7 +23,7 @@ class QuoteForm extends Component {
       content: this.state.content,
       author: this.state.author,
       id: uuid(),
-      votes: 0
+   //   votes: 0   --- moved to action
     };
     this.props.addQuote(quote);
     this.setState({
