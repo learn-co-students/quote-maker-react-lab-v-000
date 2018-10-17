@@ -15,7 +15,8 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              { this.props.quotes.map( (quote,index) => <QuoteCard key={index} quote={quote}/>) }
+              { this.props.quotes.map( (quote,index) => 
+                <QuoteCard key={index} quote={quote}/>) }
             </div>
           </div>
         </div>

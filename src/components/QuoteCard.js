@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { upvoteQuote, downvoteQuote, removeQuote } from '../actions/quotes'
 
-const QuoteCard = (props) =>
+const QuoteCard = (props) => 
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
@@ -14,25 +16,31 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
+            onClick={(event) => props.upvoteQuote(props.quote.id)}
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={(event) => props.downvoteQuote(props.quote.id)}
           >
             Downvote
           </button>
           <button
             type="button"
             className="btn btn-danger"
+            onClick={(event) => props.removeQuote(props.quote.id)}
           >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        {<div>Votes: {props.quote.votes}</div> }
       </div>
     </div>
   </div>;
 
-export default QuoteCard;
+const mapStateToProps = state => {
+  return { quotes: state.quotes }
+}
+export default connect(mapStateToProps, { upvoteQuote, downvoteQuote, removeQuote })(QuoteCard);
