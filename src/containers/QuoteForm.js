@@ -20,7 +20,11 @@ class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addQuote(this.state)
+    this.props.addQuote(this.state);
+    this.setState({
+      content: '',
+      author: ''
+    });
   }
 
   render() {
