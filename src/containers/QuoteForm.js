@@ -6,11 +6,14 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+    content: '', 
+    author: '' 
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    this.setState({
+      [event.target.id]: event.target.value
+    })  
   }
 
   handleOnSubmit = event => {
@@ -34,6 +37,8 @@ class QuoteForm extends Component {
                       <textarea
                         className="form-control"
                         value={this.state.content}
+                        onChange={this.handleOnChange}
+                        id="content"
                       />
                     </div>
                   </div>
@@ -44,6 +49,8 @@ class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         value={this.state.author}
+                        onChange={this.handleOnChange}
+                        id="author"
                       />
                     </div>
                   </div>
@@ -63,4 +70,4 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);

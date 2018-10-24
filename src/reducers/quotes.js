@@ -1,10 +1,12 @@
+import uuid from 'uuid';
+
 export default (state = [], action) => {
 
   let idx;
   let updatedQuote;
   switch (action.type) {
     case "ADD_QUOTE":
-      return [...state, action.quote]
+      return [...state, Object.assign({}, {id: uuid()}, action.quote, {votes: 0})]
 
     case 'REMOVE_QUOTE':
       return state.filter(quote => quote.id !== action.quoteId)
