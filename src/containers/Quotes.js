@@ -15,6 +15,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
+              <QuoteCard />
               {/*
                 TODO:
 
