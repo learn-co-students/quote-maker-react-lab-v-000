@@ -28,6 +28,7 @@ export default (state = [], action) => {
         ...state.slice(idx + 1) ];
       }
       return state;
+     console.log(state)
 
     default:
       return state;
