@@ -11,27 +11,31 @@ const QuoteCard = ({quote, upvoteQuote, downvoteQuote, removeQuote}) =>
       </div>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
+
           <button
             type="button"
             className="btn btn-primary"
             onClick={()=>upvoteQuote(quote.id)}
           >
-            Upvote
+            LIKE
           </button>
+
           <button
             type="button"
             className="btn btn-secondary"
             onClick={()=>downvoteQuote(quote.id)}
           >
-            Downvote
+            DISLIKE
           </button>
+
           <button
             type="button"
             className="btn btn-danger"
             onClick={()=>removeQuote(quote.id)}
           >
-            <span aria-hidden="true">&times;</span>
+            GO AWAY
           </button>
+
         </div>
         <div>Votes: {quote.votes}</div>
       </div>

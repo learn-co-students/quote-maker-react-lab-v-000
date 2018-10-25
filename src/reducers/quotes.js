@@ -15,7 +15,6 @@ export default (state = [], action) => {
     case 'UPVOTE_QUOTE':
       index = state.findIndex(quote => quote.id === action.quoteId);
       quote = state[index];
-
       return [
         ...state.slice(0, index),
         Object.assign({}, quote, {votes: quote.votes += 1}),
