@@ -2,14 +2,14 @@ export function addQuote(quote: {}){
   return {type: 'ADD_QUOTE', quote}
 }
 
-export function removeQuote(quoteId: Integer){
+export function removeQuote(quoteId){
   return {type: 'REMOVE_QUOTE', quoteId: quoteId}
 }
 
-export function upvoteQuote(quoteId: Integer){
+export function upvoteQuote(quoteId){
   return {type: 'UPVOTE_QUOTE', quoteId: quoteId}
 }
 
-export function downvoteQuote(quoteId: Integer){
+export function downvoteQuote(quoteId){
   return {type: 'DOWNVOTE_QUOTE', quoteId: quoteId}
 }
