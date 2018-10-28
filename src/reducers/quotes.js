@@ -21,7 +21,6 @@ export default (state = [], action) => {
                 return y
             }
             
-            
         default:
             return state
     }
