@@ -16,7 +16,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {this.props.quotes.map((quote, index) => <QuoteCard key={index} content={quote.content} author={quote.author} removeQuote={this.props.removeQuote(quote.id)} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote} />)}
+              {this.props.quotes.map((quote, index) => <QuoteCard key={index} content={quote.content} author={quote.author} votes={quote.votes} removeQuote={() => this.props.removeQuote(quote.id)} upvoteQuote={() => this.props.upvoteQuote(quote.id)} downvoteQuote={() => this.props.downvoteQuote(quote.id)} />)}
             </div>
           </div>
         </div>
@@ -28,16 +28,16 @@ const mapStateToProps = state => {
   return { quotes: state.quotes }
 }
 
-const mapDispatchToProps = dispatch => {
-  return{
-    removeQuote: () => {
-      dispatch(removeQuote())
+const mapDispatchToProps = (dispatch, quoteId) => {
+  return {
+    removeQuote: (quoteId) => {
+      dispatch(removeQuote(quoteId))
     },
-    upvoteQuote: () => {
-      dispatch(upvoteQuote())
+    upvoteQuote: (quoteId) => {
+      dispatch(upvoteQuote(quoteId))
     },
-    downvoteQuote: () => {
-      dispatch(downvoteQuote())
+    downvoteQuote: (quoteId) => {
+      dispatch(downvoteQuote(quoteId))
     }
   }
 }

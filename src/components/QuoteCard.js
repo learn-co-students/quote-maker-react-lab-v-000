@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteCard = ({id, content, author, removeQuote, upvoteQuote, downvoteQuote}) =>
+const QuoteCard = ({id, content, author, votes, removeQuote, upvoteQuote, downvoteQuote}) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
@@ -33,7 +33,7 @@ const QuoteCard = ({id, content, author, removeQuote, upvoteQuote, downvoteQuote
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        <div>Votes: {votes}</div>
       </div>
     </div>
   </div>;

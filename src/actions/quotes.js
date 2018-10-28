@@ -3,7 +3,7 @@ export function addQuote(quote: {}){
 }
 
 export function removeQuote(quoteId){
-  return {type: 'REMOVE_QUOTE', quoteId: quoteId}
+  return {type: 'REMOVE_QUOTE', quoteId}
 }
 
 export function upvoteQuote(quoteId){
