@@ -42,9 +42,4 @@ const mapDispatchToProps = (dispatch, quoteId) => {
   }
 }
 
-
-//add arguments to connect as needed
 export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
-
-
-// Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
