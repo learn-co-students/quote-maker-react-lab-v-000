@@ -13,7 +13,6 @@ class QuoteForm extends Component {
 
   handleOnChange = event => {
     // Handle Updating Component State
-    console.log("onchange")
     const { value, name } = event.target;
     this.setState({
       [name]: value
@@ -26,6 +25,7 @@ class QuoteForm extends Component {
     // Pass quote object to action creator
     // Update component state to return to default state
     event.preventDefault();
+
     const quote = {...this.state, id: uuid() };
     this.props.addQuote(quote);
     this.setState({
@@ -47,6 +47,7 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
                         onChange={this.handleOnChange}
                       />
@@ -58,6 +59,7 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
                         onChange={this.handleOnChange}
                       />
