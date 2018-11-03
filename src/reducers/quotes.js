@@ -1,39 +1,38 @@
-const quotes = (state = [], action) => {
+export default (state = [], action) => {
   let index;
-    let quote;
-    switch(action.type) {
+  let quote;
 
-      case 'ADD_QUOTE':
-        return state.concat(action.quote);
+  switch (action.type) {
 
-      case 'REMOVE_QUOTE':
-        return state.filter(quote => quote.id !== action.quoteId);
+    case 'ADD_QUOTE':
+      return state.concat(action.quote);
 
-      case 'UPVOTE_QUOTE':
-        quote = state.find(quote => quote.id === action.quoteId)
-        index = state.indexOf(quote);
+    case 'REMOVE_QUOTE':
+      return state.filter(quote => quote.id !== action.quoteId);
 
+    case 'UPVOTE_QUOTE':
+      index = state.findIndex(quote => quote.id === action.quoteId);
+      quote = state[index];
+
+      return [
+        ...state.slice(0, index),
+        Object.assign({}, quote, { votes: quote.votes += 1 }),
+        ...state.slice(index + 1)
+      ];
+
+    case 'DOWNVOTE_QUOTE':
+      index = state.findIndex(quote => quote.id === action.quoteId);
+      quote = state[index];
+      if (quote.votes > 0) {
         return [
           ...state.slice(0, index),
-          Object.assign({}, quote, { votes: quote.votes += 1 }),
+          Object.assign({}, quote, { votes: quote.votes -= 1 }),
           ...state.slice(index + 1)
         ];
+      }
+      return state;
 
-        case 'DOWNVOTE_QUOTE':
-          quote = state.find(quote => quote.id === action.quoteId);
-          index = state.indexOf(quote);
-           if (quote.votes > 0) {
-            return [
-              ...state.slice(0, index),
-              Object.assign({}, quote, { votes: quote.votes -= 1 }),
-              ...state.slice(index + 1)
-            ];
-          }
-          return state;
-
-        default:
-          return state;
-    }
+    default:
+      return state;
   }
-
-export default quotes;
+}

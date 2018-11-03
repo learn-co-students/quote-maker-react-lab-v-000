@@ -1,24 +1,27 @@
-export function addQuote(quote){
+export const addQuote = quote => {
   return {
-    type: "ADD_QUOTE",
-    quote: quote
+    type: 'ADD_QUOTE',
+    quote: Object.assign({}, quote, { votes: 0 })
   }
 }
- export function removeQuote(quote){
+
+export const removeQuote = quoteId => {
   return {
-    type: "REMOVE_QUOTE",
-    quoteId: quote
+    type: 'REMOVE_QUOTE',
+    quoteId
   }
 }
- export function upvoteQuote(quote){
+
+export const upvoteQuote = quoteId => {
   return {
-    type: "UPVOTE_QUOTE",
-    quoteId: quote
+    type: 'UPVOTE_QUOTE',
+    quoteId
   }
 }
- export function downvoteQuote(quote){
-   return {
-    type: "DOWNVOTE_QUOTE",
-    quoteId: quote
+
+export const downvoteQuote = quoteId => {
+  return {
+    type: 'DOWNVOTE_QUOTE',
+    quoteId
   }
 }
