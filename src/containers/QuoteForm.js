@@ -3,8 +3,6 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
-
-
 class QuoteForm extends Component {
 
   state = {
@@ -37,7 +35,7 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
@@ -45,8 +43,8 @@ class QuoteForm extends Component {
                         className="form-control"
                         onChange={this.handleOnChange}
                         name="content"
-                        // value={this.state.content}
-                        placeholder="quote"
+                        value={this.state.content}
+                        // placeholder="quote"
                       />
                     </div>
                   </div>
@@ -57,15 +55,15 @@ class QuoteForm extends Component {
                         onChange={this.handleOnChange}
                         className="form-control"
                         type="text"
-                        placeholder="author"
+                        // placeholder="author"
                         name="author"
-                        // value={this.state.author}
+                        value={this.state.author}
                       />
                     </div>
                   </div>
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
-                      <button type="submit" className="btn btn-default" onClick={this.handleOnSubmit}>Add</button>
+                      <button type="submit" className="btn btn-default" >Add</button>
                     </div>
                   </div>
                 </form>
