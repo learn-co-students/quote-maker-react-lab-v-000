@@ -9,7 +9,8 @@ class QuoteForm extends Component {
 
   state = {
     content: '',
-    author: ''
+    author: '',
+    votes: 0
   }
 
   handleOnChange = event => {
@@ -24,7 +25,8 @@ class QuoteForm extends Component {
     this.props.addQuote(quote)
       this.setState({
         content: "",
-        author: ""
+        author: "",
+        votes: 0
       });
   }
 
