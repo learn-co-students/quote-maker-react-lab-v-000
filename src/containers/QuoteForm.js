@@ -51,6 +51,7 @@ After the form is submitted, the state goes back to default and then
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        name="content"
                         id="content"
                         onChange={this.handleOnChange}  className="form-control"
                         value={this.state.content}
@@ -61,6 +62,7 @@ After the form is submitted, the state goes back to default and then
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        name="author"
                         id="author"
                         onChange={this.handleOnChange}
                         className="form-control"
