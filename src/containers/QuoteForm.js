@@ -6,8 +6,8 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    content: [],
-    author: [],
+    content: '',
+    author: '',
     votes: 0
     //set up a controlled form with internal state
   }
@@ -24,8 +24,8 @@ class QuoteForm extends Component {
     let quote = {...this.state, id: uuid()}
     this.props.addQuote(quote)
     this.setState({
-      content: [],
-      author: []
+      content: '',
+      author: ''
     })
     // Handle Form Submit event default
     // Create quote object from state
