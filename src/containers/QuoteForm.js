@@ -14,15 +14,15 @@ class QuoteForm extends Component {
 
   handleOnChange = event => {
     this.setState({
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     })
   };
     // Handle Updating Component State
 
   handleOnSubmit = event => {
     event.preventDefault();
-    let quote = {...this.state, id: uuid()}
-    this.props.addQuote(quote)
+    let quoteId = {...this.state, id: uuid()}
+    this.props.addQuote(quoteId)
     this.setState({
       content: '',
       author: ''
@@ -51,10 +51,11 @@ After the form is submitted, the state goes back to default and then
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        value={this.state.content}
                         name="content"
                         id="content"
-                        onChange={this.handleOnChange}  className="form-control"
-                        value={this.state.content}
+                        onChange={this.handleOnChange}
+                        className="form-control"
                       />
                     </div>
                   </div>
