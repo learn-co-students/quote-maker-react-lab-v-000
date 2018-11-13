@@ -10,7 +10,7 @@ export default (state = [], action) => {
       return state.filter(quote => quote.id !== action.quoteId);
     case 'UPVOTE_QUOTE':
       debugger
-      i = state.findIndex(quote => quote === action.quoteId)
+      i = state.findIndex(quote => quote.id === action.quoteId)
       // newQuote = {...action.quoteId, votes: action.quoteId.votes +=1}
       // return [...state.slice(0, i), newQuote, ...state.slice(i+1)]
 
@@ -18,11 +18,11 @@ export default (state = [], action) => {
       return [...state.slice(0, i), Object.assign({}, quote, { votes: quote.votes += 1 }), ...state.slice(i+1)]
 
     case 'DOWNVOTE_QUOTE':
-      i = state.findIndex(quote => quote === action.quoteId)
+      i = state.findIndex(quote => quote.id === action.quoteId)
       quote = state[i]
       debugger
       if (quote.votes > 0) {
-        newQuote = {...action.quoteId, votes: action.quoteId.votes -=1}
+        newQuote = {...quote, votes: quote.votes -=1}
         return [...state.slice(0, i), newQuote, ...state.slice(i+1)]
       }
       return state;
