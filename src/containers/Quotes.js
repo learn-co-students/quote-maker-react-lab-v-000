@@ -6,6 +6,9 @@ import QuoteCard from '../components/QuoteCard';
 class Quotes extends Component {
 
   render() {
+    console.log(this.props.quotes)
+    let quotesProps = this.props.quotes
+
     return (
       <div>
         <hr />
@@ -17,10 +20,16 @@ class Quotes extends Component {
         {console.log(this.props)}
           <div className="row">
             <div className="col-md-4">
-            {this.props.quotes.map(quote =>
-               <QuoteCard quote={quote} upvote={this.props.upvoteQuote} downvote={this.props.downvoteQuote} remove={this.props.removeQuote}/>
-              )
-            }
+            {quotesProps ?
+              quotesProps.map((quote, index) => {
+                 return (
+                   <QuoteCard
+                   key={index}
+                   quote={quote} upvote={this.props.upvoteQuote} downvote={this.props.downvoteQuote}
+                   remove={this.props.removeQuote}/>
+                 )}
+             )
+             :null}
             </div>
           </div>
         </div>
