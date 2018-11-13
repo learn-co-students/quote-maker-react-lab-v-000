@@ -3,14 +3,14 @@
 export const addQuote = quote => {
   return {
     type: 'ADD_QUOTE',
-    quote: Object.assign({}, quote, {votes:0})
+    quote: quote
   }
 }
 
 export const removeQuote = quoteId => {
   return {
     type: 'REMOVE_QUOTE',
-    quoteId
+    quoteId 
   }
 }
 
