@@ -36,8 +36,27 @@ class QuoteForm extends Component {
 The dispatch function is sent to props automatically with the action constructor as an argument, with the quote as an argument.
 AKA: dispatch(addQuote(quote))
 addQuote(quote) is calling the action constructor. The action object is going to dispatch at the bottom of the file.
-Dispatch(action) => Reducer(state, action) => New State => New Props
+Dispatch(action) => Reducer(state[aka store], action) => New State => New Props
 After the form is submitted, the state goes back to default and then
+*/
+/*
+unction createStore(reducer) {
+  let state;
+ 
+  function dispatch(action) {
+    state = reducer(state, action);
+    render();
+  }
+ 
+  function getState() {
+    return state;
+  };
+ 
+  return {
+    dispatch,
+    getState
+  };
+};
 */
   render() {
     return (
