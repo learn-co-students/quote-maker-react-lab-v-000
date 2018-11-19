@@ -5,7 +5,7 @@ const QuoteCard = (props) =>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-          {/* <p>{Render Quote Content}</p> */}
+          {<p>{Render Quote Content}</p>}
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
         </blockquote>
       </div>
@@ -14,12 +14,14 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
+            onClick={upvoteQuote()}
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={downvoteQuote()}
           >
             Downvote
           </button>
