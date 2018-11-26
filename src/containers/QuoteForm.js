@@ -26,8 +26,7 @@ class QuoteForm extends Component {
     event.preventDefault()
     let quote = this.state;
     quote.id = uuid();
-    quote.downvote = 0;
-    quote.upvote = 0;
+    quote.votes = 0;
     this.props.addQuote(quote);
     this.setState({
       content: "",
