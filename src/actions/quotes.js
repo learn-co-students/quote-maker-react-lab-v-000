@@ -5,7 +5,7 @@ import uuid from 'uuid'
 // const id = uuid()
 
 
-export const addQuote = quoteId => {
+export const addQuote = quote => {
 	return {
 		type: 'ADD_QUOTE',
 		quote
