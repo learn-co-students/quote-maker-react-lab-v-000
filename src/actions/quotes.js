@@ -15,7 +15,7 @@ export const addQuote = quoteId => {
 export const removeQuote = quoteId => {
 	return {
 		type: 'REMOVE_QUOTE',
-		quote
+		quoteId
 	}
 }
 
@@ -23,7 +23,7 @@ export const removeQuote = quoteId => {
 export const upvoteQuote = quoteId => {
 	return {
 		type: 'UPVOTE_QUOTE',
-		quote
+		quoteId
 	}
 }
 
@@ -32,6 +32,6 @@ export const upvoteQuote = quoteId => {
 export const downvoteQuote = quoteId => {
 	return {
 		type: 'DOWNVOTE_QUOTE',
-		quote
+		quoteId
 	}
 }
