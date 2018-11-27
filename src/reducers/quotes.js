@@ -14,16 +14,14 @@ export default (state = [], action) => {
 		case 'UPVOTE':
 			idx = state.findIndex(quote => quote.id === action.quoteId)
   			state[idx].votes += 1
-			return {
-			    state
-			}
+			return state
+			
 		case 'DOWNVOTE':
 			idx = state.findIndex(quote => quote.id === action.quoteId)
   			count = state[idx].votes
   			count > 0 ? state[idx].votes += 1 : state
-			return {
-			    state
-			}
+			return state
+	
 		default:
 			return state;
 	}
