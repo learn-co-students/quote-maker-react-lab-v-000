@@ -13,7 +13,7 @@ export default (state = [], action) => {
       quote = state[idx]
       return [
         ...state.slice(0, idx),
-        Object.assign({}, quote, { votes: quote.votes += 1 }),
+        Object.assign({}, quote, { votes: ++quote.votes }),
         ...state.slice(idx + 1)
       ];
 
@@ -22,7 +22,7 @@ export default (state = [], action) => {
       quote = state[idx]
       return [
         ...state.slice(0,idx),
-        Object.assign({}, quote, {votes: quote.votes > 0 ? quote.votes -= 1 : 0}),
+        {...quote, votes: quote.votes > 0 ? --quote.votes : 0},
         ...state.slice(idx +1)
       ]
 
