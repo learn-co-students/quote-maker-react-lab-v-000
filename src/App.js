@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import QuoteForm from './containers/QuoteForm'
+import Quotes from './containers/Quotes'
 
 class App extends Component {
   render() {
+	  debugger
     return (
       <div className="container-fluid">
         <div className="row title justify-content-center" style={{ paddingTop: '12px' }}>
@@ -13,6 +16,8 @@ class App extends Component {
 
           Render QuoteForm and Quotes Components
          */}
+	 <QuoteForm />
+	 <Quotes />
       </div>
     );
   }
