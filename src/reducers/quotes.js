@@ -11,6 +11,7 @@ export default (state = [], action) => {
 		        ...state,
 		        quotes: [state.quotes.slice(0, idx), state.quotes.slice(idx + 1)]
 			}
+
 		case 'UPVOTE':
 			idx = state.findIndex(quote => quote.id === action.quoteId)
   			state[idx].votes += 1
@@ -18,8 +19,8 @@ export default (state = [], action) => {
 			
 		case 'DOWNVOTE':
 			idx = state.findIndex(quote => quote.id === action.quoteId)
-  			count = state[idx].votes
-  			count > 0 ? state[idx].votes += 1 : state
+  			let count = state[idx].votes
+  			count > 0 ? state[idx].votes -= 1 : state
 			return state
 	
 		default:
