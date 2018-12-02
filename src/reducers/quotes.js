@@ -3,6 +3,8 @@ export default (state = [], action) => {
 	let idx;
 	let quote;
 
+	console.log(action.quote)
+	console.log(action.quoteId)
 	switch(action.type){
 		case 'ADD_QUOTE':
 			return [...state, action.quote]

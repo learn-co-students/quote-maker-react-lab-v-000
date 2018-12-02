@@ -5,6 +5,7 @@ import QuoteForm from './containers/QuoteForm'
 
 class App extends Component {
   render() {
+    
     return (
       <div className="container-fluid">
 
@@ -13,8 +14,8 @@ class App extends Component {
         </div>
         
         <hr />
-        <Quotes />
         <QuoteForm />
+        <Quotes />
 
       </div>
     );
