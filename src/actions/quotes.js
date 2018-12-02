@@ -1,9 +1,4 @@
 // TODO: Create action creators as defined in tests
-import uuid from 'uuid'
-
-
-// const id = uuid()
-
 
 export const addQuote = quote => {
 	return {
@@ -19,15 +14,12 @@ export const removeQuote = quoteId => {
 	}
 }
 
-
 export const upvoteQuote = quoteId => {
 	return {
 		type: 'UPVOTE_QUOTE',
 		quoteId
 	}
 }
-
-
 
 export const downvoteQuote = quoteId => {
 	return {

@@ -1,10 +1,11 @@
 export default (state = [], action) => {
+	let newState
 	let idx;
 	let quote;
 
 	switch(action.type){
 		case 'ADD_QUOTE':
-			return state.concat(action.quote)
+			return [...state, action.quote]
 			
 		case 'REMOVE_QUOTE':
 			return {
@@ -13,15 +14,24 @@ export default (state = [], action) => {
 			}
 
 		case 'UPVOTE':
-			idx = state.findIndex(quote => quote.id === action.quoteId)
-  			state[idx].votes += 1
-			return state
+			newState = state.map(quote => {
+				if (quote.id === action.quoteId) {
+					return { ...quote, votes: ++quote.votes}
+				} else {
+					return quote
+				}
+			})
+			return newState
 			
 		case 'DOWNVOTE':
-			idx = state.findIndex(quote => quote.id === action.quoteId)
-  			let count = state[idx].votes
-  			count > 0 ? state[idx].votes -= 1 : state
-			return state
+			newState = state.map(quote => {
+				if (quote.id === action.quoteId && quote.votes > 0) {
+					return { ...quote, votes: --quote.votes}
+				} else {
+					return quote
+				}
+			})
+			return newState
 	
 		default:
 			return state;
