@@ -3,19 +3,22 @@ export default (state = [], action) => {
 	let idx;
 	let quote;
 
-	console.log(action.quote)
-	console.log(action.quoteId)
+	console.log(action)
+	console.log("action",action.quote)
+	console.log("id", action.quoteId)
+
 	switch(action.type){
 		case 'ADD_QUOTE':
 			return [...state, action.quote]
 			
 		case 'REMOVE_QUOTE':
-			return {
-		        ...state,
-		        quotes: [state.quotes.slice(0, idx), state.quotes.slice(idx + 1)]
-			}
+			newState = state.filter(q => {
+    			return q.id !== action.quoteId
+    		})
+    		return newState
 
-		case 'UPVOTE':
+		case 'UPVOTE_QUOTE':
+			// debugger;
 			newState = state.map(quote => {
 				if (quote.id === action.quoteId) {
 					return { ...quote, votes: ++quote.votes}
@@ -25,7 +28,7 @@ export default (state = [], action) => {
 			})
 			return newState
 			
-		case 'DOWNVOTE':
+		case 'DOWNVOTE_QUOTE':
 			newState = state.map(quote => {
 				if (quote.id === action.quoteId && quote.votes > 0) {
 					return { ...quote, votes: --quote.votes}
