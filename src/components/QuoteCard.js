@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const QuoteCard = ({quote, removeQuote,  upvoteQuote, downvoteQuote}) =>
 
   <div>

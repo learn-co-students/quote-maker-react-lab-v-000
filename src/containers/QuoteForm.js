@@ -13,7 +13,6 @@ class QuoteForm extends Component {
       content: '',
       author: ''
     }
-
   }
 
   handleOnChange = event => {
@@ -28,7 +27,6 @@ class QuoteForm extends Component {
     event.preventDefault()
 
     // Create quote object from state
-    
     const quote = {
       author: this.state.author, 
       content: this.state.content, 
@@ -89,12 +87,10 @@ class QuoteForm extends Component {
   }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     addQuote: addQuote
   }, dispatch)
 };
 
-//add arguments to connect as needed
 export default connect(null, mapDispatchToProps)(QuoteForm);

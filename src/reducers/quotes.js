@@ -1,11 +1,5 @@
 export default (state = [], action) => {
 	let newState
-	let idx;
-	let quote;
-
-	console.log(action)
-	console.log("action",action.quote)
-	console.log("id", action.quoteId)
 
 	switch(action.type){
 		case 'ADD_QUOTE':
@@ -18,7 +12,6 @@ export default (state = [], action) => {
     		return newState
 
 		case 'UPVOTE_QUOTE':
-			// debugger;
 			newState = state.map(quote => {
 				if (quote.id === action.quoteId) {
 					return { ...quote, votes: ++quote.votes}
