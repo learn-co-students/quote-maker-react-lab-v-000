@@ -6,7 +6,8 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
   state = {
     content: '',
-    author: ''
+    author: '',
+    votes: 0
   }
 
   handleOnChange = event => {
