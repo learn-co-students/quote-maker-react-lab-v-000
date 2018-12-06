@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
 
 class Quotes extends Component {
-
   render() {
+    debugger
     return (
       <div>
         <hr />

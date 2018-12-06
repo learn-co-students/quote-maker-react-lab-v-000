@@ -12,7 +12,6 @@ class App extends Component {
         <hr />
         <QuoteForm />
         <Quotes />
-
       </div>
     );
   }
