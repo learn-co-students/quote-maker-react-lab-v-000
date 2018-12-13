@@ -11,35 +11,37 @@ class QuoteForm extends Component {
   }
 
   handleOnChange = event => {
-    const { value, name } = event.target;
+    //Handle updating component state
     this.setState({
-      [name]: value
-    });
+      [event.target.name]: event.target.value
+    })
+    //another way to write it:
+    // const { value, name } = event.target;
+    // this.setState({
+    //   [name]: value
+    // });
   }
 
   handleOnSubmit = event => {
+     // Handle Form Submit event default
     event.preventDefault();
-    const quote = {...this.state, id: uuid() };
+    // Create quote object from state
+    const quote = {
+      author: this.state.author,
+      content: this.state.content,
+      id: uuid(),
+      votes: 0
+    };
+    //OR another way to write it:
+    // const quote = {...this.state, id: uuid() };
+    // Pass quote object to action creator
     this.props.addQuote(quote);
+    // Update component state to return to default state
     this.setState({
       content: '',
       author: ''
     });
   }
-
-  // handleOnSubmit = event => {
-  //   // Handle Form Submit event default
-  //   event.preventDefault();
-  //   // Create quote object from state
-  //   const quote = {...this.state, id: uuid() };
-  //   // Pass quote object to action creator
-  //   this.props.addQuote(quote);
-  //   // Update component state to return to default state
-  //   this.setState({
-  //     content: '',
-  //     author: ''
-  //   });
-  // }
 
   render() {
     return (
@@ -74,7 +76,7 @@ class QuoteForm extends Component {
                   </div>
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
-                      <button type="submit" className="btn btn-default">Add</button>
+                      <button type="submit" className="btn btn-default">Add Quote</button>
                     </div>
                   </div>
                 </form>
@@ -87,5 +89,15 @@ class QuoteForm extends Component {
   }
 }
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addQuote: () => {
+//       dispatch(addQuote())
+//     }
+//   };
+// };
+
 //add arguments to connect as needed
-export default connect(null, {addQuote} )(QuoteForm);
+// make a dispatch action to Redux using action addQuote() that will
+//take a quote as an argument and start the reducer process
+export default connect(null, {addQuote})(QuoteForm);

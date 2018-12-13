@@ -1,10 +1,11 @@
 import React from 'react';
 
+//Need to explicilty pass the quote props quote, removeQuote, upvoteQuote, downvoteQuote
 const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
-        <blockquote className="card-blockquote">
+        <blockquote className="card-blockquote"> 
           <p>{quote.content}</p>
           <footer>- author <cite title="Source Title">{quote.author}</cite></footer>
         </blockquote>
