@@ -2,24 +2,27 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
+import { bindActionCreators } from 'redux';
 
-class QuoteForm extends Component {
+export class QuoteForm extends Component {
+  constructor(props) {
+    super(props)
 
-  state = {
-    content: '',
-    author: ''
+    this.state = {
+      content: '',
+      author: ''
+    }
   }
 
   handleOnChange = event => {
     this.setState({
-      content: event.target.value,
-      author: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const quote = {...this.state, id: uuid() };
+    const quote = { ...this.state, id: uuid(), votes: 0 };
     this.props.addQuote(quote);
     this.setState({
       content: '',
@@ -40,6 +43,7 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
                         onChange={(event) => this.handleOnChange(event)}
                       />
@@ -51,6 +55,7 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
                         onChange={(event) => this.handleOnChange(event)}
                       />
@@ -71,4 +76,10 @@ class QuoteForm extends Component {
   }
 }
 
-export default connect(null, { addQuote })(QuoteForm);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    addQuote: addQuote
+  }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(QuoteForm);
