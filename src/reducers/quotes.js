@@ -9,10 +9,10 @@ export default (state = [], action) => {
 
     case "REMOVE_QUOTE":
       qId = action.quoteId
-      return state.filter( obj => obj.id != qId)
+      return state.filter( obj => obj.id !== qId)
 
     case "UPVOTE_QUOTE":
-      index = state.findIndex( obj => obj.id == action.quoteId )
+      index = state.findIndex( obj => obj.id === action.quoteId )
       quote = state[index]
       return [
         ...state.slice(0, index),
@@ -21,7 +21,7 @@ export default (state = [], action) => {
       ];
 
     case "DOWNVOTE_QUOTE":
-      index = state.findIndex( obj => obj.id == action.quoteId )
+      index = state.findIndex( obj => obj.id === action.quoteId )
       quote = state[index]
       if (quote.votes < 1) {
         return state;
