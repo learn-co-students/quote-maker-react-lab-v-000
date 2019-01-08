@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteCard = ({quote, removeVote, downvoteQuote, upvoteQuote}) =>
+const QuoteCard = ({quote, removeQuote, downvoteQuote, upvoteQuote}) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
@@ -28,7 +28,7 @@ const QuoteCard = ({quote, removeVote, downvoteQuote, upvoteQuote}) =>
           <button
             type="button"
             className="btn btn-danger"
-            onClick={() => removeVote(quote.id)}
+            onClick={() => removeQuote(quote.id)}
           >
             <span aria-hidden="true">&times;</span>
           </button>
