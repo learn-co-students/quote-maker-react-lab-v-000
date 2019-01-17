@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import quotes from './quotes';
+import quotesReducer from './quotes';
+import uuid from 'uuid'
 
-export default combineReducers({
-  quotes
+const rootReducer = combineReducers({
+  quotes: quotesReducer
 });
+
+export default rootReducer;
