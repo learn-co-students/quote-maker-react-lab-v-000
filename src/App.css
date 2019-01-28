@@ -17,3 +17,9 @@
 .App-intro {
   font-size: large;
 }
+
+button#formSubmit {
+  background-color: lightgray;
+  border-style: solid;
+  border-width: medium;
+}
