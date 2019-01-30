@@ -5,21 +5,21 @@ export const addQuote = quote => {
   };
 };
 
-export const removeQuote = quote => {
+export const removeQuote = quoteId => {
   return {
     type: "REMOVE_QUOTE",
     quoteId
   };
 };
 
-export const upvoteQuote = quote => {
+export const upvoteQuote = quoteId => {
   return {
     type: "UPVOTE_QUOTE",
     quoteId
   };
 };
 
-export const downvoteQuote = quote => {
+export const downvoteQuote = quoteId => {
   return {
     type: "DOWNVOTE_QUOTE",
     quoteId
