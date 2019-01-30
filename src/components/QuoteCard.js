@@ -1,7 +1,7 @@
 import React from 'react';
 import quotes from '../reducers/quotes';
 
-const QuoteCard = (props) =>
+const QuoteCard = (quote, removeQuote, upvoteQuote, downvoteQuote) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
@@ -14,18 +14,21 @@ const QuoteCard = (props) =>
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button
             type="button"
+            onClick = {() => upvoteQuote(quote.id)}
             className="btn btn-primary"
           >
             Upvote
           </button>
           <button
             type="button"
+            onClick = {() => downvoteQuote(quote.id)}
             className="btn btn-secondary"
           >
             Downvote
           </button>
           <button
             type="button"
+            onClick = {() => removeQuote(quote.id)}
             className="btn btn-danger"
           >
             <span aria-hidden="true">&times;</span>
