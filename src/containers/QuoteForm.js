@@ -7,7 +7,8 @@ class QuoteForm extends Component {
 
   state = {
     author: "",
-    content: ""
+    content: "",
+    votes: 0
     //set up a controlled form with internal state
   }
 
@@ -25,7 +26,8 @@ class QuoteForm extends Component {
     this.props.addQuote(quote)
     this.setState({
       author: "",
-      content: ""
+      content: "",
+      votes: 0
     })
     // Handle Form Submit event default
     // Create quote object from state
@@ -78,4 +80,4 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect(state=>({author: state.author, content: state.content}), {addQuote})(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);
