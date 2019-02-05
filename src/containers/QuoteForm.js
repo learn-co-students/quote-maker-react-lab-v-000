@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
+// we import the addQuote action creator that will be invoked within a dispatch call with the help of the connect
+// any action creators (actions) we might want to invoke within this component should be imported here
 
 class QuoteForm extends Component {
 
   state = {
     //set up a controlled form with internal state
-  }
+    // id: uuid() we dont want id to generate a single time as default
+    content: '',
+    author: '',
+    votes: 0
+   }
 
   handleOnChange = event => {
     // Handle Updating Component State
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   handleOnSubmit = event => {
@@ -18,6 +27,21 @@ class QuoteForm extends Component {
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
+    event.preventDefault();
+    //wait to generate the id until the quote is actually created with content 
+    
+    this.props.addQuote({...this.state, id: uuid()})
+    //debugger
+    // we've created quote with form data(state) now. 
+    // now we'll want to reset the state so the form shows empty input fields again
+    // aka blank slate
+    
+    this.setState({
+      content: '',
+      author: ''
+    })
+    
+
   }
 
   render() {
@@ -27,13 +51,15 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        onChange={this.handleOnChange}
                         className="form-control"
                         value={this.state.content}
+                        name="content"
                       />
                     </div>
                   </div>
@@ -41,9 +67,11 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        onChange={this.handleOnChange}
                         className="form-control"
                         type="text"
                         value={this.state.author}
+                        name="author"
                       />
                     </div>
                   </div>
@@ -63,4 +91,9 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+// I don't think we need to pass any state to props because quoteform has no children
+// we do need to pass action creators to props so that it is available here, within quote form. 
+// specifically, because this component needs to create a quote, we pass it that action creator. now every time connect is called,
+// we have this action availble that we can dispatch 
+export default connect(null, { addQuote })(QuoteForm);
+
