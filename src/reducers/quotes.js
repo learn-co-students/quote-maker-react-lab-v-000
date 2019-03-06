@@ -10,15 +10,14 @@ export default (state = [], action) => {
     case 'UPVOTE_QUOTE':
       idx = state.findIndex(quote => quote.id === action.quoteId);
       quote = state[idx]
-      return [...state.slice(0, idx), ...quote, { votes:quote.votes+=1 },...state.slice(idx + 1)]
+      return [...state.slice(0, idx), {...quote, votes:quote.votes+=1 },...state.slice(idx + 1)]
     case 'DOWNVOTE_QUOTE':
       idx = state.findIndex(quote => quote.id === action.quoteId);
       quote = state[idx];
-      quote.votes = quote.votes > 0 ? quote.votes - 1: 0
       if (quote.votes > 0) {
         return [
           ...state.slice(0,idx),
-          ...quote, { votes: quote.votes -= 1 },
+           { ...quote, votes: quote.votes -= 1 },
           ...state.slice(idx + 1)
         ]
       }
