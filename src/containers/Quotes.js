@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
+import {bindActionCreators} from 'redux'
+import { upvoteQuote, downvoteQuote, removeQuote} from '../actions/quotes'
+
 
 class Quotes extends Component {
+
+
+
+  displayQuotes =()=>{
+    return this.props.quotes.map((q, key)=>{
+      console.log(this.props.upvoteQuote)
+      return(<li key= {key}>{<QuoteCard quote={q} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote} removeQuote={this.props.removeQuote}/>}</li>)
+
+    })
+  }
 
   render() {
     return (
@@ -10,11 +23,13 @@ class Quotes extends Component {
         <hr />
         <div className="row justify-content-center">
           <h2>Quotes</h2>
+          {console.log(this.props)}
         </div>
         <hr />
         <div className="container">
           <div className="row">
             <div className="col-md-4">
+                {this.displayQuotes()}
               {/*
                 TODO:
 
@@ -28,5 +43,17 @@ class Quotes extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {quotes: state.quotes}
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    upvoteQuote: upvoteQuote,
+    downvoteQuote: downvoteQuote,
+    removeQuote: removeQuote
+  }, dispatch)
+}
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
