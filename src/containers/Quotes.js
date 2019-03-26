@@ -6,16 +6,6 @@ import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 class Quotes extends Component {
   render() {
     const { quotes, removeQuote, upvoteQuote, downvoteQuote } = this.props
-
-
-//create each quote here
-    // const quote = this.props.quotes.map((quote, index) => {
-    //   return <QuoteCard key={index} 
-    //             quote={quote}
-    //             upvoteQuote = {this.props.upvoteQuote}  
-    //             downvoteQuote= {this.props.downvoteQuote}
-    //             removeQuote={this.props.removeQuote} /> 
-    //     })
     
     return (
       <div>
@@ -48,14 +38,4 @@ const mapStateToProps = state => {
   })
 }
 
-// Don't need this if I include the specifics down below 
-// const mapDispatchToProps = dispatch => {
-//   return bindActionCreators({
-//     removeQuote: removeQuote, 
-//     upvoteQuote: upvoteQuote,
-//     downvoteQuote: downvoteQuote
-//     }, dispatch)
-// }
-//add arguments to connect as needed
-//include in args the specific props being mapped to state 
 export default connect(mapStateToProps, { removeQuote, upvoteQuote, downvoteQuote })(Quotes);
