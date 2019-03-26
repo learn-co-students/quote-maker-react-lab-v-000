@@ -1,5 +1,6 @@
 export default (state = [], action) => {
 	let idx;
+  const newState = state;
  
 	switch (action.type) {
 	
@@ -8,17 +9,21 @@ export default (state = [], action) => {
 
     case "REMOVE_QUOTE":
       idx = state.indexOf(action);
-      const newState = state
       return newState.splice(idx, 1)
 
     case 'UPVOTE_QUOTE':
-      idx = state.indexOf(action);
-      return state;
+      newState[0]["votes"] = newState[0]["votes"] + 1
+      return newState;
 
     case 'DOWNVOTE_QUOTE':
-      idx = state.indexOf(action);
-      return [...state];
-
+        switch (newState[0]["votes"]) {
+          case 0:
+            return state;
+            
+          default:
+            newState[0]["votes"] = newState[0]["votes"] - 1
+            return newState;
+        }
  
     default:
       return state;
