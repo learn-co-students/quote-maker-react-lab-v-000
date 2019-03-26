@@ -3,11 +3,20 @@ import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
 import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 
-
 class Quotes extends Component {
-
   render() {
-    const { quotes, removeQuotes, upvoteQuotes, downvotesQuotes } = this.props
+    const { quotes, removeQuote, upvoteQuote, downvoteQuote } = this.props
+
+
+//create each quote here
+    // const quote = this.props.quotes.map((quote, index) => {
+    //   return <QuoteCard key={index} 
+    //             quote={quote}
+    //             upvoteQuote = {this.props.upvoteQuote}  
+    //             downvoteQuote= {this.props.downvoteQuote}
+    //             removeQuote={this.props.removeQuote} /> 
+    //     })
+    
     return (
       <div>
         <hr />
@@ -17,8 +26,14 @@ class Quotes extends Component {
         <hr />
         <div className="container">
           <div className="row">
+         
             <div className="col-md-4">
-              {quotes.map(quote => <QuoteCard key={quote.id} removeQuote={removeQuote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} />)}
+              {quotes.map(quote => <QuoteCard 
+                        key={quote.id}   
+                        removeQuote={removeQuote} 
+                        upvoteQuote={upvoteQuote}
+                        downvoteQuote={downvoteQuote}
+                        quote={quote} />)}
             </div>
           </div>
         </div>
@@ -32,6 +47,15 @@ const mapStateToProps = state => {
     quotes: state.quotes
   })
 }
+
+// Don't need this if I include the specifics down below 
+// const mapDispatchToProps = dispatch => {
+//   return bindActionCreators({
+//     removeQuote: removeQuote, 
+//     upvoteQuote: upvoteQuote,
+//     downvoteQuote: downvoteQuote
+//     }, dispatch)
+// }
 //add arguments to connect as needed
 //include in args the specific props being mapped to state 
-export default connect(mapStateToProps, { removeQuote, upvoteQuote, downvoteQuote }) (Quotes);
+export default connect(mapStateToProps, { removeQuote, upvoteQuote, downvoteQuote })(Quotes);

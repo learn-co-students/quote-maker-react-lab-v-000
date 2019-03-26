@@ -3,34 +3,43 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
+
 class QuoteForm extends Component {
 
   state = {
      content: '',
      author: ''
-    //set up a controlled form with internal state
   }
 
+// const {value,name} = event.target;
   handleOnChange = event => {
-    // Handle Updating Component State
     this.setState({
-      quote: event.target.value
+      [event.target.name]: event.target.value
     });
   }
+// event.target.name: event.target.value? 
 
   handleOnSubmit = event => {
-    // Handle Form Submit event default
     event.preventDefault();
-    // Create quote object from state
-    const quote = {...this.state, id: uuid() };
-    // Pass quote object to action creator
-    this.props.addQuote(quote);
-    // Update component state to return to default state
-    this.setState({
+    //create quote object from state 
+    const quote = {...this.state,
+      // content: this.state.content, 
+      // author: this.state.author,
+      id: uuid()
+    };
+  //could change votes to default
+
+  //could be const quote = {...this.state, id: uuid()} -- update both content and author, fullstate at the same time. 
+  //pass quote object to action creator
+ this.props.addQuote(quote);
+
+//update Component state
+ this.setState({
       content: '',
       author: ''
     });
   }
+
 
   render() {
     return (
@@ -43,9 +52,11 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
+                      
                       <textarea
                         className="form-control"
                         value={this.state.content}
+                        name="content"
                         onChange={this.handleOnChange}
                       />
                     </div>
@@ -53,9 +64,11 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
+                      
                       <input
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
                         onChange={this.handleOnChange}
                       />
@@ -76,5 +89,10 @@ class QuoteForm extends Component {
   }
 }
 
-//add arguments to connect as needed
-export default connect(null, { addQuote })(QuoteForm);
+// const mapDispatchToProps = dispatch => {
+//   return ({
+//     addQuote: addQuote
+//   }, dispatch)
+// }
+
+export default connect(null, { addQuote } )(QuoteForm);
