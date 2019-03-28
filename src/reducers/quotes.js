@@ -5,18 +5,26 @@ export default (state = [], action) =>{
     case 'ADD_QUOTE':
       return [...state,action.quote]
     case 'REMOVE_QUOTE':
-      idx = state.indexOf(action.quoteId);
+      idx = state.findIndex(quote => quote.quoteId === action.id);
       return [...state.slice(0,idx), ...state.slice(idx + 1)];
-    case 'UPVOTE_QUOTE':
-      idx = state.indexOf(action.quoteId);
-      return [...state.slice(0, idx), Object.assign({}, quote, {votes: quote.votes += 1}), ...state.slice(idx + 1)];
-    case 'DOWNVOTE_QUOTE':
-      quote = state[idx]
-        if (quote.votes > 0) {
-          idx = state.indexOf(action.quoteId);
-          return [...state.slice(0, idx), Object.assign({}, state[idx], {votes: state[idx].votes -= 1}), ...state.slice(idx + 1)]
-        }
-        return state;
+    case "UPVOTE_QUOTE":
+            idx = state.findIndex(quote => quote.quoteId === action.id);
+            return [
+              ...state.slice(0, idx),
+              { ...state[idx], votes: state[idx].votes + 1 },
+              ...state.slice(idx + 1)
+            ];
+
+    case "DOWNVOTE_QUOTE":
+            idx = state.findIndex(quote => quote.quoteId === action.id);
+
+            if (state[idx].votes > 0) {
+              return [
+                ...state.slice(0, idx),
+                { ...state[idx], votes: state[idx].votes - 1 },
+                ...state.slice(idx + 1)
+              ];
+      }
     default:
       return state;
   }
