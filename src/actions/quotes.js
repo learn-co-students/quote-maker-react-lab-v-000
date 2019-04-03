@@ -5,23 +5,23 @@ export function addQuote(quote){
 	}
 }
 
-export function removeQuote(quote){
+export function removeQuote(id){
 	return {
 		type: 'REMOVE_QUOTE',
-		quoteId: quote
+		quoteId: id
 	}
 }
 
-export function upvoteQuote(quote){
+export function upvoteQuote(id){
 	return {
 		type: 'UPVOTE_QUOTE',
-		quoteId: quote
+		quoteId: id
 	}
 }
 
-export function downvoteQuote(quote){
+export function downvoteQuote(id){
 	return {
 		type: 'DOWNVOTE_QUOTE',
-		quoteId: quote
+		quoteId: id
 	}
 }
