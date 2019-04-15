@@ -39,7 +39,7 @@ describe('Quotes Reducer', () => {
         votes: 0
       }
     ];
-
+    console.log('from test file: ', firstId)
     expect(reducer(initialState, {
       type: 'REMOVE_QUOTE',
       quoteId: firstId
