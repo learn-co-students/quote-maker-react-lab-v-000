@@ -19,7 +19,12 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     
-    const quote = {...this.state, quoteId: uuid() };
+    const quote = {
+      content: this.state.content,
+      author: this.state.author,
+      id: uuid(),
+      votes: 0
+    };
     this.props.addQuote(quote);
     this.setState({
       content: '',
@@ -43,7 +48,7 @@ class QuoteForm extends Component {
                         name="content"
                         value={this.state.content}
                         onChange={(event) => this.handleOnChange(event)}
-                        placeholder="Quote content"
+                        // placeholder="Quote content"
                       />
                     </div>
                   </div>
@@ -56,7 +61,7 @@ class QuoteForm extends Component {
                         value={this.state.author}
                         name="author"
                         onChange={(event) => this.handleOnChange(event)}
-                        placeholder="Author's name"
+                        // placeholder="Author's name"
                       />
                     </div>
                   </div>
