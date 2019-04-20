@@ -20,6 +20,7 @@ class Quotes extends Component {
                 <QuoteCard
                   key={quote.id}
                   upvoteQuote={upvoteQuote}
+                  downvoteQuote={downvoteQuote}
                   removeQuote={removeQuote}
                   quote={quote}
                 />
