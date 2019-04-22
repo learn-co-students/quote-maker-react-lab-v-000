@@ -36,3 +36,4 @@ const QuoteCard = (props) =>
   </div>;
 
 export default QuoteCard;
+           
