@@ -25,6 +25,7 @@ class QuoteForm extends Component {
     event.preventDefault();
     const quote = {...this.state, id: uuid()}
     this.props.addQuote(quote)
+    console.log(quote)
     this.setState({
       content: '',
       author: ''
