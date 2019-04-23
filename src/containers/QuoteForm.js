@@ -12,7 +12,7 @@ class QuoteForm extends Component {
 
   handleOnChange = event => {
     this.setState({
-      content: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
@@ -20,7 +20,7 @@ class QuoteForm extends Component {
     // Handle Form Submit event default
     event.preventDefault();
     // Create quote object from state
-    const quote = {...this.state, id: uuid()}
+    const quote = {...this.state, id: uuid() };
     // Pass quote object to action creator
     this.props.addQuote(quote);
     // Update component state to return to default state
@@ -76,12 +76,5 @@ class QuoteForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addQuote: (quote) => {
-      dispatch(addQuote(quote))
-    }
-  };
-}
 //add arguments to connect as needed
-export default connect(null, mapDispatchToProps)(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
