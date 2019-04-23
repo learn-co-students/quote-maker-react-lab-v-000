@@ -42,7 +42,7 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
-                        onChange={handleOnChange}
+                        onChange={this.handleOnChange}
                         className="form-control"
                         value={this.state.content}
                       />
@@ -52,7 +52,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
-                        onChange={handleOnChange}
+                        onChange={this.handleOnChange}
                         className="form-control"
                         type="text"
                         value={this.state.author}
@@ -61,7 +61,7 @@ class QuoteForm extends Component {
                   </div>
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
-                      <button type="submit" className="btn btn-default">Add</button>
+                      <button type="submit" onSubmit={this.handleOnSubmit} className="btn btn-default">Add</button>
                     </div>
                   </div>
                 </form>
