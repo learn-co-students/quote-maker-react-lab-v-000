@@ -16,7 +16,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              
+              {this.props.quotes.map(quote => <QuoteCard key={quote.id} upvoteQuote={upvoteQuote} downvoteQuote = {downvoteQuote} removeQuote = {removeQuote} quote = {quote} />)}
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@ class Quotes extends Component {
   }
 }
 
-mapStateToProps = state => {
+const mapStateToProps = state => {
   return ({
     quotes: state.quotes
   })
