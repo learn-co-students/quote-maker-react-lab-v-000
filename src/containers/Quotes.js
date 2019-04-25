@@ -4,6 +4,7 @@ import QuoteCard from '../components/QuoteCard';
 import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes'
 
 class Quotes extends Component {
+  
 
   render() {
     return (
