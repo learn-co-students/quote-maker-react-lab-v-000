@@ -2,7 +2,7 @@ import uuid from 'uuid';
 import { expect } from 'chai';
 import reducer from '../../src/reducers/quotes';
 
-
+ 
 describe('Quotes Reducer', () => {
 
   it('should return the initial state', () => {
