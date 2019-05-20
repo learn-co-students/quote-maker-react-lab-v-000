@@ -9,7 +9,7 @@ class Quotes extends Component {
 //container has its own internal state
 //regular comp are stateless (presentational), usually
   render() {
-    debugger
+    
     //we destructuring props into individual variables
 
     const {quotes, removeQuote, upvoteQuote, downvoteQuote  } = this.props

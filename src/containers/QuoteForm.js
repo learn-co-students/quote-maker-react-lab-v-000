@@ -25,7 +25,7 @@ class QuoteForm extends Component {
       ...this.state,
       id: uuid()
     }
-    debugger
+    
     this.props.addquote(quote)
     this.setState({content: '', author: ''})
   }
