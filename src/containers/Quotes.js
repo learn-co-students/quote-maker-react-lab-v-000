@@ -6,7 +6,7 @@ import { removeQuote, upvoteQuote, downvoteQuote } from "../actions/quotes";
 class Quotes extends Component {
   render() {
     // const { removeQuote, upvoteQuote, downvoteQuote } = this.props;
-    console.log(removeQuote);
+    console.log(upvoteQuote, "inside quote.js");
     console.log(this.props);
     return (
       <div>

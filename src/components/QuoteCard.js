@@ -21,7 +21,7 @@ const QuoteCard = ({ quote, upvoteQuote }) => (
           <button
             type="button"
             className="btn btn-primary"
-            onClick={() => upvoteQuote(quote.id)}
+            onClick={() => console.log(upvoteQuote(quote.id))}
           >
             Upvote
           </button>
@@ -32,7 +32,7 @@ const QuoteCard = ({ quote, upvoteQuote }) => (
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        <div>Votes: {console.log(quote, "------")}</div>
       </div>
     </div>
   </div>
