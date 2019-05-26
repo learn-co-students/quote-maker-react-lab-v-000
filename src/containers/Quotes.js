@@ -4,15 +4,12 @@ import QuoteCard from '../components/QuoteCard';
 import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 
 class Quotes extends Component {
-//containers should usually be defined as class
-//because of life cycle events
-//container has its own internal state
-//regular comp are stateless (presentational), usually
-  render() {
-    
-    //we destructuring props into individual variables
 
+  render() {
+
+    //destructuring props into individual variables
     const {quotes, removeQuote, upvoteQuote, downvoteQuote  } = this.props
+
     return (
       <div>
         <hr />
@@ -23,8 +20,8 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-            // accessing props and state requires 'this.'
-           {quotes.map(quote => <QuoteCard key={quote.id} removequote={removeQuote} upvotequote={upvoteQuote} downvotequote={downvoteQuote} quote={quote} />)}
+        
+           {quotes.map(quote => <QuoteCard key={quote.id} removeQuote={removeQuote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} quote={quote} />)}
 
             </div>
           </div>
@@ -43,10 +40,11 @@ const mapStateToProps = (state) => {
 // const mapDispatchToProps = (dispatch) => {
 //   return ({
 //     removequote: (id) => {dispatch(removeQuote(id))},
-//     upvotequote: () => {dispatch(upvoteQuote())},
-//     downvotequote: () => {dispatch(downvoteQuote()) }
+//     upvotequote: (id) => {dispatch(upvoteQuote(id))},
+//     downvotequote: (id) => {dispatch(downvoteQuote(id)) }
 //   })
 // }
 
 //add arguments to connect as needed
 export default connect(mapStateToProps, {removeQuote, upvoteQuote, downvoteQuote})(Quotes);
+// export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
