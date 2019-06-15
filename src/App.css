@@ -17,3 +17,9 @@
 .App-intro {
   font-size: large;
 }
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
