@@ -14,9 +14,9 @@ import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() })
 
 describe('QuoteForm Component', () => {
-  const initialState = { ingredients: [] };
+  const initialState = { quotes: [] };
 
-  const addQuote = (recipe) => 'noop';
+  const addQuote = (quote) => 'noop';
   let wrapper;
   let store;
   chai.use(spies);
