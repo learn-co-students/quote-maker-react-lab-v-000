@@ -34,7 +34,7 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote}) =>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        Votes: {quote.votes}
+        <br />Votes: {quote.votes}
       </div>
     </div>
   </div>;
