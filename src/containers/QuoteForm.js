@@ -7,7 +7,8 @@ class QuoteForm extends Component {
 
   state = {
     content: "",
-    author: ""
+    author: "",
+    votes: 0
     //set up a controlled form with internal state
   }
 
@@ -17,7 +18,6 @@ class QuoteForm extends Component {
     })
     // Handle Updating Component State
   }
-
 
   handleOnSubmit = event => {
     event.preventDefault();
@@ -29,7 +29,6 @@ class QuoteForm extends Component {
       content: "",
       author: ""
     })
-
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
@@ -81,8 +80,6 @@ class QuoteForm extends Component {
     );
   }
 }
-
-
 
 //add arguments to connect as needed
 export default connect(null, { addQuote })(QuoteForm);
