@@ -6,19 +6,21 @@ export default (state = [], action) => {
     switch (action.type) {
 
       case 'ADD_QUOTE':
-       // console.log("add_quote", ...state,action.quote)
+       // console.log("add_quote", [...state,action.quote])
+       // console.log("add_quote_concat", state.concat(action.quote))
        // return state.concat(action.quote) alternate way to add quote to state
        return [...state, action.quote]
 
        case 'REMOVE_QUOTE':
        // console.log("remove_quote with action.quoteId of:", action.quoteId)
         // filter removes the quote object
-        return state.filter(quote => quote.id !== action.quoteId)
+        // return state.filter(quote => quote.id !== action.quoteId)
+          return state.filter(quote => quote.id !== action.quoteId)
 
        case 'UPVOTE_QUOTE':
        // find the index of the quote selected
         index = state.findIndex(quote => quote.id === action.quoteId);
-        // store the quote based on object in state based on index in variable quote
+        // store the quote in the variable quote based on the object in state with that index 
         quote = state[index]
         // can use Object.assign in return instead of spread in line 23
           // Object.assign({}, quote, { votes: quote.votes += 1 }),
