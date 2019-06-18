@@ -12,25 +12,27 @@ class QuoteForm extends Component {
 			author: ''
 		}
 
-		this.handleChange = this.handleOnChange.bind(this);
-    this.handleSubmit = this.handleOnSubmit.bind(this);
+		this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
 	}
 
   handleOnChange = event => {
     // Handle Updating Component State
 		const temp = {}
 		temp[event.target.name] = event.target.value
-		this.setState({...this.state, temp})
+		this.setState(temp)
   }
 
   handleOnSubmit = event => {
+		const id = uuid()
+
 		event.preventDefault()
     // Handle Form Submit event default
     
-		const quote = this.state.slice
+		const quote = {...this.state, id: id}
 		// Create quote object from state
     
-		const action = addQuote(quote)
+		const action = this.props.addQuote(quote)
 		// Pass quote object to action creator
 		
 		this.setState(
@@ -47,7 +49,7 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
