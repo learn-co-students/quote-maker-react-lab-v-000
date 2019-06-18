@@ -4,7 +4,11 @@ import QuoteCard from '../components/QuoteCard';
 import {removeQuote} from '../actions/quotes.js';
 
 class Quotes extends Component {
-	renderQuotes = () => this.props.quotes.map((quote, id) => <QuoteCard key={id} quote={quote} removeQuote={this.props.removeQuote} />)
+	renderQuotes = () => {
+		console.log('this.props.quotes: ', this.props.quotes)	
+		debugger
+		return this.props.quotes.map((quote, id) => <QuoteCard key={id} quote={quote} removeQuote={this.props.removeQuote} />)
+	}
 
   render() {
     return (
@@ -32,4 +36,4 @@ class Quotes extends Component {
 }
 
 //add arguments to connect as needed
-export default connect(state => ({quotes: state}, {removeQuote}))(Quotes);
+export default connect(state => ({quotes: state}), {removeQuote})(Quotes);
