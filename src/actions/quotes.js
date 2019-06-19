@@ -9,6 +9,7 @@ export function addQuote(quote) {
 }
 
 export function removeQuote(quoteId) {
+console.log('quoteId ', quoteId)	
 	return {
 		type: 'REMOVE_QUOTE',
 		quoteId: quoteId
