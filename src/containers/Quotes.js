@@ -17,13 +17,11 @@ class Quotes extends Component {
         <hr />
         <div className="container">
           <div className="row">
-            <div className="col-md-4">
-              {/*
-                TODO:
+            <div className="col-md-4">             
 
-                Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
-               */}
-               {quotes.map(quote =><QuoteCard key={quote.id}quote={quote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote}/>)}
+            {/*  Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes */}
+
+               {quotes.map(quote =><QuoteCard key={quote.id}quote={quote} removeQuote={removeQuote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote}/>)}
 
             </div>
           </div>

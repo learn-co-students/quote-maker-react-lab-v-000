@@ -30,7 +30,9 @@ export default (state = [], action) => {
             Object.assign({}, quote, {votes: quote.votes -= 1}),
             ...state.slice(index + 1)
           ];  
-        }  
+        } 
+        
+        return state;
       
     default:
       return state;    
