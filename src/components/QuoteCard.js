@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">

@@ -6,7 +6,7 @@ import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
 class Quotes extends Component {
 
   render() {
-    const {quotes, removeQuote, upvoteQuote, downvoteQuote} = this.props;
+    const {quotes, removeQuote, upvoteQuote, downvoteQuote} = this.props;  //use mass assignment
 
     return (
       <div>
