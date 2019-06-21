@@ -16,3 +16,9 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+//can import applyMiddleware from 'redux'
+//then build middleware:
+//const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__|| compose;
+//do this instead of the window.__REDUX in line 10. Both these will give you redux dev tools
