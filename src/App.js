@@ -15,11 +15,9 @@ class App extends Component {
 
           Render QuoteForm and Quotes Components
          */}
-         <div className="App">
-           <QuoteForm />
-           <Quotes />
-         </div>
-         
+         < QuoteForm/>
+         < Quotes />
+                  
       </div>
     );
   }
