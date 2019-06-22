@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
-import {removeQuote, upvoteQuote, downvoteQuote} from '../actions/quotes';
+import {removeQuote, upvoteQuote, downvoteQuote} from '../actions/quotes';  //import the actions
 
 class Quotes extends Component {
 
   render() {
-    const {quotes, removeQuote, upvoteQuote, downvoteQuote} = this.props //hint use mass assignment for this.props variables
+    const {quotes, removeQuote, upvoteQuote, downvoteQuote} = this.props //use mass assignment for this.props variables
 
     return (
       <div>
