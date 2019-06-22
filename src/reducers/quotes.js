@@ -27,7 +27,7 @@ export default (state = [], action) => {
         index = state.findIndex(quote => quote.id === action.quoteId)   //set index to index of quote.id === quoteId passed in
         quote = state[index]                                            //set quote to state at the index above
 
-        if(quote.votes > 0) {                       //don't do anything if votes < 0
+        if(quote.votes > 0) {                       //don't do anything if votes =< 0
           return [
             ...state.slice(0, index),                 //returns copy of state array from beg thru the index quote
             //Object.assign({}, quote, {votes: quote.votes -= 1 }),      //Object.assign or ...spread both
