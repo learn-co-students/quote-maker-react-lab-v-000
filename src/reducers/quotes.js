@@ -1,18 +1,14 @@
 export default (state = [], action) => {
   let index;
   let quote;
-  return state;
-}
 
-function quotesReducer(state = [], action) {
   let idx;
   switch (action.type) {
     case "ADD_QUOTE":
       return [...state, action.quote];
 
     case "REMOVE_QUOTE":
-      idx = state.indexOf(action.id);
-      return [...state.slice(0, idx), ...state.slice(idx + 1)];
+      return state.filter(quote => quote.id !== action.quoteId);
 
       case "UPVOTE_QUOTE":
       index = state.findIndex(quote => quote.id === action.quoteId);
@@ -34,6 +30,8 @@ function quotesReducer(state = [], action) {
             ...state.slice(index + 1)
           ];
         }
+
+        return state;
 
     default:
       return state;
