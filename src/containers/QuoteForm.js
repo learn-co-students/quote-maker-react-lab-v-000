@@ -21,8 +21,9 @@ class QuoteForm extends Component {
 
     const newQuote = {
       ...this.state,
-      quoteId: uuid()
+      id: uuid()
     };
+
     this.props.addQuote(newQuote);
     this.setState({
       content: '',

@@ -1,9 +1,15 @@
+/*import uuid from 'uuid';
+*/
 export default (state = [], action) => {
 
   let index;
   let quote;
 
   switch(action.type) {
+    /*
+    case 'ADD_QUOTE':
+      return state.concat({...action.quote, id: uuid()});
+    */
 
     case 'ADD_QUOTE':
       return state.concat(action.quote);
