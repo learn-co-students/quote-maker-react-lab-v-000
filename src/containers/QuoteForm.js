@@ -3,27 +3,29 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
+
 class QuoteForm extends Component {
 
   state = {
-    author: '',
-    content: ''
+    content: '',
+    author: ''
   }
 
   handleOnChange = event => {
+    const { value, name } = event.target;
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [name]: value
+    });
   }
 
   handleOnSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     const quote = {...this.state, id: uuid() };
-    this.props.addQuote(quote)
+    this.props.addQuote(quote);
     this.setState({
-      author: '',
-      content: ''
-    })
+      content: '',
+      author: ''
+    });
   }
 
   render() {
@@ -40,8 +42,8 @@ class QuoteForm extends Component {
                       <textarea
                         className="form-control"
                         name="content"
-                        onChange={this.handleOnChange}
                         value={this.state.content}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -50,10 +52,10 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <input
                         className="form-control"
-                        name="author"
                         type="text"
-                        onChange={this.handleOnChange}
+                        name="author"
                         value={this.state.author}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -72,19 +74,4 @@ class QuoteForm extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     content: state.content,
-//     author: state.author
-//   };
-// };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addQuote: (quote) => {
-      dispatch(addQuote(quote))
-    }
-  };
-};
-
-export default connect(null, mapDispatchToProps)(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
