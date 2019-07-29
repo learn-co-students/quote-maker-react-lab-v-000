@@ -31,7 +31,6 @@ export default (state = [], action) => {
         return state;
       }
 
-
     case 'REMOVE_QUOTE':
       return state.filter(quote => quote.id !== action.quoteId);
 
