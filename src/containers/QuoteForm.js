@@ -31,7 +31,7 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea
+                      <textarea name="content"
                         className="form-control"
                         value={this.state.content}
                       />
@@ -40,7 +40,7 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
-                      <input
+                      <input name="author"
                         className="form-control"
                         type="text"
                         value={this.state.author}
