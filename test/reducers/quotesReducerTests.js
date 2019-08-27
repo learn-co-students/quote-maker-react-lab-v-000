@@ -22,7 +22,7 @@ describe('Quotes Reducer', () => {
       quote
     })).to.deep.equal([quote]);
   });
-
+ 
   it('should handle REMOVE_QUOTE', () => {
     const firstId = uuid();
     const secondId = uuid();
