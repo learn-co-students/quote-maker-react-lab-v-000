@@ -11,11 +11,25 @@ class QuoteForm extends Component {
     author: ''
   }
 
-  handleOnChange = event => {
-    // Handle Updating Component State
+  handleonChange = event => {
+    // this.setState({
+    //   [event.target.name]: event.target.value
+    // })
+
+    const { name, value } = event.target
+    this.setState({
+      [name]: value
+    })
   }
 
   handleOnSubmit = event => {
+    event.preventDefault()
+    this.props.addQuote({
+      id: uuid(),
+      content: this.state.content,
+      author: this.state.author
+    })
+
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
@@ -29,13 +43,15 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
+                        onChange={event => this.handleonChange(event)}
                       />
                     </div>
                   </div>
@@ -45,7 +61,9 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
+                        onChange={event => this.handleonChange(event)}
                       />
                     </div>
                   </div>
@@ -65,5 +83,5 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm);
 
