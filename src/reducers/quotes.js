@@ -6,8 +6,11 @@ export default (state = [], action) => {
 
     case 'REMOVE_QUOTE':
       // debugger
-      //todo hookup remove button with action removeQuote onClick?
-      //todo find quote by id and remove
+      // //todo figure out about combine reducer reducers/index.js
+      // //todo hookup remove button with action removeQuote onClick?
+      // //todo find quote by id and remove
+      // idx = state.quotes.indexOf(action.id);
+      // return [...state, state.quotes.slice(0, idx), state.quotes.slice(idx + 1)]
       return state
     case 'UPVOTE_QUOTE':
       return state

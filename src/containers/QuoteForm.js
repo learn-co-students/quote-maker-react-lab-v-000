@@ -82,4 +82,3 @@ class QuoteForm extends Component {
 }
 
 export default connect(null, { addQuote })(QuoteForm);
-

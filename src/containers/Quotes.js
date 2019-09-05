@@ -4,7 +4,7 @@ import QuoteCard from '../components/QuoteCard';
 
 class Quotes extends Component {
 
-  renderQuotes = () => this.props.quotes.map((quote, id) => <QuoteCard key={id} quote={quote.content} author={quote.author} />)
+  renderQuotes = () => this.props.quotes.map((quote, id) => <QuoteCard key={id} id={quote.id} quote={quote.content} author={quote.author} />)
 
   render() {
     return (
