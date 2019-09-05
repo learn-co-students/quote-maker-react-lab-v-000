@@ -26,6 +26,9 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-danger"
+
+            onClick={() => props.removeQuote(props.id)}
+
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -36,6 +39,7 @@ const QuoteCard = (props) =>
   </div>;
 
 export default QuoteCard;
+// export default connect(null, { removeQuote })(QuoteCard);
 
 
 // import React from 'react';
@@ -73,7 +77,7 @@ export default QuoteCard;
 //           </button>
 //           <button
 
-//             // onClick={this.props.removeQuote.bind(null, this.props.params.quoteId)}
+            // onClick={this.props.removeQuote.bind(null, this.props.params.quoteId)}
 //             onClick={this.props.removeQuote(this.props.id)}
 
 //             type="button"
