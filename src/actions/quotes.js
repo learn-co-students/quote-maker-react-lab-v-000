@@ -2,7 +2,6 @@ export const addQuote = quote => {
   return {
     type: 'ADD_QUOTE',
     quote
-    // quote returns {id: "ba42c3e7-6668-4eb6-b6c4-702fe549fce6", content: "q", author: "a"}
   }
 }
 

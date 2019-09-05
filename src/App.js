@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import QuoteForm from './containers/QuoteForm'
 import Quotes from './containers/Quotes'
-import { connect } from 'react-redux';
-
 
 class App extends Component {
   render() {
-    console.log(this.props.quotes)
     return (
       <div className="container-fluid">
         <div className="row title justify-content-center" style={{ paddingTop: '12px' }}>
