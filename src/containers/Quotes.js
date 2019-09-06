@@ -43,3 +43,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { removeQuote, upvoteQuote, downvoteQuote })(Quotes);
+
