@@ -6,11 +6,20 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+    content: '', 
+    author: ''
   }
 
-  handleOnChange = event => {
-    // Handle Updating Component State
+  handleContentChange = event => {
+    this.setState({
+      content: event.target.value
+    });
+  }
+
+  handleAuthorChange = event => {
+    this.setState({
+      author: event.target.value
+    });
   }
 
   handleOnSubmit = event => {
@@ -18,6 +27,12 @@ class QuoteForm extends Component {
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
+    event.preventDefault();
+    this.props.addTodo(this.state)
+    this.setState({
+      text: '',
+    })
+  
   }
 
   render() {
@@ -27,12 +42,13 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        onChange={(event) => this.handleContentChange(event)}
                         value={this.state.content}
                       />
                     </div>
@@ -43,6 +59,7 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        onChange={(event) => this.handleAuthorChange(event)}
                         value={this.state.author}
                       />
                     </div>
@@ -62,5 +79,8 @@ class QuoteForm extends Component {
   }
 }
 
-//add arguments to connect as needed
-export default connect()(QuoteForm);
+const mapDispatchToProps = dispatch => ({
+  addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
+})
+
+export default connect(null, mapDispatchToProps)(CreateTodo);
