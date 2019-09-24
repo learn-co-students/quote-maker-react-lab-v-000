@@ -48,6 +48,7 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        name="content"
                         className="form-control"
                         onChange={(event) => this.handleContentChange(event)}
                         value={this.state.content}
@@ -58,6 +59,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        name="author"
                         className="form-control"
                         type="text"
                         onChange={(event) => this.handleAuthorChange(event)}
@@ -81,7 +83,7 @@ class QuoteForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData })
+  addQuote: formData => dispatch({ type: 'ADD_QUOTE', quote: formData })
 })
 
 export default connect(null, mapDispatchToProps)(QuoteForm);
