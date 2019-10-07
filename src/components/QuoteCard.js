@@ -1,38 +1,37 @@
-import React from 'react';
+import React from "react";
 
-const QuoteCard = (props) =>
+const QuoteCard = ({ quote, upvoteQuote, downvoteQuote, removeQuote }) => (
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-          {/* <p>{Render Quote Content}</p> */}
-          {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
+          <footer>
+            <cite title="Source Title">
+              {quote.content} - {quote.author} - {quote.votes} votes
+            </cite>
+          </footer>
         </blockquote>
       </div>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button
-            type="button"
-            className="btn btn-primary"
-          >
+          <button type="button" className="btn btn-primary" onClick={() => upvoteQuote(quote.id)}>
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={() => downvoteQuote(quote.id)}
           >
             Downvote
           </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-          >
+          <button type="button" className="btn btn-danger" onClick={() => removeQuote(quote.id)}>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         {/* <div>Votes: {Render Quote Votes}</div> */}
       </div>
     </div>
-  </div>;
+  </div>
+);
 
 export default QuoteCard;
