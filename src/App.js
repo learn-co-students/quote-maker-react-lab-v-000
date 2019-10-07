@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import QuoteForm from './containers/QuoteForm'
+import Quotes from './containers/Quotes'
 
 class App extends Component {
   render() {
@@ -8,8 +10,11 @@ class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
+        <QuoteForm />
+        <Quotes />
         {/*
           TODO:
+
 
           Render QuoteForm and Quotes Components
          */}
@@ -18,4 +23,10 @@ class App extends Component {
   }
 }
 
-export default App;
+// const mapStateToProps = state => {
+//   return { quotes: state.quotes }
+// }
+
+// export default connect(mapStateToProps)(App);
+
+export default App
