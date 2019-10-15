@@ -7,7 +7,8 @@ const QuoteCard = (props) =>
         <blockquote className="card-blockquote">
           {/* <p>{Render Quote Content}</p> */}
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
-        </blockquote>
+         </blockquote>
+          // hello
       </div>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
