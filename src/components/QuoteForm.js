@@ -7,7 +7,9 @@ class QuoteForm extends Component {
 
   state = {
     //set up a controlled form with internal state
-  }
+    content: '',
+    author: ''
+  };
 
   handleOnChange = event => {
     // Handle Updating Component State
@@ -62,5 +64,9 @@ class QuoteForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return { content: state.content , author: state.author }
+}
+
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(mapStateToProps)(QuoteForm);
