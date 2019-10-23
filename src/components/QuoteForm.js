@@ -5,32 +5,32 @@ import { addQuote } from '../actions/quotes';
 
 class QuoteForm extends Component {
 
+  //set up a controlled form with internal state
   state = {
-    //set up a controlled form with internal state
     content: '',
     author: ''
   };
 
+  // Handle Updating Component State
   handleOnChange = event => {
-    // Handle Updating Component State
     this.setState({
       [event.target.name]: event.target.value
     });
 
   }
 
+  // Handle Form Submit event default
+  // Create quote object from state
+  // Pass quote object to action creator
+  // Update component state to return to default state
   handleOnSubmit = event => {
-    event.PreventDefault()
+    event.preventDefault()
     const quote = {...this.state, id: uuid()}
     this.props.addQuote(quote)
     this.setState({
       content: '',
       author: ''
     })
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
   }
 
   render() {

@@ -28,5 +28,6 @@ class Quotes extends Component {
   }
 }
 
+
 //add arguments to connect as needed
 export default connect()(Quotes);
