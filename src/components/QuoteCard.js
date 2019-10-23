@@ -15,7 +15,7 @@ const QuoteCard = (props) =>
           {/* <p>{Render Quote Content}</p> */}
 
           {/*console.log(props.quote)*/}
-          {console.log(props.quote.id)}
+          {/*console.log(props.quote.id)*/}
 
           <p>{props.quote.content}</p>
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}

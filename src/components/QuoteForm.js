@@ -8,7 +8,8 @@ class QuoteForm extends Component {
   //set up a controlled form with internal state
   state = {
     content: '',
-    author: ''
+    author: '',
+    votes: 0
   };
 
   // Handle Updating Component State
