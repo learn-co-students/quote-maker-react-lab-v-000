@@ -2,8 +2,7 @@ import React from 'react';
 
 const QuoteCard = props => {
 
-  handleClick = event => {
-    event.preventDefault();
+  handleClick(event) {
     if (event.target.name === "upvote") {
       props.dispatch.upvoteQuote(props.id)
     } if (event.target.name === "downvote") {
@@ -28,7 +27,7 @@ const QuoteCard = props => {
               type="button"
               className="btn btn-primary"
               name="upvote"
-              onClick={this.handleClick}
+              onClick={(event) => this.handleClick(event)}
             >
               Upvote
             </button>
@@ -36,7 +35,7 @@ const QuoteCard = props => {
               type="button"
               className="btn btn-secondary"
               name="downvote"
-              onClick={this.handleClick}
+              onClick={(event) => this.handleClick(event)}
             >
               Downvote
             </button>
@@ -44,7 +43,7 @@ const QuoteCard = props => {
               type="button"
               className="btn btn-danger"
               name="delete"
-              onClick={this.handleClick}
+              onClick={(event) => this.handleClick(event)}
             >
               <span aria-hidden="true">&times;</span>
             </button>
