@@ -1,7 +1,7 @@
 export default function quotes(state = [], action) {
- let index; 
- let quote; 
- 
+ let index;
+ let quote;
+
   switch (action.type) {
     case "ADD_QUOTE":
       return state.concat(action.quote);
@@ -30,6 +30,7 @@ export default function quotes(state = [], action) {
           ...state.slice(index + 1)
         ];
       }
+      debugger;
       return state;
 
     default:

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import QuoteForm from './components/QuoteForm.js'
+import Quotes from './containers/Quotes.js'
 
 class App extends Component {
+  
   render() {
     return (
       <div className="container-fluid">
