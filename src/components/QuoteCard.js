@@ -1,26 +1,26 @@
 import React from 'react';
 
-const QuoteCard = props => {
+const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) => {
 
-  let handleClick = (event) => {
-    debugger;
-    event.preventDefault();
-    if (event.target.name === "upvote") {
-      props.upvoteQuote(props.quote.id)
-    } if (event.target.name === "downvote") {
-      props.downvoteQuote(props.quote.id)
-    } if (event.target.name === "delete") {
-      props.removeQuote(props.quote.id)
-    }
-  }
+  // let handleClick = (event) => {
+  //   debugger;
+  //   event.preventDefault();
+  //   if (event.target.name === "upvote") {
+  //     props.upvoteQuote(props.quote.id)
+  //   } if (event.target.name === "downvote") {
+  //     props.downvoteQuote(props.quote.id)
+  //   } if (event.target.name === "delete") {
+  //     props.removeQuote(props.quote.id)
+  //   }
+  // }
 
   return (
     <div>
       <div className="card card-inverse card-success card-primary mb-3 text-center">
         <div className="card-block">
           <blockquote className="card-blockquote">
-            <p>{props.quote.content}</p>
-            <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer>
+            <p>{quote.content}</p>
+            <footer>- author <cite title="Source Title">{quote.author}</cite></footer>
           </blockquote>
         </div>
         <div className="float-right">
@@ -29,7 +29,7 @@ const QuoteCard = props => {
               type="button"
               className="btn btn-primary"
               name="upvote"
-              onClick={this.handleClick}
+              onClick={() => upvoteQuote(quote.id)}
             >
               Upvote
             </button>
@@ -37,7 +37,7 @@ const QuoteCard = props => {
               type="button"
               className="btn btn-secondary"
               name="downvote"
-              onClick={() => props.downvoteQuote(props.quote.id)}
+              onClick={() => downvoteQuote(quote.id)}
             >
               Downvote
             </button>
@@ -45,12 +45,12 @@ const QuoteCard = props => {
               type="button"
               className="btn btn-danger"
               name="delete"
-              onClick={() => props.removeQuote(props.quote.id)}
+              onClick={() => removeQuote(quote.id)}
             >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div>Votes: {props.quote.votes}</div>
+          <div>Votes: {quote.votes}</div>
         </div>
       </div>
     </div>)
