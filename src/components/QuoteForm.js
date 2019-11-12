@@ -7,18 +7,26 @@ class QuoteForm extends Component {
 
   state = {
     //set up a controlled form with internal state
+    
+      text: ''
+  
   }
 
   handleOnChange = event => {
     // Handle Updating Component State
-  }
+    this.setState({
+      text: event.target.value
+    });
+  };
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
-  }
+    event.preventDefault();
+    this.props.addQuote(this.state);
+  };
 
   render() {
     return (
@@ -63,4 +71,9 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    addQuote: formData => dispatch({type: 'ADD_QUOTE', payload: formData})
+  }
+}
+export default connect(null, mapDispatchToProps)(QuoteForm);

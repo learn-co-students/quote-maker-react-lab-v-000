@@ -9,7 +9,7 @@ class Quotes extends Component {
       <div>
         <hr />
         <div className="row justify-content-center">
-          <h2>Quotes</h2>
+          <h2>Quotes#</h2>
         </div>
         <hr />
         <div className="container">
@@ -20,6 +20,10 @@ class Quotes extends Component {
 
                 Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
                */}
+              <QuoteCard>
+                
+              </QuoteCard>
+
             </div>
           </div>
         </div>
