@@ -1,22 +1,27 @@
+// import uuid from 'uuid'
+
 export default (state = [], action) => {
+  // debugger
   console.log(action);
   switch (action.type) {
 
-   
-    case 'ADD_QUOTE':
   
-      console.log("Add Quotes");
-        
+    case 'ADD_QUOTE':
+     return state.concat(action.quote)
+  
+    
     case 'removeQuote':
-      console.log("remove quote and quote_id");
-        type: 
-        
-    case 'upVoteQuote':
-      console.log("upvote QUote and quote ID");
 
+      state.concat(action.quote)
+    case 'upVoteQuote':
+    
+
+      state.concat(action.quote)
       
     case 'downvoteQuote':
-      console.log("DownVote_qoute and quote_ID");
+  
+
+      state.concat(action.quote)
 
     default:
       return state;
