@@ -2,6 +2,7 @@ import React from 'react';
 import quotes from '../containers/Quotes';
 
 
+
 function handleOnUpVote (event){
   
   event.preventDefault();
@@ -24,10 +25,16 @@ const QuoteCard = (props) =>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-
+{console.log(props)}
           {/* <p>{Render Quote Content}</p> */}
           <div>
-            {props.quotes}
+            {props.quote.text}
+            
+
+          </div>
+          <div>
+          {props.quote.author}
+
           </div>
           
 
@@ -40,28 +47,37 @@ const QuoteCard = (props) =>
             type="button "
 
             className="btn btn-primary"
-            onClick={(event) => this.handleOnUpVote(event)}
+            onClick={() => props.upvoteQuote(props.quote.id)}
+            //  we are assigning our upvote Quote+ downvote Quote and removeQuote...that is located
+            // all in our Props...
 
           >
             Upvote
           </button>
+
+
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={(event) => this.handleDownVote(event)}
+            onClick={() => props.downvoteQuote(props.quote.id)}
+            
 
 
-          >
-            Downvote
+              >
+               Downvote
           </button>
+
           <button
             type="button"
             className="btn btn-danger"
+            onClick={() => props.removeQuote(props.quote.id)}
+
           >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+        {/* <div>Votes: {Render Quote Votes}</div> */  props.quote.votes}
+        
       </div>
     </div>
   </div>;

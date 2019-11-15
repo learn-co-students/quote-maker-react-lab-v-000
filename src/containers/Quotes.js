@@ -5,9 +5,11 @@ import { upvoteQuote, downvoteQuote, removeQuote} from '../actions/quotes'
 // import {connect} from 'react-redux'
 
 class Quotes extends Component {
-
+  
+  
   render() {
-    
+  
+
     return (
       <div>
         <hr />
@@ -22,15 +24,20 @@ class Quotes extends Component {
                 TODO:
 
                 Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
-               */}
+               */
               
+               this.props.quotes.map((quote) => {
+              
+                return( 
+                 < QuoteCard quote={quote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}
+                 removeQuote = { this.props.removeQuote }
+                   />  
+               )
+                    }
+                  )
+              }
 
-              {this.props.quotes.map((quote) =>
-                
-                <QuoteCard quote={quote} upVoteQuote={this.props.upvoteQuote}  downVoteQuote={this.props.downVoteQuote}
-                removeQuote={this.props.removeQuote}
-                />  
-            )}
+              
 
 
             
