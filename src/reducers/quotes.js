@@ -1,8 +1,9 @@
+import { debug, debuglog } from "util";
+
 // import uuid from 'uuid'
 
 export default (state = [], action) => {
-  // debugger
-  console.log(action);
+
   switch (action.type) {
 
   
@@ -10,18 +11,27 @@ export default (state = [], action) => {
      return state.concat(action.quote)
   
     
-    case 'removeQuote':
+    case 'REMOVE_QUOTE':
+      // state.concat(action.quote)
+      // console.log(state, )
 
-      state.concat(action.quote)
-    case 'upVoteQuote':
-    
-
-      state.concat(action.quote)
+      return state.filter(quote => quote.id !== action.quoteId)
       
-    case 'downvoteQuote':
+
+    case 'UPVOTE_QUOTE':
+      console.log(state, action)
+
+      // state.concat(action.quote)
+      // return state.map(firstObject => (((firstObject.vote) + 1))
+     return state.map(firstObject => firstObject) 
+             
+        
+         
+      
+    case 'DOWNVOTE_QUOTE':
   
 
-      state.concat(action.quote)
+      state.concat(action.quote - 2)
 
     default:
       return state;

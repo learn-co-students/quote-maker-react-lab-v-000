@@ -2,20 +2,6 @@ import React from 'react';
 import quotes from '../containers/Quotes';
 
 
-
-function handleOnUpVote (event){
-  
-  event.preventDefault();
-  this.props.quote(this.props.upvoteQuote);
-  // remeber each quots has an ID
-};
-
-const handleOnDownVote = (event) => {
-  
-  event.preventDefault();
-  this.props.quote(this.props.downvoteQuote);
-  
-};
   
 
 const QuoteCard = (props) =>
@@ -25,13 +11,13 @@ const QuoteCard = (props) =>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
-{console.log(props)}
+          {/* {console.log(props)} */}
+          
           {/* <p>{Render Quote Content}</p> */}
           <div>
-            {props.quote.text}
-            
-
+            {props.quote.content}
           </div>
+
           <div>
           {props.quote.author}
 
@@ -61,8 +47,6 @@ const QuoteCard = (props) =>
             className="btn btn-secondary"
             onClick={() => props.downvoteQuote(props.quote.id)}
             
-
-
               >
                Downvote
           </button>
@@ -76,9 +60,10 @@ const QuoteCard = (props) =>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */  props.quote.votes}
         
       </div>
+             {/* <div>Votes: {Render Quote Votes}</div> */  props.quote.votes}
+
     </div>
   </div>;
 

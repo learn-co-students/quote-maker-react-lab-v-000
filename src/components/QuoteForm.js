@@ -8,7 +8,7 @@ class QuoteForm extends Component {
   state = {
     //set up a controlled form with internal state
     
-    text: '',
+    content: '',
     author: ''
   
   }
@@ -17,7 +17,7 @@ class QuoteForm extends Component {
   handleOnChange = event => {
     // Handle Updating Component State
     this.setState({
-      text: event.target.value,
+      content: event.target.value,
     });
   };
 
@@ -41,7 +41,7 @@ class QuoteForm extends Component {
      }
     this.props.addQuote(quote);
     this.setState({
-      text: '',
+      content: '',
       author: ''
     })
   };
@@ -58,22 +58,25 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        name = "content"
                         className="form-control"
                         value={this.state.content}
-                        onChange={(event) => this.handleOnChange(event)}
-
-                      />
+                        onChange={(event) => this.handleOnChange(event)} 
+                  
+                      /> 
                     </div>
                   </div>
+
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        name = "author"
                         className="form-control"
                         type="text"
                         value={this.state.author}
                         onChange={(event) => this.authorhandleOnChange(event)}
-
+                      
                       />
                     </div>
                   </div>
