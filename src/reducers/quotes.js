@@ -1,4 +1,5 @@
 import { debug, debuglog } from "util";
+import { upvoteQuote } from "../actions/quotes";
 
 // import uuid from 'uuid'
 
@@ -8,7 +9,7 @@ export default (state = [], action) => {
 
   
     case 'ADD_QUOTE':
-     return state.concat(action.quote)
+      return state.concat(action.quote)
   
     
     case 'REMOVE_QUOTE':
@@ -19,19 +20,32 @@ export default (state = [], action) => {
       
 
     case 'UPVOTE_QUOTE':
-      console.log(state, action)
+      console.log('UPVOTE', action)
+      console.log("state", state)
 
-      // state.concat(action.quote)
-      // return state.map(firstObject => (((firstObject.vote) + 1))
-     return state.map(firstObject => firstObject) 
-             
-        
-         
+      let findQuote = state.find(quote => quote.id === action.quoteId)
+      
+  console.log(findQuote)
+  
+   findQuote.votes += 1
+     
+  
+         return state
       
     case 'DOWNVOTE_QUOTE':
   
 
-      state.concat(action.quote - 2)
+  
+
+  
+      let getQuote = state.find(quote => quote.id === action.quoteId)
+     
+ 
+  
+      if (getQuote.votes > 0) {
+        getQuote.votes -= 1 
+      }
+       return state
 
     default:
       return state;

@@ -52,7 +52,7 @@ class Quotes extends Component {
 
 //add arguments to connect as needed
 const mapStateToProps = (state) => {
-  
+   console.log("stateInquote", state)
   return {
     quotes: state.quotes
   }
