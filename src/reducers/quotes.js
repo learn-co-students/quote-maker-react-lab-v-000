@@ -20,15 +20,19 @@ export default (state = [], action) => {
       
 
     case 'UPVOTE_QUOTE':
-      // console.log('UPVOTE', action)
-      // console.log("state", state)
-
-      let findQuote = state.find(quote => quote.id === action.quoteId)
+  //     let quoteIndex = state.findIndex(quote => quote.id === action.quoteId)
+  //     let quote = state[quoteIndex]
       
-           // console.log(findQuote)
-  
+  //     return [
+     
+  //       ...state.slice(0, quoteIndex),
+  //       Object.assign({}, quote, { votes: quote.votes += 1 }),
+  //       ...state.slice(quoteIndex + 1 )
+
+  //  ]
+           let findQuote = state.find(quote => quote.id === action.quoteId)
    findQuote.votes += 1
-     debugger
+    //  debugger
   
          return state
       
