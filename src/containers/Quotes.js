@@ -33,7 +33,7 @@ class Quotes extends Component {
                  < QuoteCard quote={quote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}
                  removeQuote = { this.props.removeQuote }
                    />  
-               )
+                     )
                     }
                   )
               }
@@ -50,11 +50,17 @@ class Quotes extends Component {
   }
 }
 
+
+//  THIS PART HAPPENS  BELOW ... FIRST... THEN TEH ABOVE IS CALLED.... THEN THE ABOVE HAPPENS.
+
+
 //add arguments to connect as needed
 const mapStateToProps = (state) => {
-   console.log("stateInquote", state)
+  //  console.log("stateInquote", state)
   return {
     quotes: state.quotes
   }
 }
-export default connect(mapStateToProps,{ upvoteQuote, downvoteQuote, removeQuote})(Quotes);
+export default connect(mapStateToProps, { upvoteQuote, downvoteQuote, removeQuote })(Quotes);
+
+// The CONNECT IS HAPPENING HERE... BECAUSE GIVE ACCESS TO THE STORE AND SAY WE HAVE STATES 

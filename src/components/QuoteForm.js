@@ -13,7 +13,7 @@ class QuoteForm extends Component {
   
   }
 
-  // For Text
+// This are happening first
   handleOnChange = event => {
     // Handle Updating Component State
     this.setState({
@@ -38,7 +38,8 @@ class QuoteForm extends Component {
     event.preventDefault();
     const quote = {
        ...this.state, id: uuid()
-     }
+    }
+    
     this.props.addQuote(quote);
     this.setState({
       content: '',

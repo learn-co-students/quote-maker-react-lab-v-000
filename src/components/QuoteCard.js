@@ -62,6 +62,7 @@ const QuoteCard = (props) =>
         </div>
         
       </div>
+     
              {/* <div>Votes: {Render Quote Votes}</div> */  props.quote.votes}
 
     </div>
