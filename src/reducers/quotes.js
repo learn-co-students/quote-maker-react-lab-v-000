@@ -20,6 +20,7 @@ export default (state = [], action) => {
       
 
     case 'UPVOTE_QUOTE':
+      //   An alternative way to do the below.
   //     let quoteIndex = state.findIndex(quote => quote.id === action.quoteId)
   //     let quote = state[quoteIndex]
       
