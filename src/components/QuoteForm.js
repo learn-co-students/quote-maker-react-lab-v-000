@@ -13,17 +13,13 @@ class QuoteForm extends Component {
 
   handleOnChange = event => {
     this.setState({
-      [event.target.content]: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const content = {...this.state, id: uuid() };
-    this.props.addQuote(content);
-    this.setState({
-      content: ''
-    });
+    this.props.addQuote(this.state)
   }
 
   render() {
@@ -40,6 +36,7 @@ class QuoteForm extends Component {
                       <textarea
                         className="form-control"
                         name="content"
+                        onChange={(event) => this.handleOnChange(event)}
                         value={this.state.content}
                       />
                     </div>
@@ -51,6 +48,7 @@ class QuoteForm extends Component {
                         className="form-control"
                         name="author"
                         type="text"
+                        onChange={(event) => this.handleOnChange(event)}
                         value={this.state.author}
                       />
                     </div>
