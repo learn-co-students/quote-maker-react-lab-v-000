@@ -1,4 +1,17 @@
 import React from 'react';
+import { upvoteQuote }  from '../actions/quotes';
+import { downvoteQuote }  from '../actions/quotes';
+
+
+const handleOnUp = (id, event) => {
+    event.preventDefault();
+    upvoteQuote(id)
+  }
+
+const handleOnDown = (id, event) => {
+    event.preventDefault();
+    downvoteQuote(id)
+  }
 
 const QuoteCard = (props) =>
   <div>
@@ -14,15 +27,13 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
-          >
-            Upvote
-          </button>
+            onClick={(event) => handleOnUp(props.quote.id, event)}
+          >Upvote</button>
           <button
             type="button"
             className="btn btn-secondary"
-          >
-            Downvote
-          </button>
+            onClick={(event) => handleOnDown(props.quote.id, event)}
+          >Downvote</button>
           <button
             type="button"
             className="btn btn-danger"
