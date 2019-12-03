@@ -19,7 +19,8 @@ class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addQuote(this.state)
+    const newQuote = {...this.state, id: uuid() };
+    this.props.addQuote(newQuote);
     this.setState(
       {
      id: '',
