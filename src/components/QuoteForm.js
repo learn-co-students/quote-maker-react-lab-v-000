@@ -6,7 +6,6 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-     id: '',
      content: '',
      author: ''
   }
@@ -23,7 +22,6 @@ class QuoteForm extends Component {
     this.props.addQuote(newQuote);
     this.setState(
       {
-     id: '',
      content: '',
      author: ''
     });
