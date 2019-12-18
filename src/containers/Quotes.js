@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
+import { upvoteQuote, downvoteQuote, removeQuote} from '../actions/quotes'
+// import {connect} from 'react-redux'
 
 class Quotes extends Component {
-
+  
+  
   render() {
+  
+
     return (
       <div>
         <hr />
@@ -19,7 +24,24 @@ class Quotes extends Component {
                 TODO:
 
                 Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
-               */}
+               */
+                /* We have Props coming in here from quotes actions */
+              
+               this.props.quotes.map((quote) => {
+              
+                return( 
+                 < QuoteCard quote={quote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}
+                 removeQuote = { this.props.removeQuote }
+                   />  
+                     )
+                    }
+                  )
+              }
+
+              
+
+
+            
             </div>
           </div>
         </div>
@@ -28,5 +50,17 @@ class Quotes extends Component {
   }
 }
 
+
+//  THIS PART HAPPENS  BELOW ... FIRST... THEN TEH ABOVE IS CALLED.... THEN THE ABOVE HAPPENS.
+
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+const mapStateToProps = (state) => {
+  //  console.log("stateInquote", state)
+  return {
+    quotes: state.quotes
+  }
+}
+export default connect(mapStateToProps, { upvoteQuote, downvoteQuote, removeQuote })(Quotes);
+
+// The CONNECT IS HAPPENING HERE... BECAUSE GIVE ACCESS TO THE STORE AND SAY WE HAVE STATES 
