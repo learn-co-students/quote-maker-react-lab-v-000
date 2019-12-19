@@ -14,18 +14,21 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
           <button
             type="button"
             className="btn btn-primary"
+            onClick={() => upvoteQuote(quote.id)}
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={() => downvoteQuote(quote.id)}
           >
             Downvote
           </button>
           <button
             type="button"
             className="btn btn-danger"
+
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -34,5 +37,7 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
       </div>
     </div>
   </div>;
+
+
 
 export default QuoteCard;
