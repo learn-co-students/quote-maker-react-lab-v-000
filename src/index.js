@@ -8,8 +8,8 @@ import rootReducer from './reducers/index'
 let store = createStore(rootReducer)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+<Provider store={store}>
+  <App />
+</Provider>,
+document.getElementById('root')
 );
