@@ -27,6 +27,7 @@ class QuoteForm extends Component {
       content: '',
       author: '',
       id: '',
+      votes: 0
     })
   }
 
