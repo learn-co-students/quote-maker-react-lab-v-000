@@ -18,37 +18,37 @@ describe('Quotes Actions', () => {
         id: uuid()
       }
 
-      // expect(addQuote(quote)).to.deep.equal({
-      //   type: 'ADD_QUOTE',
-      //   quote
-      // });
+      expect(addQuote(quote)).to.deep.equal({
+        type: 'ADD_QUOTE',
+        quote
+      });
     });
   });
 
   describe('removeQuote(quoteId: Integer)', () => {
     it('should return an Object with a type of "REMOVE_QUOTE" and a quoteId', () => {
-      // expect(removeQuote(10)).to.deep.equal({
-      //   type: 'REMOVE_QUOTE',
-      //   quoteId: 10
-      // });
+      expect(removeQuote(10)).to.deep.equal({
+        type: 'REMOVE_QUOTE',
+        quoteId: 10
+      });
     });
   });
 
   describe('upvoteQuote(quoteId: Integer)', () => {
     it('should return an Object with a type of "UPVOTE_QUOTE" and a quoteId', () => {
-      // expect(upvoteQuote(10)).to.deep.equal({
-      //   type: 'UPVOTE_QUOTE',
-      //   quoteId: 10
-      // });
+      expect(upvoteQuote(10)).to.deep.equal({
+        type: 'UPVOTE_QUOTE',
+        quoteId: 10
+      });
     });
   });
 
   describe('downvoteQuote(quoteId: INteger)', () => {
     it('should return an Object with a type of "DOWNVOTE_QUOTE" and a quoteId', () => {
-      // expect(downvoteQuote(10)).to.deep.equal({
-      //   type: 'DOWNVOTE_QUOTE',
-      //   quoteId: 10
-      // });
+      expect(downvoteQuote(10)).to.deep.equal({
+        type: 'DOWNVOTE_QUOTE',
+        quoteId: 10
+      });
     });
   });
 });
