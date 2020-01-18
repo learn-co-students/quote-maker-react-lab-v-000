@@ -27,6 +27,10 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     console.log('Submitted')
+    this.props.dispatch({
+      type: 'ADD_QUOTE',
+      payload: this.state
+    });
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
@@ -64,6 +68,8 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
                       <button type="submit" className="btn btn-default">Add</button>
+                      {this.state.content}
+                      {this.state.author}
                     </div>
                   </div>
                 </form>
