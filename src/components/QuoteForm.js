@@ -26,10 +26,13 @@ class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    console.log('Submitted')
     this.props.dispatch({
       type: 'ADD_QUOTE',
-      payload: this.state
+      quote: this.state
+    });
+    this.setState({
+      content: '',
+      author: ''
     });
     // Create quote object from state
     // Pass quote object to action creator
@@ -48,6 +51,7 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        name="content"
                         className="form-control"
                         onChange={this.handleOnChangeContent}
                         value={this.state.content}
@@ -58,6 +62,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        name="author"
                         className="form-control"
                         type="text"
                         onChange={this.handleOnChangeAuthor}
@@ -68,8 +73,6 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <div className="col-md-6 col-md-offset-4">
                       <button type="submit" className="btn btn-default">Add</button>
-                      {this.state.content}
-                      {this.state.author}
                     </div>
                   </div>
                 </form>
