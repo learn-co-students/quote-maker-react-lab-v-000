@@ -6,11 +6,15 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+    content: '',
+    author: ''
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    const {value, name} = event.target;
+    this.setState({
+      [name]: value
+    });
   }
 
   handleOnSubmit = event => {
