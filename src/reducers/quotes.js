@@ -10,8 +10,8 @@ export default (state = [], action) => {
     return state.filter(quote => quote.id !== action.quoteId);
 
     case 'UPVOTE_QUOTE':
-     index = state.findIndex(quote => quote.id === action.quoteId);
-     quote = state[index];
+     quote = state.find(quote => quote.id === action.quoteId);
+
     return [
        {...quote, votes: quote.votes += 1}
     ]
