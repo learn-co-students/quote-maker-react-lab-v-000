@@ -21,17 +21,12 @@ export default (state = [], action) => {
 
      if(quote.votes > 0){
        return [
-         {...quote, votes: quote.votes -= 1}
+          {...quote, votes: quote.votes -=1}
        ]
-     } else {
-       return state
      }
+       return state
 
-
-
-    break;
-    default:
-    return state;
-
-  }
-}
+       default:
+       return state;
+     }
+   }
