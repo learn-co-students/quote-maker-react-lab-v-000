@@ -21,7 +21,7 @@ describe('QuoteCard Component', () => {
   let wrapper;
   let wrapperTwo;
   let store;
-  
+
   let quoteOne = {
     content: 'test quote',
     author: 'test author',
@@ -37,7 +37,7 @@ describe('QuoteCard Component', () => {
 
 
   it('renders quote content from props.quote', () => {
-    
+
     wrapper = mount(<QuoteCard quote={quoteOne} />)
     expect(wrapper.html()).to.include('test quote')
 
@@ -46,7 +46,7 @@ describe('QuoteCard Component', () => {
   });
 
   it('renders quote author from props.quote', () => {
-    
+
     wrapper = mount(<QuoteCard quote={quoteOne} />)
     expect(wrapper.html()).to.include('test author')
 
@@ -55,7 +55,7 @@ describe('QuoteCard Component', () => {
   });
 
   it('renders quote votes from props.quote', () => {
-    
+
     wrapper = mount(<QuoteCard quote={quoteOne} />)
     expect(wrapper.html()).to.include('0')
 
