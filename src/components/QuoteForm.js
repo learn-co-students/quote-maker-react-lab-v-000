@@ -22,7 +22,7 @@ class QuoteForm extends Component {
     event.preventDefault();
     // Create quote object from state
     // Pass quote object to action creator
-    const quote = {...this.state, id: uuid(), votes: 0}
+    const quote = {...this.state, id: uuid()}
     this.props.addQuote(quote);
     // Update component state to return to default state
     this.setState({
