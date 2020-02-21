@@ -145,7 +145,7 @@ describe('Quotes Reducer', () => {
 describe("QuoteCard (Revisited)", () => {
   let store;
   let wrapper;
-  
+
   it("calls upvoteQuote action creator and updates the quote's vote count in the Redux store", () => {
     const div = document.createElement('div');
     store = createStore(rootReducer)
@@ -173,7 +173,7 @@ describe("QuoteCard (Revisited)", () => {
     );
 
     let button = wrapper.find(QuoteCard).findWhere(n => n.html() === '<button type="button" class="btn btn-secondary">Downvote</button>')
-    
+
     button.simulate('click')
     expect(store.getState().quotes.length).to.equal(1);
     expect(store.getState().quotes[0].votes).to.be.oneOf([0,'0']);
