@@ -34,7 +34,15 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {this.props.quotes.map(quote => <QuoteCard key={quote.id} quote={quote} removeQuote={event => this.handleRemoveQuote(event, quote.id)} upvoteQuote={event => this.handleUpvote(event, quote.id)} downvoteQuote={event => this.handleDownvote(event, quote.id)}  />)}
+              {this.props.quotes.map(quote =>
+                <QuoteCard
+                  key={quote.id}
+                  quote={quote}
+                  removeQuote={event => this.handleRemoveQuote(event, quote.id)}
+                  upvoteQuote={event => this.handleUpvote(event, quote.id)}
+                  downvoteQuote={event => this.handleDownvote(event, quote.id)}
+                />
+              )}
             </div>
           </div>
         </div>
