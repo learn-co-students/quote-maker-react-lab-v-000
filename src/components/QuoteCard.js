@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
 
-const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
+import React from 'react';
+
+const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) => 
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
@@ -10,25 +10,25 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
           <footer>- author <cite title="Source Title">{quote.author}</cite></footer>
         </blockquote>
       </div>
-      <div className="float-right">
+      <div className="float-right"> 
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button
-            type="button"
-            onClick={() => upvoteQuote(quote.id)}
+          <button 
+            type="button" 
+            onClick={() => upvoteQuote(quote.id)} 
             className="btn btn-primary"
           >
             Upvote
           </button>
-          <button
-            type="button"
-            onClick={() => downvoteQuote(quote.id)}
+          <button 
+            type="button" 
+            onClick={() => downvoteQuote(quote.id)} 
             className="btn btn-secondary"
           >
             Downvote
           </button>
-          <button
-            type="button"
-            onClick={() => removeQuote(quote.id)}
+          <button 
+            type="button" 
+            onClick={() => removeQuote(quote.id)} 
             className="btn btn-danger"
           >
             <span aria-hidden="true">&times;</span>
@@ -39,4 +39,4 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
     </div>
   </div>;
 
-export default connect()(QuoteCard);
+export default QuoteCard;
