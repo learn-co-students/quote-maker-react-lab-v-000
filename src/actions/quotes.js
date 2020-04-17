@@ -1,8 +1,10 @@
 // TODO: Create action creators as defined in tests
+import uuid from 'uuid';
+
 export const addQuote = quote => {
     return {
         type: 'ADD_QUOTE',
-        quote
+        quote: Object.assign({}, {id: uuid()}, {content: quote.content}, {author: quote.author})
     }
 }
 
