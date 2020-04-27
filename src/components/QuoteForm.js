@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
+
 class QuoteForm extends Component {
 
   state = {
@@ -18,10 +19,15 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     // Handle Form Submit event default
     event.preventDefault();
-
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
+    this.props.addQuote({...this.state,id: uuid()})
+    console.log(this.state)
+    this.setState({
+      content: '',
+      author: ''
+    })
   }
 
   render() {
@@ -68,5 +74,11 @@ class QuoteForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addQuote: formData => dispatch({ type: 'ADD_QUOTE', quote: formData })
+  };
+};
+
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null,mapDispatchToProps)(QuoteForm);
