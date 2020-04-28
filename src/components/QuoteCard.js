@@ -30,7 +30,7 @@ const QuoteCard = (props) =>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {/* <div>Votes: {Render Quote Votes}</div> */}
+         <div>Votes: {props.votes}</div>
       </div>
     </div>
   </div>;
