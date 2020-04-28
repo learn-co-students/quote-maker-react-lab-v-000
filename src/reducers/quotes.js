@@ -9,7 +9,7 @@ export default (state = [], action) => {
         ...state,
         {
           id:   action.quote.id,
-          votes: 0,
+          votes: action.quote.votes,
           content: action.quote.content,
           author: action.quote.author
         }
@@ -23,8 +23,12 @@ export default (state = [], action) => {
 
     case "UPVOTE_QUOTE":
       const qt = state.find(quote => quote.id === action.quoteId)
+      console.log(qt.votes)
       qt.votes += 1
+      console.log(qt)
+      console.log(action.quoteId)
       return [qt]
+
 
 
     case "DOWNVOTE_QUOTE":

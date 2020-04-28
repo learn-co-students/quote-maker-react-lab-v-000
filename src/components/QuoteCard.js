@@ -6,7 +6,7 @@ const QuoteCard = (props) =>
       <div className="card-block">
         <blockquote className="card-blockquote">
           <p>{props.quote.content}</p>
-           <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer> 
+           <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer>
         </blockquote>
       </div>
       <div className="float-right">
@@ -14,12 +14,14 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
+            onClick={(event) => props.upvoteQuote(props.quote.id)}
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={(event) => props.downvoteQuote(props.quote.id)}
           >
             Downvote
           </button>
