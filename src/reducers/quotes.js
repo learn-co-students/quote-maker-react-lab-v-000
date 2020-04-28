@@ -34,10 +34,10 @@ export default (state = [], action) => {
       }
       return [qte]
 
-  }
-
-
-
 
   return state;
+
+  default:
+  return state;
   }
+}
