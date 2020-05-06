@@ -1,8 +1,6 @@
 import React from 'react';
 
 const QuoteCard = (props) => {
-  console.log('QuoteCard', props);
-  // const { content, author } = props
   return (
     <div>
       <div className="card card-inverse card-success card-primary mb-3 text-center">

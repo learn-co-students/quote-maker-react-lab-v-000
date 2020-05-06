@@ -1,8 +1,7 @@
-// import uuid from 'uuid';
-
 export default (state = [], action) => {
   let quotes
   let quote
+  
   switch (action.type) {
     case 'ADD_QUOTE':
       console.log('add quote', action.quote)
