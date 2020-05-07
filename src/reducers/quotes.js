@@ -30,7 +30,7 @@ export default (state = [], action) => {
         // quotes = [ ...state ]
         // quote = quotes.find(quote => quote.id === action.quoteId)
         votes = votes > 0 ? votes -= 1 : votes
-      return [...state.slice(0, idx), { ...quote, votes: votes }, ...state.slice(idx + 1) ]
+        return [...state.slice(0, idx), { ...quote, votes: votes }, ...state.slice(idx + 1) ]
     
     default:
       return state;
