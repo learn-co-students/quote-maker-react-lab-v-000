@@ -1,1 +1,18 @@
-// TODO: Create action creators as defined in tests
+import uuid from 'uuid';
+
+export function addQuote(quote) {
+  console.log('here')
+  return { type: 'ADD_QUOTE', quote }
+}
+
+export function removeQuote(quoteId) {
+  return { type: 'REMOVE_QUOTE', quoteId: quoteId}
+}
+
+export function upvoteQuote(quoteId) {
+  return { type: 'UPVOTE_QUOTE', quoteId: quoteId }
+}
+
+export function downvoteQuote(quoteId) {
+  return { type: 'DOWNVOTE_QUOTE', quoteId: quoteId }
+}
