@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const QuoteCard = (quote, upvoteQuote, downvoteQuote) => 
+const QuoteCard = ({ quote, upvoteQuote, downvoteQuote}) => 
   <div>
-  
+    
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
@@ -16,14 +16,14 @@ const QuoteCard = (quote, upvoteQuote, downvoteQuote) =>
           <button
             type="button"
             className="btn btn-primary"
-            onClick={upvoteQuote}
+            onClick={() => upvoteQuote(quote.id)}
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={downvoteQuote}
+            onClick={() => downvoteQuote(quote.id)}
           >
             Downvote
           </button>

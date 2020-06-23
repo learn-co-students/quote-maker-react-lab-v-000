@@ -1,11 +1,9 @@
-import uuid from 'uuid';
 
 export default (state = [], action) => {
 
   switch (action.type) {
     case 'ADD_QUOTE':
-      const quote = Object.assign({}, action.quote, {id: uuid(), votes: 0})
-      return state.concat(quote)
+      return state.concat(action.quote)
     case 'REMOVE_QUOTE':
       return state.filter(quote => quote.id !== action.quoteId)
     case 'UPVOTE_QUOTE':

@@ -6,18 +6,18 @@ import {upvoteQuote, downvoteQuote} from '../actions/quotes'
 
 
 class Quotes extends Component {
+   
+    renderQuotes = () => {
+        return(this.props.quotes.map((quote, index) =>  
+            <QuoteCard key={index} quote={quote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}  />
+        ))
+    }
     
     
-    
-    
-    render() {
-        const { quotes, upvoteQuote, downvoteQuote } = this.props
-        
-        const renderQuotes = () => quotes.map((quote, index) =>  <QuoteCard key={index} quote={quote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote}/>)
-        
+    render() { 
         return (
             <div>
-                {renderQuotes()}
+                {this.renderQuotes()}
             </div>
         )
     };
@@ -31,11 +31,10 @@ const mapStateToProps = (state)=> {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        upvoteQuote: () => dispatch(upvoteQuote()),
-        downvoteQuote: () => dispatch(downvoteQuote())
+      upvoteQuote: quoteId => dispatch(upvoteQuote(quoteId)),
+      downvoteQuote: quoteId => dispatch(downvoteQuote(quoteId)),
+
     }
-}
-
-
+  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
