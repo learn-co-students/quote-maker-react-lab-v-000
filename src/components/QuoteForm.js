@@ -6,14 +6,24 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+    content: '',
+    author: ''
   }
 
   handleOnChange = event => {
-    // Handle Updating Component State
+    console.log(event.target.value)
+    event.preventDefault();
+    this.setState({
+      ...this.state,
+      [event.target.name]: event.target.value
+    });
+    console.log(this.state)
   }
 
   handleOnSubmit = event => {
+    event.preventDefault();
+    const quote = addQuote(this.state)
+    this.props.dispatch({ type: 'ADD_QUOTE', quotes: quote });
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
@@ -27,11 +37,13 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={ (event) => this.handleOnSubmit(event) }>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
+                        name="content"
+                        onChange={this.handleOnChange}
                         className="form-control"
                         value={this.state.content}
                       />
@@ -41,8 +53,10 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        name="author"
                         className="form-control"
                         type="text"
+                        onChange={this.handleOnChange}
                         value={this.state.author}
                       />
                     </div>
