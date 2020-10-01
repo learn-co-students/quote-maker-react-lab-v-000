@@ -1,5 +1,7 @@
 export const addQuote = (quote) => {
-    return {type: 'ADD_QUOTE', quote};
+    return {
+        type: 'ADD_QUOTE', 
+        quote}; // payload
 };
   
 export const removeQuote = (quoteId) => {

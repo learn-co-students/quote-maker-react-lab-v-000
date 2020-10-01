@@ -3,35 +3,33 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
+
 class QuoteForm extends Component {
 
-  state = {
-    content: '',
-    author: ''
+  state = { //local state 
+    content: '', 
+    author: '',
   }
 
   handleOnChange = event => {
-    console.log(event.target.value)
-    event.preventDefault();
+    const { value, name } = event.target //reaches into event object and assigns the values to keys in const objext
     this.setState({
-      ...this.state,
-      [event.target.name]: event.target.value
+      [name]: value //assigns the value of the field to the name of the field
     });
-    console.log(this.state)
   }
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
-    event.preventDefault();
-     // Create quote object from state
-    const quote = addQuote(this.state)
-        // Pass quote object to action creator
-    this.props.dispatch({ type: 'ADD_QUOTE', quotes: quote });
-    // Update component state to return to default state
+    event.preventDefault(); //default tries to send an automatic post request 
+    // Create quote object from state
+    const quote = {...this.state, id: uuid(), votes: 0} //{...this.state} (local state) gives you whatever the current value of content and author
+    // Pass quote object to action creator
+    this.props.addQuote(quote) //calling it and hand it the payload (quote in this case)
+    //add quote to quotes array in state
     this.setState({
-      content: '',
-      author: ''
-    })
+        content: '',
+        author: ''
+      })
   }
 
   render() {
@@ -47,8 +45,8 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <textarea
                         name="content"
-                        onChange={this.handleOnChange}
                         className="form-control"
+                        onChange={this.handleOnChange}
                         value={this.state.content}
                       />
                     </div>
@@ -58,8 +56,8 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <input
                         name="author"
-                        className="form-control"
                         type="text"
+                        className="form-control"
                         onChange={this.handleOnChange}
                         value={this.state.author}
                       />
@@ -81,4 +79,4 @@ class QuoteForm extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null, { addQuote })(QuoteForm); // you give it whatever (action object) you want it to map to dispatch 
