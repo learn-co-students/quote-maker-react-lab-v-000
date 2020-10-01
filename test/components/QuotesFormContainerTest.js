@@ -22,7 +22,6 @@ describe('QuoteForm Component', () => {
   chai.use(spies);
 
 
-
   it('renders without crashing', () => {
     const div = document.createElement('div');
     store = createStore(rootReducer)
@@ -34,18 +33,6 @@ describe('QuoteForm Component', () => {
       div
     );
   });
-  //
-  // it('has a default state', () => {
-  //   store = createStore(rootReducer)
-  //   wrapper = mount(<Provider store={store}><App /></Provider>);
-  //
-  //   console.log('hi');
-  //
-  //   expect(swrapper.state()).to.deep.equal({
-  //     content: '',
-  //     author: ''
-  //   });
-  // });
 
   it('always renders a form tag', () => {
     store = createStore(rootReducer)
