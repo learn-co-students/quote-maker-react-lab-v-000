@@ -1,23 +1,57 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
-import { addQuote } from '../actions/quotes';
+import { addQuote } from '../actions/Quotes';
 
 class QuoteForm extends Component {
 
-  state = {
-    //set up a controlled form with internal state
-  }
+  constructor () {
+    super();
+    this.state = {
+        formControls: {
+            id: {
+              value: ''
+            },
+            content: {
+              value: ''
+            },
+            author: {
+              value: ''
+            }
+        }
+    }
+  
+}
 
   handleOnChange = event => {
-    // Handle Updating Component State
-  }
+      
+    const name = event.target.name;
+    const value = event.target.value;
+  
+    this.setState({
+      formControls: {
+          ...this.state.formControls,
+          [name]: {
+          ...this.state.formControls[name],
+          value
+        }
+      }
+    });
+}
 
   handleOnSubmit = event => {
-    // Handle Form Submit event default
+    event.preventDefault();
+
+    const id = uuid();
+    const name = event.target.name;
+
+
     // Create quote object from state
     // Pass quote object to action creator
-    // Update component state to return to default state
+
+    this.setState({
+      [name]: '',
+    })
   }
 
   render() {
@@ -33,6 +67,7 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
                       />
                     </div>
@@ -42,6 +77,7 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <input
                         className="form-control"
+                        name="author"
                         type="text"
                         value={this.state.author}
                       />
@@ -62,5 +98,11 @@ class QuoteForm extends Component {
   }
 }
 
-//add arguments to connect as needed
-export default connect()(QuoteForm);
+const mapDispatchToProps = dispatch => ({
+  addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData }),
+  removeQuote: formData => dispatch({ type: 'REMOVE_QUOTE', payload: formData }),
+  upvoteQuote: formData => dispatch({ type: 'UPVOTE_QUOTE', payload: formData }),
+  downvoteQuote: formData => dispatch({ type: 'DOWNVOTE_QUOTE', payload: formData })
+})
+
+export default connect(null, mapDispatchToProps)(QuoteForm);
