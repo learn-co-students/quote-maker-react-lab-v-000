@@ -5,38 +5,20 @@ import { addQuote } from '../actions/Quotes';
 
 class QuoteForm extends Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-        formControls: {
-            id: {
-              value: ''
-            },
-            content: {
-              value: ''
-            },
-            author: {
-              value: ''
-            }
+            content: '',
+            author: ''
         }
     }
   
-}
+
 
   handleOnChange = event => {
-      
-    const name = event.target.name;
-    const value = event.target.value;
-  
     this.setState({
-      formControls: {
-          ...this.state.formControls,
-          [name]: {
-          ...this.state.formControls[name],
-          value
-        }
-      }
-    });
+      [event.target.name]: event.target.value
+    })
 }
 
   handleOnSubmit = event => {
@@ -50,7 +32,7 @@ class QuoteForm extends Component {
     // Pass quote object to action creator
 
     this.setState({
-      [name]: '',
+      [name]: ''
     })
   }
 
@@ -69,6 +51,7 @@ class QuoteForm extends Component {
                         className="form-control"
                         name="content"
                         value={this.state.content}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -80,6 +63,7 @@ class QuoteForm extends Component {
                         name="author"
                         type="text"
                         value={this.state.author}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
