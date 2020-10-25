@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/Quotes';
+import { bindActionCreators } from 'redux';
 
 class QuoteForm extends Component {
 
@@ -13,8 +14,6 @@ class QuoteForm extends Component {
         }
     }
   
-
-
   handleOnChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -24,15 +23,18 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
 
-    const id = uuid();
-    const name = event.target.name;
+    const quote = {
+      author: this.state.author,
+      content: this.state.content,
+      id: uuid(),
+      votes: 0
+    }
 
-
-    // Create quote object from state
-    // Pass quote object to action creator
+    this.props.addQuote(quote);
 
     this.setState({
-      [name]: ''
+      content: '',
+      author: ''
     })
   }
 
@@ -43,7 +45,7 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
@@ -82,11 +84,10 @@ class QuoteForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData }),
-  removeQuote: formData => dispatch({ type: 'REMOVE_QUOTE', payload: formData }),
-  upvoteQuote: formData => dispatch({ type: 'UPVOTE_QUOTE', payload: formData }),
-  downvoteQuote: formData => dispatch({ type: 'DOWNVOTE_QUOTE', payload: formData })
-})
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    addQuote: addQuote
+  }, dispatch)
+}
 
 export default connect(null, mapDispatchToProps)(QuoteForm);
