@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import QuoteCard from './components/QuoteCard';
 import QuoteForm from './components/QuoteForm';
 import Quotes from './containers/Quotes';
 
