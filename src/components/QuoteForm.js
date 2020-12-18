@@ -7,10 +7,13 @@ class QuoteForm extends Component {
 
   state = {
     //set up a controlled form with internal state
+    content: ''
+
   }
 
   handleOnChange = event => {
     // Handle Updating Component State
+
   }
 
   handleOnSubmit = event => {
@@ -18,6 +21,7 @@ class QuoteForm extends Component {
     // Create quote object from state
     // Pass quote object to action creator
     // Update component state to return to default state
+
   }
 
   render() {
