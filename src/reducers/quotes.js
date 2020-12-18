@@ -1,5 +1,7 @@
-// const id = uuid();
-// console.log(id) // '1fd3234'
+import uuid from 'uuid';
+
+const id = uuid();
+console.log(id) // '1fd3234'
 
 
 export default (state = [], action) => {
