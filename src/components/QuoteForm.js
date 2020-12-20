@@ -4,15 +4,22 @@ import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
 class QuoteForm extends Component {
+  constructor()
+  super();
 
-  state = {
+  this.state = {
     //set up a controlled form with internal state
-    content: ''
-
+    content: '',
+    author: ''
   }
 
   handleOnChange = event => {
     // Handle Updating Component State
+    event.preventDefault();
+    setState({
+      // content: event.target.value
+      [event.target.name]: event.target.value
+    })
 
   }
 
@@ -36,7 +43,8 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
-                        className="form-control"
+                        className="content"
+
                         value={this.state.content}
                       />
                     </div>
@@ -45,7 +53,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
-                        className="form-control"
+                        className="author"
                         type="text"
                         value={this.state.author}
                       />
