@@ -27,10 +27,12 @@ class QuoteForm extends Component {
 
   }
 
+
   handleOnSubmit = event => {
     // Handle Form Submit event default
     // console.log("event2...........", event.target)
     console.log("props...........", this.props)
+    console.log("this.state...........", this.state)
     console.log("this.state...........", this.state)
 
 
@@ -91,7 +93,8 @@ class QuoteForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData })
+    addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData }),
+    removeQuote: quoteId => dispatch({type: 'REMOVE_QUOTE', quoteId: quoteId })
   }
 }
 //
