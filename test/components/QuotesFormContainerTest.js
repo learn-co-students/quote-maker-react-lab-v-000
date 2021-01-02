@@ -122,6 +122,7 @@ describe('QuoteForm Component', () => {
     wrapper.find('form').simulate('submit', { preventDefault() {} });
 
     expect(store.getState().quotes.length).to.equal(1);
+
     expect(store.getState().quotes[0].author).to.equal('test author')
     expect(store.getState().quotes[0].content).to.equal('test content')
 

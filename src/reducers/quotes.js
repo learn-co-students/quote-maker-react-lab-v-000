@@ -6,28 +6,75 @@ console.log(id) // '1fd3234'
 
 
 export default (state = [], action) => {
+  let processedState;
+
+  console.log("Action............", action)
+  console.log("state............", state)
+  console.log("state.quote............", state.quote)
+
+  // console.log("Action.quote.id............", action.quote[id])
+
+
   switch (action.type) {
+
     case 'ADD_QUOTE':
-        return [...state, action.quote]
+        return [...state, action.quote];
+
     case 'REMOVE_QUOTE':
-        console.log("state..........................", state)
+        // console.log("state..........................", state
         // console.log("returning..........................", state.filter(({ quoteId }) !== action.quoteId))
          // const quoteId = action.id
-         console.log("action.id..........................", action.id)
-         return {
-           // ...state,
-           state.filter(({ item }) =>  item.id !== action.id)
-         }
+         // console.log("action.id..........................", action.id)
+          return state.filter( item  =>  item.id !== action.quoteId)
 
-      break;
+    case 'UPVOTE_QUOTE':
+        // console.log("state..........................", state)
+         processedState = state.map(quote => {
+          if (quote.id === action.quoteId) {
+            return { ...quote, votes: ++quote.votes}
+          } else {
+            return quote;
+          }
+        })
+        return processedState;
+
+
+    case 'DOWNVOTE_QUOTE':
+      processedState = state.map(quote => {
+      if (quote.id === action.quoteId && quote.votes != 0) {
+        return { ...quote, votes: --quote.votes}
+      } else {
+        return quote;
+      }
+    })
+    return processedState;
+
+    break;
+
+
     default:
+      return state;
 
   }
   return state;
 }
 
+
+// 1/1/2020
+
+// -l29 cant read propry id of undefined
+
+
+// ........
+
+// return state.filter( item  =>  item.id !== action.quoteId)
+
+// you don't have to put quotes around item...
+
 // standalone questions-
 // how can I see what the state looks like? the console logs don't work
+
+// return [ ...state, state.map(item => item.votes += 1)]
 
 
 // approaches-

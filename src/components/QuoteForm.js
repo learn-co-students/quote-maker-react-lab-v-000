@@ -3,26 +3,25 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
-class QuoteForm extends Component {
-  constructor(){
-  super()
+// design pattern/ observer pattern redux
 
-  this.state = {
+class QuoteForm extends Component {
+
+    state = {
     //set up a controlled form with internal state
-    content: '',
-    author: ''
+      content: '',
+      author: ''
   }
-}
+
 
   handleOnChange = event => {
     // Handle Updating Component State
     event.preventDefault();
     console.log("event...........", event.target)
+    const { name, value } = event.target
     this.setState({
-      // console.log("event...........", event)
-      // content: event.target.value
-      // ...this.state,
-      [event.target.name]: event.target.value
+      // [event.target.name]: event.target.value
+      [name]: value
     })
 
   }
@@ -31,13 +30,13 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     // Handle Form Submit event default
     // console.log("event2...........", event.target)
-    console.log("props...........", this.props)
-    console.log("this.state...........", this.state)
-    console.log("this.state...........", this.state)
-
+    // console.log("props...........", this.props)
+    // console.log("this.state...........", this.state)
+    // console.log("this.state...........", this.state)
 
     event.preventDefault();
-    this.props.addQuote(this.state)
+    const quote = { ...this.state, id: uuid() }
+    this.props.addQuote(quote)
     this.setState({
       content: '',
       author: ''
@@ -90,13 +89,16 @@ class QuoteForm extends Component {
   }
 }
 
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData }),
+//     removeQuote: quoteId => dispatch({type: 'REMOVE_QUOTE', quoteId: quoteId }),
+//     upvoteQuote: quote => dispatch({type: 'UPVOTE_QUOTE', quote: quote })
+//   }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData }),
-    removeQuote: quoteId => dispatch({type: 'REMOVE_QUOTE', quoteId: quoteId })
-  }
-}
+
 //
 // -always understand the structure of your store data
 // -and make sure your reducers and your actions are actually communicating with each other,
@@ -107,4 +109,4 @@ const mapDispatchToProps = dispatch => {
 
 
 //add arguments to connect as needed
-export default connect(null, mapDispatchToProps)(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);

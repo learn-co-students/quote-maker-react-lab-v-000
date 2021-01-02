@@ -4,6 +4,12 @@
 // function addQuote(quote: {}){
 //   return {type: 'ADD_QUOTE', quote: {quote}}
 // }
+// can google template reducer/template redux prject
+// where the flow is clearly described in a simple example
+// -redux is meant for enterprise projects so it might
+// seem like overkill but its for a good purpose
+// -remember to use horizontal panes to see some of the data
+// flow, from file to file. can be vertical too
 
 
 export const addQuote = quote => {
