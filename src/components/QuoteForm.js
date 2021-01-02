@@ -3,21 +3,46 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
+// design pattern/ observer pattern redux
+
 class QuoteForm extends Component {
 
-  state = {
+    state = {
     //set up a controlled form with internal state
+      content: '',
+      author: ''
   }
+
 
   handleOnChange = event => {
     // Handle Updating Component State
+    event.preventDefault();
+    console.log("event...........", event.target)
+    const { name, value } = event.target
+    this.setState({
+      // [event.target.name]: event.target.value
+      [name]: value
+    })
+
   }
+
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
+    // console.log("event2...........", event.target)
+    // console.log("props...........", this.props)
+    // console.log("this.state...........", this.state)
+    // console.log("this.state...........", this.state)
+
+    event.preventDefault();
+    const quote = { ...this.state, id: uuid() }
+    this.props.addQuote(quote)
+    this.setState({
+      content: '',
+      author: ''
+    })
+
+
   }
 
   render() {
@@ -27,12 +52,13 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal"  onSubmit={(event) => this.handleOnSubmit(event)}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
-                      <textarea
-                        className="form-control"
+                      <textarea onChange={(event) => this.handleOnChange(event)}
+                        className="content"
+                        name="content"
                         value={this.state.content}
                       />
                     </div>
@@ -40,15 +66,16 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
-                      <input
-                        className="form-control"
+                      <input onChange={(event) => this.handleOnChange(event)}
+                        className="author"
+                        name="author"
                         type="text"
                         value={this.state.author}
                       />
                     </div>
                   </div>
                   <div className="form-group">
-                    <div className="col-md-6 col-md-offset-4">
+                    <div className="col-md-6 col-md-offset-4" >
                       <button type="submit" className="btn btn-default">Add</button>
                     </div>
                   </div>
@@ -62,5 +89,24 @@ class QuoteForm extends Component {
   }
 }
 
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addQuote: formData => dispatch({ type: 'ADD_QUOTE', payload: formData }),
+//     removeQuote: quoteId => dispatch({type: 'REMOVE_QUOTE', quoteId: quoteId }),
+//     upvoteQuote: quote => dispatch({type: 'UPVOTE_QUOTE', quote: quote })
+//   }
+// }
+
+
+//
+// -always understand the structure of your store data
+// -and make sure your reducers and your actions are actually communicating with each other,
+// a common error is when the action isn't sending the kind of data to the reducer that you'd
+// expect. like you thought it was sending an integer but it's a string. so always check if the
+// action is sending the type of data that you're expecting.
+// -and lastly just check if mapDispatchToProps is set up properly
+
+
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null, {addQuote})(QuoteForm);
