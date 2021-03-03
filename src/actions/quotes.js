@@ -1,1 +1,7 @@
-// TODO: Create action creators as defined in tests
+export const addQuote = (formData) => {
+  console.log("action", formData);
+  return {
+    type: "ADD_QUOTE",
+    quote: formData,
+  };
+};
