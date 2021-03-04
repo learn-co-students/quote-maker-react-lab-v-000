@@ -1,7 +1,27 @@
 export const addQuote = (formData) => {
-  console.log("action", formData);
   return {
     type: "ADD_QUOTE",
     quote: formData,
+  };
+};
+
+export const removeQuote = (quoteId) => {
+  return {
+    type: "REMOVE_QUOTE",
+    quoteId,
+  };
+};
+
+export const upvoteQuote = (quoteId) => {
+  return {
+    type: "UPVOTE_QUOTE",
+    quoteId,
+  };
+};
+
+export const downvoteQuote = (quoteId) => {
+  return {
+    type: "DOWNVOTE_QUOTE",
+    quoteId,
   };
 };
