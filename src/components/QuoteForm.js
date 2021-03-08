@@ -5,8 +5,12 @@ import { addQuote } from '../actions/quotes';
 
 class QuoteForm extends Component {
 
-  state = {
-    //set up a controlled form with internal state
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: '', 
+      author: ''
+    }
   }
 
   handleOnChange = event => {
@@ -41,6 +45,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
+                        name="content"
                         className="form-control"
                         type="text"
                         value={this.state.author}
