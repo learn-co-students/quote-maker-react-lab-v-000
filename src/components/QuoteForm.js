@@ -7,6 +7,7 @@ class QuoteForm extends Component {
 
   constructor(props) {
     super(props);
+    console.log('props in QuoteForm constructor:', props);
     this.state = {
       content: '', 
       author: ''
@@ -76,12 +77,19 @@ class QuoteForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  console.log('state in QuoteForm:', state);
+  return {
+    quotes: state.quotes
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   console.log('dispatch:', dispatch);
   return {
-    addQuote: formData => dispatch({ type: 'ADD_TODO', payload: formData })
+    addQuote: state => dispatch({ type: 'ADD_TODO', payload: state })
   }
 }
 
 //add arguments to connect as needed
-export default connect(null, mapDispatchToProps)(QuoteForm);
+export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm);
