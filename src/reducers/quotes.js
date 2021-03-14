@@ -19,14 +19,15 @@ export default (state = [], action) => {
       return quotes;
      
       case 'DOWNVOTE_QUOTE':
-        const quotes = [...state];
+        const quotes2 = [...state];
         
-        quotes.forEach(quote => {
-          if (quote.id === action.quoteId) {
+        quotes2.forEach(quote => {
+          if (quote.id === action.quoteId && quote.votes > 0) {
             quote.votes = quote.votes - 1;
           }
-        })
-        return quotes;
+        });
+
+        return quotes2;
 
       default:
         return state;
