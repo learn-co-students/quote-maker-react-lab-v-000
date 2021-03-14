@@ -27,6 +27,7 @@ const QuoteCard = (props) =>
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
         </blockquote>
       </div>
+      
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button
