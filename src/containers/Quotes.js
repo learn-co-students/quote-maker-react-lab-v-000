@@ -5,13 +5,13 @@ import { upvoteQuote } from '../actions/quotes';
 
 class Quotes extends Component {
 
-  constructor() {
-    super();
-    this.upvoteQuote = this.upvoteQuote.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.upvoteQuote = this.upvoteQuote.bind(this);
+  // }
   
   renderQuotes = () => this.props.quotes.map(
-    (quote) => <QuoteCard quote={quote} upvote={ this.upvoteQuote } />)
+    (quote) => <QuoteCard quote={quote} upvoteQuote={ this.upvoteQuote } />)
 
   render() {
     debugger
