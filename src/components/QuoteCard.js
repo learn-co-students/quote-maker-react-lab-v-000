@@ -1,9 +1,7 @@
 import React from 'react';
-// import { connect } from 'react-redux';
 
 const QuoteCard = (props) =>
   <div>
-    {console.log("props:", props)}
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">
@@ -16,14 +14,14 @@ const QuoteCard = (props) =>
           <button
             type="button"
             className="btn btn-primary"
-            // onSubmit={props.upvoteQuote}
-            onSubmit={props.upvoteQuote(props.quote.id)}
+            onClick={()=> props.upvoteQuote(props.quote.id)}
           >
             Upvote
           </button>
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={()=> props.downvoteQuote(props.quote.id)}
           >
             Downvote
           </button>
@@ -40,4 +38,3 @@ const QuoteCard = (props) =>
   </div>;
 
 export default QuoteCard;
-// export default connect(null, {upvoteQuote})(QuoteCard);

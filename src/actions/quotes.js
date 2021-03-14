@@ -1,5 +1,3 @@
-// TODO: Create action creators as defined in tests
-
 export const addQuote = (quote) => {
   return { type: 'ADD_QUOTE', quote }
 }
@@ -9,7 +7,6 @@ export const removeQuote = (quoteId) => {
 }
 
 export const upvoteQuote = (quoteId) => {
-  console.log('quoteId:', quoteId);
   return { type: 'UPVOTE_QUOTE', quoteId }
 }
 
