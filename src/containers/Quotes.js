@@ -4,9 +4,14 @@ import QuoteCard from '../components/QuoteCard';
 import { upvoteQuote } from '../actions/quotes';
 
 class Quotes extends Component {
+
+  constructor() {
+    super();
+    this.upvoteQuote = this.upvoteQuote.bind(this);
+  }
   
   renderQuotes = () => this.props.quotes.map(
-    (quote) => <QuoteCard quote={quote} upvote={ upvoteQuote } />)
+    (quote) => <QuoteCard quote={quote} upvote={ this.upvoteQuote } />)
 
   render() {
     debugger
