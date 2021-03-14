@@ -11,10 +11,10 @@ class Quotes extends Component {
   // }
   
   renderQuotes = () => this.props.quotes.map(
-    (quote) => <QuoteCard quote={quote} upvoteQuote={ this.upvoteQuote } />)
+    (quote) => <QuoteCard quote={quote} upvoteQuote={ upvoteQuote } />)
 
   render() {
-    debugger
+    // debugger
     return (
       <div>
         <hr />

@@ -17,7 +17,7 @@ const QuoteCard = (props) =>
             type="button"
             className="btn btn-primary"
             // onSubmit={props.upvoteQuote}
-            onSubmit={props.upvoteQuote}
+            onSubmit={props.upvoteQuote(props.quote.id)}
           >
             Upvote
           </button>
