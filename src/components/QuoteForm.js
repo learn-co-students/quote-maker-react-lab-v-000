@@ -7,7 +7,6 @@ class QuoteForm extends Component {
 
   constructor(props) {
     super(props);
-    console.log('props in QuoteForm constructor:', props);
     this.state = {
       content: '', 
       author: ''
@@ -24,7 +23,6 @@ class QuoteForm extends Component {
     // Handle Form Submit event default
     event.preventDefault();
     // Create quote object from state
-    console.log('this.props:', this.props);
     this.props.addQuote(this.state);
     // Pass quote object to action creator
     // Update component state to return to default state
@@ -77,19 +75,18 @@ class QuoteForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log('state in QuoteForm:', state);
-  return {
-    quotes: state.quotes
-  }
-}
+// const mapStateToProps = state => {
+//   console.log('state in QuoteForm:', state);
+//   return {
+//     quotes: state.quotes
+//   }
+// }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('dispatch:', dispatch);
   return {
-    addQuote: state => dispatch({ type: 'ADD_TODO', payload: state })
+    addQuote: formData => dispatch({ type: 'ADD_TODO', quote: formData })
   }
 }
 
 //add arguments to connect as needed
-export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm);
+export default connect(null, mapDispatchToProps)(QuoteForm);

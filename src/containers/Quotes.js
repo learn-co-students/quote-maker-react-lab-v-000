@@ -31,7 +31,6 @@ class Quotes extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state:', state);
   return {
     quotes: state.quotes
   }
