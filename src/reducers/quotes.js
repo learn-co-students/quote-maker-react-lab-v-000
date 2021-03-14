@@ -13,6 +13,7 @@ export default (state = [], action) => {
       quotes.forEach(quote => {
         if (quote.id === action.quoteId) {
           quote.votes = quote.votes + 1;
+          debugger
         }
       })
 

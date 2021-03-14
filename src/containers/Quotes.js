@@ -5,16 +5,11 @@ import { upvoteQuote } from '../actions/quotes';
 
 class Quotes extends Component {
   
-  // upvote = () => {
-
-  // }
-
-  // renderQuotes = () => this.props.quotes.map(
-  //   (quote, index) => <QuoteCard id={index} content={quote.content} author={quote.author} upvote={ upvoteQuote } />)
   renderQuotes = () => this.props.quotes.map(
-    (quote) => <QuoteCard quote={quote} />)
+    (quote) => <QuoteCard quote={quote} upvote={ upvoteQuote } />)
 
   render() {
+    debugger
     return (
       <div>
         <hr />

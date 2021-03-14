@@ -3,7 +3,7 @@ import React from 'react';
 
 const QuoteCard = (props) =>
   <div>
-    {/* {console.log("props:", props)} */}
+    {console.log("props:", props)}
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
         <blockquote className="card-blockquote">

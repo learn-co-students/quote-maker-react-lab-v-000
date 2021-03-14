@@ -9,6 +9,7 @@ export const removeQuote = (quoteId) => {
 }
 
 export const upvoteQuote = (quoteId) => {
+  debugger
   return { type: 'UPVOTE_QUOTE', quoteId }
 }
 
