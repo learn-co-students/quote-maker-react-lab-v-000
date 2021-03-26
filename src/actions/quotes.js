@@ -1,10 +1,9 @@
 // TODO: Create action creators as defined in tests
 
 export function addQuote(quote) {
-    console.log(quote)
     return {
         type: 'ADD_QUOTE',
-        quote: quote
+        quote: Object.assign({}, quote, {votes: 0})
     }
 }
 
