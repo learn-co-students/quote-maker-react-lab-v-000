@@ -1,4 +1,4 @@
-# Redux Put It Together
+# Redux QuoteMaker Lab
 
 ## Objectives
 
