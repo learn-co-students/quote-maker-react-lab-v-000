@@ -7,17 +7,24 @@ export default (state = [], action) => {
 		case 'UPVOTE_QUOTE':
 			const i = state.findIndex(quote => quote.id === action.quoteId)
 
-			state[i].votes += 1
-
-			return state
+			return [...state.slice(0, i),
+							{...state[i], votes: state[i].votes + 1	},
+								...state.slice(i + 1)
+							]
 		case 'DOWNVOTE_QUOTE':
 			const idx = state.findIndex(quote => quote.id === action.quoteId)
+			let newState = null
 
 			if (state[idx].votes > 0){
-				state[idx].votes -= 1
+				newState = [...state.slice(0, idx),
+					{...state[idx], votes: state[idx].votes - 1	},
+						...state.slice(idx + 1)
+					]
+			} else {
+				newState = state
 			}
 
-			return state
+			return newState
 		default:
 		  return state;
 	}
