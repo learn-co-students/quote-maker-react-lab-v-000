@@ -32,12 +32,12 @@ class Quotes extends Component {
 }
 
 const mapStateToProps = (state) => ({quotes: state.quotes})
-const mapDispatchToProps = (dispatch) => ({
-    removeQuote: () => removeQuote,
-    upvoteQuote: () => upvoteQuote,
-    downvoteQuote: () => downvoteQuote
-})
+const mapDispatchToProps = {
+        removeQuote,
+        upvoteQuote,
+        downvoteQuote
+}
 
 //add arguments to connect as needed
-// export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
-export default connect(mapStateToProps, {removeQuote, upvoteQuote, downvoteQuote})(Quotes)
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
+// export default connect(mapStateToProps, {removeQuote, upvoteQuote, downvoteQuote})(Quotes)
