@@ -20,8 +20,9 @@ export default (state = [], action) => {
         case "DOWNVOTE_QUOTE":
             idx = state.findIndex(quote=>quote.id===action.quoteId);
             quote = state[idx];
+            let votesResult = quote.votes>0?quote.votes-1:quote.votes;
             return [...state.slice(0, idx), 
-                {...quote, votes:quote.votes>0?quote.votes-1:quote.votes}, 
+                {...quote, votes:votesResult}, 
                 ...state.slice(idx+1)];
         default:
             return state;
