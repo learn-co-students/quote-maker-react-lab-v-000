@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
+import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes';
+import { returns } from 'chai-spies';
+
 
 class Quotes extends Component {
 
@@ -28,5 +31,11 @@ class Quotes extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  console.log(state)
+  return( { quotes: state.quotes } )
+}
+
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+export default connect(mapStateToProps, { removeQuote, upvoteQuote, downvoteQuote })(Quotes);
