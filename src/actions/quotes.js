@@ -1,12 +1,16 @@
 // TODO: Create action creators as defined in tests
 export const addQuote = quote => {
+    console.log('ADD_QUOTE', quote)
+    
     return {
       type: 'ADD_QUOTE',
-      quote
+      quote //this object is sent and get trapped inside other object
+      
     };
   };
 
   export const removeQuote = quoteId => {
+      console.log("remove_quote")
     return {
       type: 'REMOVE_QUOTE',
       quoteId

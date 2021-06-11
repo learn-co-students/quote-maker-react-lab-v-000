@@ -29,7 +29,8 @@ class QuoteForm extends Component {
     // Update component state to return to default state
      event.preventDefault();
      const quote = {...this.state, id: uuid() };
-     this.props.addQuote(quote) //this call dispatcher and sends state
+     this.props.addQuote(quote) //this call dispatcher and sends state quote is an object
+     console.log(this.state)
      this.setState({
       content: '',
       author: ''
