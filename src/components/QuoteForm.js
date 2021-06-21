@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import uuid from 'uuid';
 import { addQuote } from '../actions/quotes';
 
 class QuoteForm extends Component {
@@ -17,7 +18,7 @@ class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addQuote(this.state)
+    this.props.addQuote({ ...this.state, id: uuid() })
     this.setState({
       content: '',
       author: ''
