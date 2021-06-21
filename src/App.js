@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import QuoteForm from './components/QuoteForm'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
+        <QuoteForm />
         {/*
           TODO:
 
