@@ -17,9 +17,17 @@ class Quotes extends Component {
             <div className="col-md-4">
               {/*
                 TODO:
-
                 Render Quotes With QuoteCard component and pass down callback props for removing, upvoting and downvoting quotes
                */}
+               {this.props.quotes.map(quote => 
+               <QuoteCard 
+                key={quote.id}
+                quote={quote} 
+                removeQuote={this.props.removeQuote}
+                upvoteQuote={this.props.upvoteQuote}
+                downvoteQuote={this.props.downvoteQuote} 
+               />
+               )}
             </div>
           </div>
         </div>
@@ -28,5 +36,15 @@ class Quotes extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {quotes: state.quotes}
+} 
+
+const mapPropsToDispatch = dispatch => ({
+  removeQuote: id => dispatch({type: 'REMOVE_QUOTE', quoteId: id}),
+  upvoteQuote: id => dispatch({type: 'UPVOTE_QUOTE', quoteId: id}),
+  downvoteQuote: id => dispatch({type: 'DOWNVOTE_QUOTE', quoteId: id})
+})
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+export default connect(mapStateToProps, mapPropsToDispatch)(Quotes);
